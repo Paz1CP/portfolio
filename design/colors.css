@@ -1,0 +1,187 @@
+/* ==========================================================================
+   Paz Portfolio DS — Colors
+   Direction: quiet luxury product engineering
+   ========================================================================== */
+
+:root {
+  /* --------------------------------------------------------------------------
+   * Foundation / Dark
+   * -------------------------------------------------------------------------- */
+  --dark-base: #0b0907;
+  --dark-raised: #14110e;
+  --dark-floating: #1c1712;
+  --dark-deep: #050403;
+  --dark-soft: #211b15;
+
+  /* --------------------------------------------------------------------------
+   * Warm Text
+   * -------------------------------------------------------------------------- */
+  --text-primary: #f3e7d2;
+  --text-secondary: #c8bba5;
+  --text-tertiary: #8f806c;
+  --text-muted: #665c4e;
+  --text-inverse: #0b0907;
+
+  /* --------------------------------------------------------------------------
+   * Leather / Gold
+   * -------------------------------------------------------------------------- */
+  --leather-gold: #c9962e;
+  --leather-gold-soft: #e7c878;
+  --leather-gold-muted: #7b5c20;
+  --leather-gold-deep: #3e2b0d;
+
+  /* --------------------------------------------------------------------------
+   * Cognac / Bronze
+   * -------------------------------------------------------------------------- */
+  --cognac: #9a5a2e;
+  --cognac-soft: #c28045;
+  --cognac-deep: #4a2412;
+  --bronze: #8a6a38;
+
+  /* --------------------------------------------------------------------------
+   * RGB channels for controlled alpha usage
+   * -------------------------------------------------------------------------- */
+  --rgb-ivory: 243 231 210;
+  --rgb-gold: 201 150 46;
+  --rgb-gold-soft: 231 200 120;
+  --rgb-cognac: 154 90 46;
+  --rgb-black: 5 4 3;
+
+  /* --------------------------------------------------------------------------
+   * Utility / Effects
+   * -------------------------------------------------------------------------- */
+  --border-subtle: rgba(243, 231, 210, 0.08);
+  --border-default: rgba(243, 231, 210, 0.12);
+  --border-active: rgba(201, 150, 46, 0.36);
+  --border-focus: rgba(231, 200, 120, 0.58);
+
+  --shadow-warm-color: rgba(201, 150, 46, 0.08);
+  --shadow-deep-color: rgba(0, 0, 0, 0.42);
+  --overlay-dim: rgba(5, 4, 3, 0.72);
+
+  /* --------------------------------------------------------------------------
+   * Semantic Layers
+   * -------------------------------------------------------------------------- */
+  --layer-base: var(--dark-base);
+  --layer-raised: var(--dark-raised);
+  --layer-floating: var(--dark-floating);
+  --layer-dim: var(--overlay-dim);
+
+  /* --------------------------------------------------------------------------
+   * Semantic Text
+   * -------------------------------------------------------------------------- */
+  --copy-primary: var(--text-primary);
+  --copy-secondary: var(--text-secondary);
+  --copy-tertiary: var(--text-tertiary);
+  --copy-muted: var(--text-muted);
+  --copy-accent: var(--leather-gold-soft);
+
+  /* --------------------------------------------------------------------------
+   * Semantic Actions
+   * -------------------------------------------------------------------------- */
+  --action-primary: var(--leather-gold);
+  --action-primary-hover: var(--leather-gold-soft);
+  --action-secondary: var(--dark-raised);
+  --action-secondary-hover: var(--dark-soft);
+}
+
+/* ==========================================================================
+   Tailwind v4 theme tokens
+   These generate utilities like:
+   bg-layer-base, text-copy-primary, border-border-subtle, shadow-warm, etc.
+   ========================================================================== */
+
+@theme inline {
+  /* Foundation */
+  --color-dark-base: var(--dark-base);
+  --color-dark-raised: var(--dark-raised);
+  --color-dark-floating: var(--dark-floating);
+  --color-dark-deep: var(--dark-deep);
+  --color-dark-soft: var(--dark-soft);
+
+  /* Text */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-text-muted: var(--text-muted);
+  --color-text-inverse: var(--text-inverse);
+
+  /* Accent */
+  --color-leather-gold: var(--leather-gold);
+  --color-leather-gold-soft: var(--leather-gold-soft);
+  --color-leather-gold-muted: var(--leather-gold-muted);
+  --color-leather-gold-deep: var(--leather-gold-deep);
+
+  /* Cognac */
+  --color-cognac: var(--cognac);
+  --color-cognac-soft: var(--cognac-soft);
+  --color-cognac-deep: var(--cognac-deep);
+  --color-bronze: var(--bronze);
+
+  /* Semantic layers */
+  --color-layer-base: var(--layer-base);
+  --color-layer-raised: var(--layer-raised);
+  --color-layer-floating: var(--layer-floating);
+  --color-layer-dim: var(--layer-dim);
+
+  /* Semantic copy */
+  --color-copy-primary: var(--copy-primary);
+  --color-copy-secondary: var(--copy-secondary);
+  --color-copy-tertiary: var(--copy-tertiary);
+  --color-copy-muted: var(--copy-muted);
+  --color-copy-accent: var(--copy-accent);
+
+  /* Semantic action */
+  --color-action-primary: var(--action-primary);
+  --color-action-primary-hover: var(--action-primary-hover);
+  --color-action-secondary: var(--action-secondary);
+  --color-action-secondary-hover: var(--action-secondary-hover);
+
+  /* Borders */
+  --color-border-subtle: var(--border-subtle);
+  --color-border-default: var(--border-default);
+  --color-border-active: var(--border-active);
+  --color-border-focus: var(--border-focus);
+
+  /* Effects */
+  --shadow-soft: 0 12px 40px rgba(0, 0, 0, 0.28);
+  --shadow-warm: 0 18px 56px rgba(201, 150, 46, 0.08);
+  --shadow-floating: 0 32px 90px rgba(0, 0, 0, 0.52);
+  --shadow-inner-premium: inset 0 1px 0 rgba(243, 231, 210, 0.05);
+}
+
+/* ==========================================================================
+   Base color application
+   ========================================================================== */
+
+@layer base {
+  html {
+    background: var(--layer-base);
+    color-scheme: dark;
+  }
+
+  body {
+    background:
+      radial-gradient(
+        circle at 18% 12%,
+        rgba(201, 150, 46, 0.13),
+        transparent 31rem
+      ),
+      radial-gradient(
+        circle at 88% 4%,
+        rgba(154, 90, 46, 0.11),
+        transparent 28rem
+      ),
+      var(--layer-base);
+    color: var(--copy-primary);
+  }
+
+  ::selection {
+    background: rgba(201, 150, 46, 0.32);
+    color: var(--text-primary);
+  }
+
+  * {
+    border-color: var(--border-subtle);
+  }
+}

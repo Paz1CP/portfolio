@@ -1,0 +1,288 @@
+/* ==========================================================================
+   Paz Portfolio DS — Typography
+   Fonts:
+   - Instrument Sans: modern product/UI sans
+   - Libre Baskerville: editorial old-money serif
+   ========================================================================== */
+
+:root {
+  /* These are injected from next/font in layout.tsx */
+  --font-sans-stack:
+    var(--font-sans-portfolio), ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --font-serif-stack:
+    var(--font-serif-portfolio), Georgia, Cambria, "Times New Roman", serif;
+
+  /* --------------------------------------------------------------------------
+   * Type scale
+   * -------------------------------------------------------------------------- */
+
+  --display-hero-size: clamp(4.25rem, 9vw, 6rem);
+  --display-hero-line: 0.92;
+  --display-hero-tracking: -0.075em;
+
+  --display-serif-size: clamp(3.5rem, 7.5vw, 5.5rem);
+  --display-serif-line: 1.02;
+  --display-serif-tracking: -0.055em;
+
+  --display-section-size: clamp(2.75rem, 5vw, 4rem);
+  --display-section-line: 1.08;
+  --display-section-tracking: -0.045em;
+
+  --title-xl-size: clamp(2rem, 4vw, 2.5rem);
+  --title-l-size: clamp(1.75rem, 3vw, 2rem);
+  --title-m-size: 1.5rem;
+  --title-s-size: 1.125rem;
+
+  --body-l-size: 1.25rem;
+  --body-m-size: 1rem;
+  --body-s-size: 0.875rem;
+  --body-xs-size: 0.75rem;
+
+  --label-m-size: 0.8125rem;
+  --label-s-size: 0.6875rem;
+  --label-code-size: 0.6875rem;
+}
+
+/* ==========================================================================
+   Tailwind v4 theme tokens
+   ========================================================================== */
+
+@theme inline {
+  --font-sans: var(--font-sans-stack);
+  --font-serif: var(--font-serif-stack);
+
+  --text-display-hero: var(--display-hero-size);
+  --text-display-hero--line-height: var(--display-hero-line);
+  --text-display-hero--letter-spacing: var(--display-hero-tracking);
+
+  --text-display-serif: var(--display-serif-size);
+  --text-display-serif--line-height: var(--display-serif-line);
+  --text-display-serif--letter-spacing: var(--display-serif-tracking);
+
+  --text-display-section: var(--display-section-size);
+  --text-display-section--line-height: var(--display-section-line);
+  --text-display-section--letter-spacing: var(--display-section-tracking);
+
+  --text-title-xl: var(--title-xl-size);
+  --text-title-xl--line-height: 1.1;
+  --text-title-xl--letter-spacing: -0.045em;
+
+  --text-title-l: var(--title-l-size);
+  --text-title-l--line-height: 1.15;
+  --text-title-l--letter-spacing: -0.04em;
+
+  --text-title-m: var(--title-m-size);
+  --text-title-m--line-height: 1.25;
+  --text-title-m--letter-spacing: -0.03em;
+
+  --text-title-s: var(--title-s-size);
+  --text-title-s--line-height: 1.3;
+  --text-title-s--letter-spacing: -0.02em;
+
+  --text-body-l: var(--body-l-size);
+  --text-body-l--line-height: 1.55;
+
+  --text-body-m: var(--body-m-size);
+  --text-body-m--line-height: 1.55;
+
+  --text-body-s: var(--body-s-size);
+  --text-body-s--line-height: 1.5;
+
+  --text-body-xs: var(--body-xs-size);
+  --text-body-xs--line-height: 1.45;
+}
+
+/* ==========================================================================
+   Base typography
+   ========================================================================== */
+
+@layer base {
+  html {
+    font-family: var(--font-sans-stack);
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-sans-stack);
+    font-size: var(--body-m-size);
+    line-height: 1.55;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  strong {
+    font-weight: 650;
+    color: var(--copy-primary);
+  }
+
+  small {
+    font-size: var(--body-xs-size);
+    line-height: 1.45;
+  }
+}
+
+/* ==========================================================================
+   Typography utility classes
+   Use these when Tailwind atomic utilities become too noisy.
+   ========================================================================== */
+
+@layer utilities {
+  .type-display-hero {
+    font-family: var(--font-sans-stack);
+    font-size: var(--display-hero-size);
+    line-height: var(--display-hero-line);
+    letter-spacing: var(--display-hero-tracking);
+    font-weight: 800;
+  }
+
+  .type-display-serif {
+    font-family: var(--font-serif-stack);
+    font-size: var(--display-serif-size);
+    line-height: var(--display-serif-line);
+    letter-spacing: var(--display-serif-tracking);
+    font-weight: 400;
+  }
+
+  .type-section-title {
+    font-family: var(--font-serif-stack);
+    font-size: var(--display-section-size);
+    line-height: var(--display-section-line);
+    letter-spacing: var(--display-section-tracking);
+    font-weight: 400;
+  }
+
+  .type-title-xl {
+    font-family: var(--font-sans-stack);
+    font-size: var(--title-xl-size);
+    line-height: 1.1;
+    letter-spacing: -0.045em;
+    font-weight: 700;
+  }
+
+  .type-title-l {
+    font-family: var(--font-sans-stack);
+    font-size: var(--title-l-size);
+    line-height: 1.15;
+    letter-spacing: -0.04em;
+    font-weight: 650;
+  }
+
+  .type-title-m {
+    font-family: var(--font-sans-stack);
+    font-size: var(--title-m-size);
+    line-height: 1.25;
+    letter-spacing: -0.03em;
+    font-weight: 600;
+  }
+
+  .type-title-s {
+    font-family: var(--font-sans-stack);
+    font-size: var(--title-s-size);
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+
+  .type-body-l {
+    font-family: var(--font-sans-stack);
+    font-size: var(--body-l-size);
+    line-height: 1.55;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+  }
+
+  .type-body-m {
+    font-family: var(--font-sans-stack);
+    font-size: var(--body-m-size);
+    line-height: 1.55;
+    letter-spacing: -0.015em;
+    font-weight: 400;
+  }
+
+  .type-body-s {
+    font-family: var(--font-sans-stack);
+    font-size: var(--body-s-size);
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    font-weight: 400;
+  }
+
+  .type-body-xs {
+    font-family: var(--font-sans-stack);
+    font-size: var(--body-xs-size);
+    line-height: 1.45;
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+
+  .type-label-m {
+    font-family: var(--font-sans-stack);
+    font-size: var(--label-m-size);
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .type-label-s {
+    font-family: var(--font-sans-stack);
+    font-size: var(--label-s-size);
+    line-height: 1;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .type-label-code {
+    font-family: var(--font-sans-stack);
+    font-size: var(--label-code-size);
+    line-height: 1;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .type-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-family: var(--font-sans-stack);
+    font-size: var(--label-s-size);
+    line-height: 1;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--copy-tertiary);
+  }
+
+  .type-eyebrow::before {
+    content: "";
+    width: 1.5rem;
+    height: 1px;
+    background: var(--leather-gold-muted);
+  }
+}

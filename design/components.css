@@ -1,0 +1,365 @@
+/* ==========================================================================
+   Paz Portfolio DS — Component Primitives
+   Buttons, pills, project cards, asset placeholders, nav rail, modals.
+   ========================================================================== */
+
+@layer components {
+  /* --------------------------------------------------------------------------
+   * Buttons
+   * -------------------------------------------------------------------------- */
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    min-height: 2.875rem;
+    padding: 0.875rem 1.125rem;
+    border-radius: var(--radius-m);
+    font-size: var(--label-m-size);
+    line-height: 1;
+    font-weight: 650;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    user-select: none;
+    transition:
+      transform var(--motion-base) var(--ease-out-expo),
+      background var(--motion-base) var(--ease-out-expo),
+      border-color var(--motion-base) var(--ease-out-expo),
+      color var(--motion-base) var(--ease-out-expo),
+      box-shadow var(--motion-base) var(--ease-out-expo);
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn:active {
+    transform: translateY(0);
+  }
+
+  .btn-primary {
+    background: var(--action-primary);
+    color: var(--text-inverse);
+    border: 1px solid rgba(231, 200, 120, 0.22);
+    box-shadow: 0 14px 36px rgba(201, 150, 46, 0.12);
+  }
+
+  .btn-primary:hover {
+    background: var(--action-primary-hover);
+    box-shadow: 0 18px 48px rgba(201, 150, 46, 0.18);
+  }
+
+  .btn-secondary {
+    background: rgba(20, 17, 14, 0.78);
+    color: var(--copy-primary);
+    border: var(--stroke-visible);
+  }
+
+  .btn-secondary:hover {
+    background: var(--action-secondary-hover);
+    border-color: var(--border-active);
+  }
+
+  .text-link {
+    position: relative;
+    display: inline-flex;
+    color: var(--copy-accent);
+    font-weight: 600;
+  }
+
+  .text-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.25rem;
+    width: 100%;
+    height: 1px;
+    transform: scaleX(0);
+    transform-origin: right;
+    background: currentColor;
+    transition: transform var(--motion-base) var(--ease-out-expo);
+  }
+
+  .text-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* --------------------------------------------------------------------------
+   * Pills / Tags
+   * -------------------------------------------------------------------------- */
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: fit-content;
+    border-radius: var(--radius-full);
+    padding: 0.5rem 0.75rem;
+    font-size: var(--label-s-size);
+    line-height: 1;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    font-weight: 650;
+  }
+
+  .pill-gold {
+    color: var(--leather-gold-soft);
+    background: rgba(201, 150, 46, 0.08);
+    border: 1px solid rgba(201, 150, 46, 0.24);
+  }
+
+  .pill-muted {
+    color: var(--copy-tertiary);
+    background: rgba(20, 17, 14, 0.82);
+    border: var(--stroke-hairline);
+  }
+
+  .pill-dot::before {
+    content: "";
+    width: 0.375rem;
+    height: 0.375rem;
+    border-radius: var(--radius-full);
+    background: var(--leather-gold-soft);
+    box-shadow: 0 0 18px rgba(201, 150, 46, 0.46);
+  }
+
+  /* --------------------------------------------------------------------------
+   * Project Card
+   * -------------------------------------------------------------------------- */
+
+  .project-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-xl);
+    background:
+      linear-gradient(180deg, rgba(243, 231, 210, 0.035), transparent 42%),
+      var(--layer-raised);
+    border: var(--stroke-hairline);
+    box-shadow: var(--shadow-soft-value), var(--shadow-inner-value);
+    transition:
+      transform var(--motion-base) var(--ease-out-expo),
+      border-color var(--motion-base) var(--ease-out-expo),
+      box-shadow var(--motion-base) var(--ease-out-expo),
+      background var(--motion-base) var(--ease-out-expo);
+  }
+
+  .project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--border-active);
+    box-shadow:
+      var(--shadow-soft-value),
+      var(--shadow-warm-value),
+      var(--shadow-inner-value);
+  }
+
+  .project-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    background:
+      radial-gradient(circle at 24% 0%, rgba(201, 150, 46, 0.13), transparent 34%),
+      linear-gradient(135deg, rgba(243, 231, 210, 0.035), transparent 44%);
+    transition: opacity var(--motion-base) var(--ease-out-expo);
+  }
+
+  .project-card:hover::before {
+    opacity: 1;
+  }
+
+  .project-card-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: var(--space-20, 1.25rem);
+    padding: var(--space-24);
+  }
+
+  .asset-placeholder {
+    position: relative;
+    overflow: hidden;
+    min-height: 12rem;
+    border-radius: var(--radius-l);
+    background:
+      linear-gradient(135deg, rgba(243, 231, 210, 0.04), transparent 32%),
+      linear-gradient(180deg, rgba(201, 150, 46, 0.055), transparent 56%),
+      var(--dark-soft);
+    border: var(--stroke-hairline);
+    box-shadow: var(--shadow-inner-value);
+  }
+
+  .asset-placeholder::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.22;
+    background-image:
+      linear-gradient(rgba(243, 231, 210, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(243, 231, 210, 0.06) 1px, transparent 1px);
+    background-size: 2rem 2rem;
+    mask-image: radial-gradient(circle at 50% 50%, black, transparent 72%);
+  }
+
+  .asset-placeholder-label {
+    position: absolute;
+    left: 1rem;
+    bottom: 1rem;
+    color: var(--copy-tertiary);
+    font-size: var(--label-code-size);
+    line-height: 1;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* --------------------------------------------------------------------------
+   * Navigation Rail
+   * -------------------------------------------------------------------------- */
+
+  .nav-rail {
+    position: fixed;
+    z-index: 20;
+    left: 0;
+    top: 0;
+    width: var(--rail-width);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+
+  .nav-rail-inner {
+    position: relative;
+    display: grid;
+    gap: 1.125rem;
+    pointer-events: auto;
+  }
+
+  .nav-rail-inner::before {
+    content: "";
+    position: absolute;
+    top: -2rem;
+    bottom: -2rem;
+    left: 0.375rem;
+    width: 1px;
+    background: linear-gradient(
+      transparent,
+      rgba(243, 231, 210, 0.12),
+      rgba(201, 150, 46, 0.18),
+      rgba(243, 231, 210, 0.08),
+      transparent
+    );
+  }
+
+  .nav-rail-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--copy-muted);
+    font-size: var(--label-s-size);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: color var(--motion-base) var(--ease-out-expo);
+  }
+
+  .nav-rail-dot {
+    position: relative;
+    z-index: 1;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: var(--radius-full);
+    background: var(--dark-soft);
+    border: 1px solid rgba(243, 231, 210, 0.14);
+    transition:
+      background var(--motion-base) var(--ease-out-expo),
+      border-color var(--motion-base) var(--ease-out-expo),
+      box-shadow var(--motion-base) var(--ease-out-expo);
+  }
+
+  .nav-rail-label {
+    opacity: 0;
+    transform: translateX(-0.375rem);
+    white-space: nowrap;
+    transition:
+      opacity var(--motion-base) var(--ease-out-expo),
+      transform var(--motion-base) var(--ease-out-expo);
+  }
+
+  .nav-rail-item:hover,
+  .nav-rail-item[data-active="true"] {
+    color: var(--leather-gold-soft);
+  }
+
+  .nav-rail-item:hover .nav-rail-label,
+  .nav-rail-item[data-active="true"] .nav-rail-label {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .nav-rail-item:hover .nav-rail-dot,
+  .nav-rail-item[data-active="true"] .nav-rail-dot {
+    background: var(--leather-gold);
+    border-color: rgba(231, 200, 120, 0.52);
+    box-shadow: 0 0 24px rgba(201, 150, 46, 0.42);
+  }
+
+  @media (max-width: 767px) {
+    .nav-rail {
+      display: none;
+    }
+  }
+
+  /* --------------------------------------------------------------------------
+   * Modal / Overlay
+   * -------------------------------------------------------------------------- */
+
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: grid;
+    place-items: center;
+    padding: var(--space-24);
+    background: var(--layer-dim);
+    backdrop-filter: blur(14px);
+  }
+
+  .modal-panel {
+    width: min(100%, 68rem);
+    max-height: 82vh;
+    overflow: hidden;
+    border-radius: var(--radius-2xl);
+    background: var(--layer-floating);
+    border: var(--stroke-hairline);
+    box-shadow: var(--shadow-floating-value), var(--shadow-inner-value);
+  }
+
+  .modal-scroll {
+    max-height: 82vh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  @media (max-width: 720px) {
+    .modal-overlay {
+      align-items: end;
+      padding: 0;
+    }
+
+    .modal-panel {
+      width: 100%;
+      max-height: 90vh;
+      border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+    }
+
+    .modal-scroll {
+      max-height: 90vh;
+    }
+  }
+}

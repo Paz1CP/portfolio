@@ -1,0 +1,120 @@
+/* ==========================================================================
+   Paz Portfolio DS — Motion
+   Luxury scroll, layered reveals, controlled interaction.
+   ========================================================================== */
+
+:root {
+  --motion-fast: 160ms;
+  --motion-base: 240ms;
+  --motion-smooth: 420ms;
+  --motion-slow: 700ms;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+@theme inline {
+  --animate-soft-pulse: soft-pulse 3.8s var(--ease-in-out-quart) infinite;
+  --animate-grain-shift: grain-shift 8s steps(8) infinite;
+  --animate-light-drift: light-drift 12s var(--ease-in-out-quart) infinite alternate;
+}
+
+@layer base {
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  .transition-premium {
+    transition:
+      transform var(--motion-base) var(--ease-out-expo),
+      opacity var(--motion-base) var(--ease-out-expo),
+      color var(--motion-base) var(--ease-out-expo),
+      background var(--motion-base) var(--ease-out-expo),
+      border-color var(--motion-base) var(--ease-out-expo),
+      box-shadow var(--motion-base) var(--ease-out-expo);
+  }
+
+  .reveal-base {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  .reveal-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity var(--motion-smooth) var(--ease-out-expo),
+      transform var(--motion-smooth) var(--ease-out-expo);
+  }
+
+  .hover-lift {
+    transition: transform var(--motion-base) var(--ease-out-expo);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+  }
+
+  .icon-shift {
+    transition: transform var(--motion-fast) var(--ease-out-expo);
+  }
+
+  .group:hover .icon-shift {
+    transform: translateX(4px);
+  }
+}
+
+@keyframes soft-pulse {
+  0%,
+  100% {
+    opacity: 0.52;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes grain-shift {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(-1%, 1%);
+  }
+
+  50% {
+    transform: translate(1%, -1%);
+  }
+
+  75% {
+    transform: translate(-1%, -1%);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes light-drift {
+  from {
+    transform: translate3d(-1.5rem, -0.5rem, 0) rotate(-2deg);
+  }
+
+  to {
+    transform: translate3d(1.5rem, 0.75rem, 0) rotate(2deg);
+  }
+}

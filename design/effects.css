@@ -1,0 +1,213 @@
+/* ==========================================================================
+   Paz Portfolio DS — Effects / Grain / Light / Ornaments
+   Warm black leather, editorial marks, useful atmosphere.
+   ========================================================================== */
+
+@layer utilities {
+  .grain-layer {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.17;
+    mix-blend-mode: soft-light;
+  }
+
+  .grain-layer::before {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(243, 231, 210, 0.08) 0 1px, transparent 1px),
+      radial-gradient(circle at 80% 70%, rgba(201, 150, 46, 0.06) 0 1px, transparent 1px);
+    background-size: 3px 3px, 5px 5px;
+    animation: grain-shift 8s steps(8) infinite;
+  }
+
+
+  .light-leak-hero {
+    position: absolute;
+    inset: auto -10% 8% auto;
+    width: min(42rem, 58vw);
+    height: min(26rem, 36vw);
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(231, 200, 120, 0.22), transparent 35%),
+      radial-gradient(circle at 70% 70%, rgba(154, 90, 46, 0.16), transparent 42%);
+    filter: blur(36px);
+    opacity: 0.78;
+    transform: rotate(-8deg);
+    animation: light-drift 12s var(--ease-in-out-quart) infinite alternate;
+  }
+
+  .technical-grid {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.18;
+    background-image:
+      linear-gradient(rgba(243, 231, 210, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(243, 231, 210, 0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(circle at 50% 35%, black, transparent 72%);
+  }
+
+  .gold-hairline {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(201, 150, 46, 0.42),
+      rgba(243, 231, 210, 0.1),
+      transparent
+    );
+  }
+
+  .micro-mark {
+    position: relative;
+  }
+
+  .micro-mark::before,
+  .micro-mark::after {
+    content: "";
+    position: absolute;
+    width: 0.375rem;
+    height: 0.375rem;
+    border-color: rgba(201, 150, 46, 0.48);
+    pointer-events: none;
+  }
+
+  .micro-mark::before {
+    top: 0;
+    left: 0;
+    border-top: 1px solid;
+    border-left: 1px solid;
+  }
+
+  .micro-mark::after {
+    right: 0;
+    bottom: 0;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+  }
+}
+
+/* ==========================================================================
+   Global Interactive Background
+   Cursor reveals a hidden technical pattern with warm leather-gold light.
+   ========================================================================== */
+
+:root {
+  --cursor-glow-x: 62%;
+  --cursor-glow-y: 44%;
+  --cursor-glow-opacity: 0;
+}
+
+@layer utilities {
+  .interactive-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    background:
+      radial-gradient(
+        circle at var(--cursor-glow-x) var(--cursor-glow-y),
+        rgba(201, 150, 46, calc(0.06 * var(--cursor-glow-opacity))),
+        transparent 22rem
+      ),
+      radial-gradient(
+        circle at var(--cursor-glow-x) var(--cursor-glow-y),
+        rgba(154, 90, 46, calc(0.05 * var(--cursor-glow-opacity))),
+        transparent 34rem
+      );
+  }
+
+  .interactive-bg__pattern {
+    position: absolute;
+    inset: -8%;
+  opacity: calc(0.42 * var(--cursor-glow-opacity));
+    background:
+      linear-gradient(
+        90deg,
+        rgba(231, 200, 120, 0.052) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        rgba(231, 200, 120, 0.045) 1px,
+        transparent 1px
+      ),
+      radial-gradient(
+        circle at center,
+        rgba(201, 150, 46, 0.12) 0 1px,
+        transparent 1.5px
+      );
+    background-size:
+      54px 54px,
+      54px 54px,
+      18px 18px;
+    mask-image: radial-gradient(
+      circle 17rem at var(--cursor-glow-x) var(--cursor-glow-y),
+      black 0%,
+      rgba(0, 0, 0, 0.86) 34%,
+      rgba(0, 0, 0, 0.36) 62%,
+      transparent 100%
+    );
+    -webkit-mask-image: radial-gradient(
+      circle 17rem at var(--cursor-glow-x) var(--cursor-glow-y),
+      black 0%,
+      rgba(0, 0, 0, 0.86) 34%,
+      rgba(0, 0, 0, 0.36) 62%,
+      transparent 100%
+    );
+  }
+
+  .interactive-bg__pattern::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(
+        115deg,
+        transparent 0 17px,
+        rgba(201, 150, 46, 0.035) 18px,
+        transparent 19px 42px
+      );
+    opacity: 0.45;
+  }
+
+  .interactive-bg__glow {
+    position: absolute;
+    inset: 0;
+    opacity: calc(0.85 * var(--cursor-glow-opacity));
+    background:
+      radial-gradient(
+        circle 13rem at var(--cursor-glow-x) var(--cursor-glow-y),
+        rgba(231, 200, 120, 0.06),
+        rgba(201, 150, 46, 0.03) 38%,
+        transparent 74%
+      );
+    mix-blend-mode: screen;
+  }
+
+  .interactive-bg__edge {
+    position: absolute;
+    inset: 0;
+    opacity: calc(0.28 * var(--cursor-glow-opacity));
+    background:
+      radial-gradient(
+        circle 23rem at var(--cursor-glow-x) var(--cursor-glow-y),
+        transparent 0%,
+        rgba(201, 150, 46, 0.02) 58%,
+        transparent 74%
+      );
+    filter: blur(12px);
+  }
+
+  @media (max-width: 767px) {
+    .interactive-bg {
+      display: none;
+    }
+  }
+}

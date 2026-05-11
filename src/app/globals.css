@@ -1,26 +1,49 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@import "../../design/colors.css";
+@import "../../design/typography.css";
+@import "../../design/spacing.css";
+@import "../../design/surfaces.css";
+@import "../../design/motion.css";
+@import "../../design/effects.css";
+@import "../../design/layout.css";
+@import "../../design/components.css";
+@import "../../design/navigation.css";
+@import "../../design/hero.css"; @import "../../design/selected-work.css";@import "../../design/case-study-modal.css";@import "../../design/experience.css";@import "../../design/capabilities.css";@import "../../design/contact.css"; @import "../../design/footer.css";
+* {
+  box-sizing: border-box;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
 }

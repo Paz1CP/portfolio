@@ -1,0 +1,91 @@
+/* ==========================================================================
+   Paz Portfolio DS — Surfaces / Radius / Borders / Shadows
+   Premium depth, not SaaS aquarium glass.
+   ========================================================================== */
+
+:root {
+  /* Radius */
+  --radius-s: 0.5rem;
+  --radius-m: 0.75rem;
+  --radius-l: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 999px;
+
+  /* Borders */
+  --stroke-hairline: 1px solid var(--border-subtle);
+  --stroke-visible: 1px solid var(--border-default);
+  --stroke-active: 1px solid var(--border-active);
+  --stroke-focus: 1px solid var(--border-focus);
+
+  /* Shadows */
+  --shadow-soft-value: 0 12px 40px rgba(0, 0, 0, 0.28);
+  --shadow-warm-value: 0 18px 56px rgba(201, 150, 46, 0.08);
+  --shadow-floating-value: 0 32px 90px rgba(0, 0, 0, 0.52);
+  --shadow-inner-value: inset 0 1px 0 rgba(243, 231, 210, 0.05);
+}
+
+@theme inline {
+  --radius-s: var(--radius-s);
+  --radius-m: var(--radius-m);
+  --radius-l: var(--radius-l);
+  --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
+
+  --shadow-soft: var(--shadow-soft-value);
+  --shadow-warm: var(--shadow-warm-value);
+  --shadow-floating: var(--shadow-floating-value);
+  --shadow-inner-premium: var(--shadow-inner-value);
+}
+
+@layer utilities {
+  .surface-raised {
+    background: var(--layer-raised);
+    border: var(--stroke-hairline);
+    box-shadow: var(--shadow-soft-value), var(--shadow-inner-value);
+  }
+
+  .surface-floating {
+    background: var(--layer-floating);
+    border: var(--stroke-hairline);
+    box-shadow: var(--shadow-floating-value), var(--shadow-inner-value);
+  }
+
+  .surface-soft {
+    background: rgba(20, 17, 14, 0.72);
+    border: var(--stroke-hairline);
+    box-shadow: var(--shadow-inner-value);
+  }
+
+  .surface-premium-hover {
+    transition:
+      transform var(--motion-base) var(--ease-out-expo),
+      border-color var(--motion-base) var(--ease-out-expo),
+      box-shadow var(--motion-base) var(--ease-out-expo),
+      background var(--motion-base) var(--ease-out-expo);
+  }
+
+  .surface-premium-hover:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-active);
+    box-shadow: var(--shadow-soft-value), var(--shadow-warm-value), var(--shadow-inner-value);
+  }
+
+  .hairline-top {
+    border-top: var(--stroke-hairline);
+  }
+
+  .hairline-bottom {
+    border-bottom: var(--stroke-hairline);
+  }
+
+  .focus-ring {
+    outline: none;
+  }
+
+  .focus-ring:focus-visible {
+    box-shadow:
+      0 0 0 1px var(--border-focus),
+      0 0 0 4px rgba(231, 200, 120, 0.1);
+  }
+}
