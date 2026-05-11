@@ -9,6 +9,7 @@ import {
   CalendarDays,
   X,
 } from "lucide-react";
+import Image from "next/image";
 import { useEffect, useState, type ReactNode } from "react";
 import {
   getCaseStudyBySlug,
@@ -38,6 +39,12 @@ const imagesBySlug: Record<string, string[]> = {
     "/images/experience/CookPilot/cookpilot.png",
     "/images/experience/CookPilot/img_app_pricing_comparator.png",
   ],
+};
+
+const companyLogos: Record<string, string> = {
+  "4track-vistogps-pro": "/images/experience/4TRACK/4track-logo.webp",
+  jobmatch: "/images/experience/JM/jobmatch_orange.jpg",
+  cookpilot: "/images/experience/CookPilot/cookpilot_logo.png",
 };
 
 function GalleryCarousel({ images }: { images: string[] }) {
@@ -92,8 +99,11 @@ function GalleryCarousel({ images }: { images: string[] }) {
           src={src}
           alt=""
           onClick={() => setLightboxSrc(src)}
-          style={{ cursor: "pointer" }}
           className={`case-modal__carousel-slide ${i === index ? "is-active" : ""}`}
+          style={{
+            cursor: i === index ? "pointer" : "default",
+            pointerEvents: i === index ? "auto" : "none",
+          }}
         />
       ))}
 
@@ -354,13 +364,25 @@ export function CaseStudyModal() {
               >
                 <div className="case-modal__scroll">
                   <header className="case-modal__topbar">
-                    <div>
-                      <p className="case-modal__eyebrow type-label-s">
-                        {selectedCaseStudy.eyebrow}
-                      </p>
-                      <h2 className="case-modal__top-title type-title-m">
-                        {selectedCaseStudy.title}
-                      </h2>
+                    <div className="case-modal__topbar-content">
+                      <div className="case-modal__topbar-logo-wrapper">
+                        <Image
+                          src={companyLogos[selectedCaseStudy.slug as CaseStudySlug]}
+                          alt={`${selectedCaseStudy.projectName} logo`}
+                          width={80}
+                          height={80}
+                          className="case-modal__topbar-logo"
+                        />
+                      </div>
+
+                      <div className="case-modal__topbar-column">
+                        <p className="case-modal__eyebrow type-label-s">
+                          {selectedCaseStudy.eyebrow}
+                        </p>
+                        <h2 className="case-modal__top-title type-title-m">
+                          {selectedCaseStudy.title}
+                        </h2>
+                      </div>
                     </div>
 
                     <Dialog.Close

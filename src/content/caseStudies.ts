@@ -26,13 +26,13 @@ export type CaseStudySlug = string;
 export const caseStudies = [
   {
     slug: "4track-vistogps-pro",
-    projectName: "4Track / VistoGPS Pro",
+    projectName: "4Track / VistoGPS",
     eyebrow: "Case study / Production mobile",
     title: "Flutter GPS tracking apps shipped across stores.",
     role: "Mobile Software Engineer",
     timeline: "Oct 2024 – Oct 2025",
     context:
-      "4Track / VistoGPS Pro is a GPS tracking product used by businesses to monitor vehicles and operational activity. The product needed a stronger mobile experience for realtime tracking, maps, authentication and production deployment across multiple app stores.",
+      "4Track / VistoGPS is a GPS tracking product used by businesses to monitor vehicles and operational activity. The product needed a stronger mobile experience for realtime tracking, maps, authentication and production deployment across multiple app stores.",
     ownedTitle: "What I owned",
     owned:
       "I owned the mobile/frontend side end to end: UX/UI redesign, Flutter implementation, realtime map flows, mobile architecture, native integrations, store releases and collaboration with backend, infrastructure and management.",

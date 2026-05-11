@@ -51,6 +51,7 @@ export const heroContent = {
     "I build production Flutter apps, startup MVP foundations, Supabase backends, UX/UI systems and AI-assisted product workflows.",
   primaryCta: "Contact me",
   secondaryCta: "View resume",
+  microProof: "Production-focused, async-friendly, and open to remote collaboration.",
   
   ornaments: [
     "LATAM / US Time Zones",
@@ -67,10 +68,8 @@ export const selectedWorkContent = {
     "A focused selection of work across mobile development, product architecture, UX/UI, backend systems and AI-assisted workflows.",
 projects: [
   {
-    index: "01",
     slug: "4track-vistogps-pro",
-    label: "Production app",
-    title: "4Track / VistoGPS Pro",
+    title: "4Track / VistoGPS",
     description:
       "Redesigned and developed Flutter GPS tracking apps shipped across Google Play, App Store and Huawei Gallery.",
     proof: "Store-shipped mobile work with realtime tracking and maps.",
@@ -79,9 +78,7 @@ projects: [
     assetVariant: "map",
   },
   {
-    index: "02",
     slug: "jobmatch",
-    label: "MVP foundation",
     title: "JobMatch",
     description:
       "Built the core MVP foundation for an AI-powered recruiting platform serving candidates, companies and recruiters.",
@@ -97,9 +94,7 @@ projects: [
     assetVariant: "dashboard",
   },
   {
-    index: "03",
     slug: "cookpilot",
-    label: "Product system",
     title: "CookPilot",
     description:
       "Building an AI-native product from zero to one across Flutter, Supabase, UX/UI, data modeling, design systems and AI workflows.",
@@ -213,6 +208,9 @@ export const capabilitiesContent = {
       title: "Mobile Product Development",
       description:
         "Flutter apps built with strong UI execution, state management, production readiness and cross-platform delivery.",
+      proofImage: "/images/capabilities/mobile_dev_proof.png",
+      proofAlt:
+        "A dark development workspace showing code and a mobile app preview.",
       keywords: [
         "Flutter",
         "Dart",
@@ -229,6 +227,9 @@ export const capabilitiesContent = {
       title: "UX/UI Systems",
       description:
         "Product interfaces designed with hierarchy, clarity, motion, surfaces and implementation in mind.",
+      proofImage: "/images/capabilities/ux_ui_proof.png",
+      proofAlt:
+        "A dark Figma-style workspace showing CookPilot mobile interface screens.",
       keywords: [
         "Figma",
         "UX/UI",
@@ -243,6 +244,9 @@ export const capabilitiesContent = {
       title: "Supabase Backends",
       description:
         "Backend foundations for MVPs and product features using PostgreSQL, auth, RLS, Edge Functions and structured data.",
+      proofImage: "/images/capabilities/backend_proof.png",
+      proofAlt:
+        "A dark database schema visualizer showing related product backend tables.",
       keywords: [
         "Supabase",
         "PostgreSQL",
@@ -258,6 +262,9 @@ export const capabilitiesContent = {
       title: "AI Product Workflows",
       description:
         "AI-assisted product features built around structured outputs, backend constraints and real user flows.",
+      proofImage: "/images/capabilities/aiflow_proof.png",
+      proofAlt:
+        "A dark AI product workflow interface showing structured product logic.",
       keywords: [
         "LLM APIs",
         "AI workflows",
@@ -272,6 +279,9 @@ export const capabilitiesContent = {
       title: "Production Delivery",
       description:
         "End-to-end delivery from ambiguous product idea to working software, including deployment, debugging and handoff.",
+      proofImage: "/images/capabilities/deployment_proof.png",
+      proofAlt:
+        "A dark release readiness interface showing production delivery states.",
       keywords: [
         "CI/CD",
         "Codemagic",
@@ -283,6 +293,7 @@ export const capabilitiesContent = {
     },
   ],
 } as const;
+
 export const contactContent = {
   eyebrow: "Availability",
   headline: "Looking for someone who can design, build and ship?",
@@ -319,7 +330,7 @@ export const footerContent = {
     },
     {
       label: "Resume",
-      href: "/resume.pdf",
+      href: "/Christopher_Paz_CV.pdf",
       external: true,
     },
   ],

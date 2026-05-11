@@ -55,12 +55,12 @@
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    min-height: 24rem;
+    min-height: 34.25rem;
     grid-column: span 4;
     display: flex;
     flex-direction: column;
     border-radius: var(--radius-xl);
-    padding: clamp(1.5rem, 2.6vw, 2rem);
+    padding: clamp(1.35rem, 2.3vw, 1.7rem);
     background:
       linear-gradient(180deg, rgba(243, 231, 210, 0.045), transparent 42%),
       rgba(20, 17, 14, 0.76);
@@ -79,7 +79,7 @@
   .capability-card:nth-child(4),
   .capability-card:nth-child(5) {
     grid-column: span 6;
-    min-height: 22rem;
+    min-height: 34rem;
   }
 
   .capability-card::before {
@@ -167,11 +167,11 @@
   }
 
   .capability-card__icon {
-    width: 3.45rem;
-    height: 3.45rem;
+    width: 3.35rem;
+    height: 3.35rem;
     display: grid;
     place-items: center;
-    border-radius: 1.1rem;
+    border-radius: 1.05rem;
     color: var(--leather-gold-soft);
     background:
       radial-gradient(circle at 36% 20%, rgba(231, 200, 120, 0.22), transparent 42%),
@@ -218,6 +218,119 @@
     color: var(--copy-secondary);
   }
 
+  .capability-card__proof {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    margin-top: 0.4rem;
+    border-radius: var(--radius-l);
+    background:
+      linear-gradient(135deg, rgba(243, 231, 210, 0.045), transparent 36%),
+      rgba(11, 9, 7, 0.46);
+    border: 1px solid rgba(243, 231, 210, 0.085);
+    box-shadow:
+      0 18px 48px rgba(0, 0, 0, 0.24),
+      inset 0 1px 0 rgba(243, 231, 210, 0.052);
+    transform: translateZ(0);
+  }
+
+  .capability-card__proof::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background:
+      linear-gradient(180deg, rgba(5, 4, 3, 0.08), transparent 42%, rgba(5, 4, 3, 0.26)),
+      radial-gradient(circle at 18% 0%, rgba(231, 200, 120, 0.11), transparent 36%);
+    opacity: 0.78;
+    transition: opacity 520ms var(--ease-out-expo);
+  }
+
+  .capability-card__proof::after {
+    content: "";
+    position: absolute;
+    inset: -40% -80%;
+    z-index: 4;
+    pointer-events: none;
+    opacity: 0;
+    background: linear-gradient(
+      112deg,
+      transparent 42%,
+      rgba(243, 231, 210, 0.13) 48%,
+      rgba(231, 200, 120, 0.09) 52%,
+      transparent 58%
+    );
+    transform: translateX(-42%) rotate(8deg);
+    transition:
+      opacity 220ms var(--ease-out-expo),
+      transform 850ms var(--ease-out-expo);
+  }
+
+  .capability-card:hover .capability-card__proof::before {
+    opacity: 0.48;
+  }
+
+  .capability-card:hover .capability-card__proof::after {
+    opacity: 1;
+    transform: translateX(42%) rotate(8deg);
+  }
+
+  .capability-card__proof-image {
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.01);
+    filter: saturate(0.92) contrast(0.96) brightness(0.82);
+    transition:
+      transform 900ms var(--ease-out-expo),
+      filter 700ms var(--ease-out-expo);
+  }
+
+  .capability-card:hover .capability-card__proof-image {
+    transform: scale(1.055);
+    filter: saturate(1.04) contrast(1.04) brightness(0.98);
+  }
+
+  .capability-card__proof-glow {
+    position: absolute;
+    inset: auto 8% -18% 8%;
+    z-index: 3;
+    height: 38%;
+    border-radius: 999px;
+    pointer-events: none;
+    background: radial-gradient(
+      circle,
+      rgba(201, 150, 46, 0.18),
+      transparent 68%
+    );
+    filter: blur(18px);
+    opacity: 0.48;
+    transition: opacity 520ms var(--ease-out-expo);
+  }
+
+  .capability-card:hover .capability-card__proof-glow {
+    opacity: 0.82;
+  }
+
+  .capability-card__proof-label {
+    position: absolute;
+    z-index: 5;
+    left: 0.85rem;
+    bottom: 0.8rem;
+    color: rgba(243, 231, 210, 0.64);
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transform: translateY(0.35rem);
+    transition:
+      opacity 320ms var(--ease-out-expo),
+      transform 320ms var(--ease-out-expo);
+  }
+
+  .capability-card:hover .capability-card__proof-label {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   .capability-card__keywords {
     position: relative;
     z-index: 2;
@@ -225,7 +338,7 @@
     flex-wrap: wrap;
     gap: 0.58rem;
     margin-top: auto;
-    padding-top: var(--space-32);
+    padding-top: var(--space-24);
   }
 
   .capability-card__keyword {
@@ -264,7 +377,7 @@
     height: 8.5rem;
     border-radius: 999px;
     border: 1px solid rgba(201, 150, 46, 0.1);
-    opacity: 0.58;
+    opacity: 0.28;
     pointer-events: none;
     transition:
       transform 900ms var(--ease-out-expo),
@@ -282,8 +395,8 @@
 
   .capability-card:hover .capability-card__ornament {
     transform: rotate(14deg) scale(1.04);
-    border-color: rgba(201, 150, 46, 0.2);
-    opacity: 0.8;
+    border-color: rgba(201, 150, 46, 0.18);
+    opacity: 0.44;
   }
 
   @media (max-width: 1120px) {
@@ -291,6 +404,7 @@
     .capability-card:nth-child(4),
     .capability-card:nth-child(5) {
       grid-column: span 6;
+      min-height: 34rem;
     }
   }
 

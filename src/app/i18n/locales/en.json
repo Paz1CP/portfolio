@@ -1,0 +1,320 @@
+{
+    "siteConfig": {
+        "name": "Christopher Paz León",
+        "role": "Flutter Developer & Mobile Product Engineer",
+        "title": "Christopher Paz León — Flutter Developer & Mobile Product Engineer",
+        "description": "Flutter Developer and Mobile Product Engineer from Peru building production mobile apps, Supabase backends, UX/UI systems and AI-assisted product workflows.",
+        "url": "https://christopherpaz.dev",
+        "email": "contact@christopherpaz.dev",
+        "resumeUrl": "/Christopher_Paz_CV.pdf",
+        "linkedInUrl": "https://linkedin.com/in/pazleon"
+    },
+    "navigationItems": [
+        {
+            "index": "01",
+            "id": "hero",
+            "label": "Home",
+            "ariaLabel": "Go to home section"
+        },
+        {
+            "index": "02",
+            "id": "work",
+            "label": "Work",
+            "ariaLabel": "Go to selected work section"
+        },
+        {
+            "index": "03",
+            "id": "experience",
+            "label": "Experience",
+            "ariaLabel": "Go to experience section"
+        },
+        {
+            "index": "04",
+            "id": "capabilities",
+            "label": "Capabilities",
+            "ariaLabel": "Go to capabilities section"
+        },
+        {
+            "index": "05",
+            "id": "contact",
+            "label": "Contact",
+            "ariaLabel": "Go to contact section"
+        }
+    ],
+    "heroContent": {
+        "availability": "Available for remote work",
+        "eyebrow": "Mobile Product Engineer · Flutter Developer · UX/UI",
+        "headline": "I design, build and ship mobile products.",
+        "subheadline": "I build production Flutter apps, startup MVP foundations, Supabase backends, UX/UI systems and AI-assisted product workflows.",
+        "primaryCta": "Contact me",
+        "secondaryCta": "View resume",
+        "microProof": "Production-focused, async-friendly, and open to remote collaboration.",
+        "ornaments": [
+            "LATAM / US Time Zones",
+            "English C1",
+            "Contractor-ready"
+        ]
+    },
+    "selectedWorkContent": {
+        "eyebrow": "Selected work",
+        "headline": "Real products, not playground demos.",
+        "intro": "A focused selection of work across mobile development, product architecture, UX/UI, backend systems and AI-assisted workflows.",
+        "projects": [
+            {
+                "slug": "4track-vistogps-pro",
+                "title": "4Track / VistoGPS",
+                "description": "Redesigned and developed Flutter GPS tracking apps shipped across Google Play, App Store and Huawei Gallery.",
+                "proof": "Store-shipped mobile work with realtime tracking and maps.",
+                "tags": [
+                    "Flutter",
+                    "Realtime GPS",
+                    "WebSockets",
+                    "Maps",
+                    "Store releases"
+                ],
+                "cta": "View case study",
+                "assetVariant": "map"
+            },
+            {
+                "slug": "jobmatch",
+                "title": "JobMatch",
+                "description": "Built the core MVP foundation for an AI-powered recruiting platform serving candidates, companies and recruiters.",
+                "proof": "Product and technical base behind a funded startup milestone.",
+                "tags": [
+                    "Supabase",
+                    "RLS",
+                    "Edge Functions",
+                    "AI workflows",
+                    "Recruiting platform"
+                ],
+                "cta": "View case study",
+                "assetVariant": "dashboard"
+            },
+            {
+                "slug": "cookpilot",
+                "title": "CookPilot",
+                "description": "Building an AI-native product from zero to one across Flutter, Supabase, UX/UI, data modeling, design systems and AI workflows.",
+                "proof": "Zero-to-one product work across app, backend, UX and AI logic.",
+                "tags": [
+                    "Flutter",
+                    "Supabase",
+                    "UX/UI",
+                    "Design system",
+                    "LLM workflows"
+                ],
+                "cta": "View case study",
+                "assetVariant": "system"
+            }
+        ]
+    },
+    "experienceContent": {
+        "eyebrow": "Experience",
+        "headline": "Built across production, MVPs and pre-launch products.",
+        "intro": "A compact timeline of the work behind the case studies.",
+        "items": [
+            {
+                "index": "01",
+                "date": "Oct 2025 – Present",
+                "role": "Lead Product Engineer — Pre-launch Side Project",
+                "company": "CookPilot",
+                "summary": "Building a pre-launch AI-native product across Flutter, Supabase, UX/UI, Figma design systems, data modeling, product assets and structured AI workflows.",
+                "impact": "End-to-end product lab showing product strategy, mobile execution, backend architecture and AI workflow ownership.",
+                "details": [
+                    "Own product direction, UX/UI system, Flutter app foundation and Supabase architecture.",
+                    "Model decision flows around user context, constraints, structured AI output and mobile UI actions."
+                ],
+                "tags": [
+                    "Flutter",
+                    "Dart",
+                    "Supabase",
+                    "PostgreSQL",
+                    "RLS",
+                    "Edge Functions",
+                    "UX/UI",
+                    "Figma",
+                    "Design system",
+                    "LLM APIs",
+                    "Structured outputs",
+                    "Product assets"
+                ]
+            },
+            {
+                "index": "02",
+                "date": "May 2025 – Mar 2026",
+                "role": "Technical Product Lead — Contract",
+                "company": "JobMatch S.A.S",
+                "summary": "Built the core MVP foundation for an AI-powered recruiting platform, including Supabase backend infrastructure, candidate/company flows, dashboards and AI-assisted matching workflows.",
+                "impact": "Created the technical/product foundation behind a funded startup milestone and continued V1 development.",
+                "details": [
+                    "Implemented auth, candidate/company flows, job posts, applications, dashboards and backend structure.",
+                    "Engineered matching logic and AI-assisted workflows with Supabase, RLS and Edge Functions."
+                ],
+                "tags": [
+                    "Supabase",
+                    "PostgreSQL",
+                    "SQL",
+                    "RLS",
+                    "Edge Functions",
+                    "Supabase Auth",
+                    "AI workflows",
+                    "Matching logic",
+                    "Dashboards",
+                    "MVP foundation",
+                    "Technical planning",
+                    "Handoff"
+                ]
+            },
+            {
+                "index": "03",
+                "date": "Oct 2024 – Oct 2025",
+                "role": "Mobile Software Engineer",
+                "company": "4Track S.A.S",
+                "summary": "Redesigned and developed production Flutter GPS tracking apps from Figma to store release as the sole mobile/frontend owner.",
+                "impact": "Mobile apps shipped across stores and remained in production after the engagement.",
+                "details": [
+                    "Owned Figma-to-Flutter implementation, realtime GPS flows, maps and mobile architecture.",
+                    "Integrated WebSockets, custom backend auth/push, biometric auth, offline sync and store releases."
+                ],
+                "tags": [
+                    "Flutter",
+                    "Dart",
+                    "Riverpod",
+                    "Clean Architecture",
+                    "Realtime GPS",
+                    "WebSockets",
+                    "Maps",
+                    "Offline sync",
+                    "Biometrics",
+                    "Push notifications",
+                    "Codemagic",
+                    "Store releases"
+                ]
+            }
+        ]
+    },
+    "capabilitiesContent": {
+        "eyebrow": "Capabilities",
+        "headline": "What I can own end to end.",
+        "intro": "I work best where mobile execution, product thinking, UX/UI, backend logic and AI workflows need to move together.",
+        "items": [
+            {
+                "index": "01",
+                "title": "Mobile Product Development",
+                "description": "Flutter apps built with strong UI execution, state management, production readiness and cross-platform delivery.",
+                "proofImage": "/images/capabilities/mobile_dev_proof.png",
+                "proofAlt": "A dark development workspace showing code and a mobile app preview.",
+                "keywords": [
+                    "Flutter",
+                    "Dart",
+                    "Riverpod",
+                    "Clean Architecture",
+                    "Mobile UI",
+                    "Android",
+                    "iOS",
+                    "Store releases"
+                ]
+            },
+            {
+                "index": "02",
+                "title": "UX/UI Systems",
+                "description": "Product interfaces designed with hierarchy, clarity, motion, surfaces and implementation in mind.",
+                "proofImage": "/images/capabilities/ux_ui_proof.png",
+                "proofAlt": "A dark Figma-style workspace showing CookPilot mobile interface screens.",
+                "keywords": [
+                    "Figma",
+                    "UX/UI",
+                    "Design systems",
+                    "Visual hierarchy",
+                    "Figma-to-Flutter",
+                    "High-fidelity assets"
+                ]
+            },
+            {
+                "index": "03",
+                "title": "Supabase Backends",
+                "description": "Backend foundations for MVPs and product features using PostgreSQL, auth, RLS, Edge Functions and structured data.",
+                "proofImage": "/images/capabilities/backend_proof.png",
+                "proofAlt": "A dark database schema visualizer showing related product backend tables.",
+                "keywords": [
+                    "Supabase",
+                    "PostgreSQL",
+                    "SQL",
+                    "RLS",
+                    "Edge Functions",
+                    "Auth",
+                    "Realtime"
+                ]
+            },
+            {
+                "index": "04",
+                "title": "AI Product Workflows",
+                "description": "AI-assisted product features built around structured outputs, backend constraints and real user flows.",
+                "proofImage": "/images/capabilities/aiflow_proof.png",
+                "proofAlt": "A dark AI product workflow interface showing structured product logic.",
+                "keywords": [
+                    "LLM APIs",
+                    "AI workflows",
+                    "Prompt systems",
+                    "Structured outputs",
+                    "Product logic",
+                    "AI-assisted features"
+                ]
+            },
+            {
+                "index": "05",
+                "title": "Production Delivery",
+                "description": "End-to-end delivery from ambiguous product idea to working software, including deployment, debugging and handoff.",
+                "proofImage": "/images/capabilities/deployment_proof.png",
+                "proofAlt": "A dark release readiness interface showing production delivery states.",
+                "keywords": [
+                    "CI/CD",
+                    "Codemagic",
+                    "App stores",
+                    "Production debugging",
+                    "Technical handoff",
+                    "Remote collaboration"
+                ]
+            }
+        ]
+    },
+    "contactContent": {
+        "eyebrow": "Availability",
+        "headline": "Looking for someone who can design, build and ship?",
+        "body": "I’m open to remote Flutter/Mobile roles, contractor work and MVP/product builds across LATAM and global teams.",
+        "lookingForTitle": "Looking for",
+        "lookingFor": [
+            "Flutter Developer roles",
+            "Mobile Engineer roles",
+            "Mobile Product Engineer roles",
+            "Contractor work",
+            "Startup MVP builds",
+            "AI-assisted product features",
+            "Supabase-backed product work"
+        ],
+        "primaryCta": "Email me",
+        "secondaryCta": "View resume",
+        "tertiaryCta": "Connect on LinkedIn",
+        "contactLine": "contact@christopherpaz.dev"
+    },
+    "footerContent": {
+        "name": "Christopher Paz León",
+        "role": "Flutter Developer  ·  Mobile Product Engineer  ·  UX/UI ",
+        "links": [
+            {
+                "label": "Email",
+                "href": "mailto:contact@christopherpaz.dev",
+                "external": false
+            },
+            {
+                "label": "LinkedIn",
+                "href": "https://linkedin.com/in/pazleon",
+                "external": true
+            },
+            {
+                "label": "Resume",
+                "href": "/Christopher_Paz_CV.pdf",
+                "external": true
+            }
+        ]
+    }
+}

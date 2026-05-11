@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   Bot,
   Database,
@@ -72,13 +73,24 @@ function CapabilityCard({
       </div>
 
       <div className="capability-card__content">
-        <h3 className="capability-card__title type-title-m">
-          {item.title}
-        </h3>
+        <h3 className="capability-card__title type-title-m">{item.title}</h3>
 
         <p className="capability-card__description type-body-s">
           {item.description}
         </p>
+
+        <div className="capability-card__proof" aria-label={`${item.title} proof visual`}>
+          <Image
+            src={item.proofImage}
+            alt={item.proofAlt}
+            fill
+            sizes="(max-width: 720px) 100vw, (max-width: 1120px) 50vw, 33vw"
+            className="capability-card__proof-image"
+          />
+
+          <span className="capability-card__proof-glow" aria-hidden="true" />
+         
+        </div>
       </div>
 
       <div

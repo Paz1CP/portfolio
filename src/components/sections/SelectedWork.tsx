@@ -17,6 +17,12 @@ const projectThumbnailImages = {
   cookpilot: "/images/experience/cookpilot_product_proof.webp",
 } as const;
 
+const projectLogos = {
+  "4track-vistogps-pro": "/images/experience/4TRACK/4track-logo.webp",
+  jobmatch: "/images/experience/JM/jobmatch_orange.jpg",
+  cookpilot: "/images/experience/CookPilot/cookpilot_logo.png",
+} as const;
+
 function ProjectAsset({ project }: { project: SelectedProject }) {
   return (
     <div
@@ -111,30 +117,32 @@ function ProjectCard({
       <ProjectAsset project={project} />
 
       <div className="selected-work-card__body">
-        <div className="selected-work-card__meta type-label-s">
-          <span>{project.label}</span>
-          <span className="selected-work-card__index">{project.index}</span>
+        <div className="selected-work-card__content-row">
+          <div className="selected-work-card__text-column">
+            <div className="selected-work-card__title-row">  <div className="selected-work-card__title-logo-wrapper">
+                <Image
+                  src={projectLogos[project.slug]}
+                  alt={`${project.title} logo`}
+                  width={120}
+                  height={120}
+                  className="selected-work-card__title-logo"
+                />
+              </div>
+              <h3 className="selected-work-card__title type-title-m">
+                {project.title}
+              </h3>
+            
+            </div>
+
+            <p className="selected-work-card__description type-body-s">
+              {project.description}
+            </p>
+          </div>
         </div>
-
-        <h3 className="selected-work-card__title type-title-m">
-          {project.title}
-        </h3>
-
-        <p className="selected-work-card__description type-body-s">
-          {project.description}
-        </p>
 
         <p className="selected-work-card__proof type-body-xs">
           {project.proof}
         </p>
-
-        <div className="selected-work-card__tags" aria-label={`${project.title} tags`}>
-          {project.tags.map((tag) => (
-            <span key={tag} className="selected-work-card__tag">
-              {tag}
-            </span>
-          ))}
-        </div>
 
         <div className="selected-work-card__footer">
           <button

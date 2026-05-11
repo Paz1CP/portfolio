@@ -256,25 +256,51 @@
     padding: 1.8rem 2rem 2rem;
   }
 
-  .selected-work-card__meta {
+  .selected-work-card__content-row {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-16);
-    color: var(--copy-tertiary);
+    gap: clamp(1.25rem, 2vw, 1.75rem);
+    align-items: flex-start;
   }
 
-  .selected-work-card__index {
-    color: rgba(231, 200, 120, 0.62);
+  .selected-work-card__text-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+  }
+
+  .selected-work-card__title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+
+  .selected-work-card__title-logo-wrapper {
+    flex-shrink: 0;
+    width: var(--title-m-size);
+    height: var(--title-m-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .selected-work-card__title-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .selected-work-card__logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 
   .selected-work-card__title {
-    margin-top: var(--space-16);
     color: var(--copy-primary);
   }
 
   .selected-work-card__description {
-    margin-top: var(--space-16);
     max-width: 31ch;
     color: var(--copy-secondary);
   }

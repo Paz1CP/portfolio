@@ -41,6 +41,15 @@
     gap: var(--space-12);
   }
 
+  /* Sidebar container holds signature + contact chips; we position the
+     signature absolutely so its internal padding doesn't push other items. */
+  .footer__sidebar {
+    position: relative;
+    display: grid;
+    gap: clamp(1rem, 2.5vw, 1.75rem);
+    align-content: start;
+  }
+
   .footer__name {
     color: var(--copy-primary);
   }
@@ -51,9 +60,17 @@
 
   .footer__signature {
     width: auto;
-    opacity: 0.85;
+    opacity: 0.95;
     height: clamp(4rem, 7vw, 6rem);
     object-fit: contain;
+    /* absolute placement so the image visual (not its transparent padding)
+       floats above the contact chips without affecting layout */
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    transform: translate(-50%, -18%);
+    pointer-events: none;
+    z-index: 5;
   }
 
   .footer__location {
@@ -71,6 +88,12 @@
     flex-wrap: wrap;
     justify-content: flex-end;
     gap: 0.75rem;
+  }
+
+  /* Ensure the links row has enough visual clearance below the floated
+     signature. We avoid changing layout flow; this is purely visual padding */
+  .footer__sidebar .footer__links {
+    padding-top: clamp(1.5rem, 3vw, 2.5rem);
   }
 
   .footer__link {
@@ -208,6 +231,21 @@
       grid-template-columns: 1fr;
       align-items: start;
       gap: var(--space-32);
+    }
+
+    /* On small screens the signature should behave like a normal image
+       so it doesn't overlap content and remains legible */
+    .footer__signature {
+      position: static;
+      transform: none;
+      margin: 0 0 0.5rem 0;
+      height: clamp(2.5rem, 6vw, 3.5rem);
+      pointer-events: auto;
+      opacity: 0.95;
+    }
+
+    .footer__sidebar .footer__links {
+      padding-top: 0;
     }
 
     .footer__links {
