@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import {
   Briefcase,
@@ -21,7 +21,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { navigationItems, type NavigationItem } from "@/content/site";
+import type { Dictionary, Locale } from "@/app/i18n";
 
 type IconsaxVariant =
   | "Linear"
@@ -36,6 +36,8 @@ type IconsaxIcon = ComponentType<{
   color?: string;
   variant?: IconsaxVariant;
 }>;
+
+type NavigationItem = Dictionary["navigationItems"][number];
 
 const navigationIcons: Record<NavigationItem["id"], IconsaxIcon> = {
   hero: Home2,
@@ -212,12 +214,20 @@ function DockIconButton({
 
 // Resume CTA removed per request
 
-export function SideDock() {
+export function SideDock({
+  navigationItems,
+  locale,
+  onToggleLocale,
+}: {
+  navigationItems: Dictionary["navigationItems"];
+  locale: Locale;
+  onToggleLocale: () => void;
+}) {
   const mouseY = useMotionValue(Number.POSITIVE_INFINITY);
 
   const sectionIds = useMemo(
     () => navigationItems.map((item) => item.id),
-    []
+    [navigationItems]
   );
 
   const activeSection = useActiveSection(sectionIds);
@@ -233,37 +243,52 @@ export function SideDock() {
         mouseY.set(Number.POSITIVE_INFINITY);
       }}
     >
-      <motion.nav
-        className="side-dock__shell"
-        initial={{
-          opacity: 0,
-          x: -18,
-          filter: "blur(8px)",
-        }}
-        animate={{
-          opacity: 1,
-          x: 0,
-          filter: "blur(0px)",
-        }}
-        transition={{
-          duration: 0.7,
-          ease: [0.16, 1, 0.3, 1],
-          delay: 0.12,
-        }}
-      >
-        <div className="side-dock__frame">
-          {navigationItems.map((item) => (
-            <DockIconButton
-              key={item.id}
-              item={item}
-              active={activeSection === item.id}
-              mouseY={mouseY}
-            />
-          ))}
-        </div>
+      <div className="side-dock__stack">
+        <motion.nav
+          className="side-dock__shell"
+          initial={{
+            opacity: 0,
+            x: -18,
+            filter: "blur(8px)",
+          }}
+          animate={{
+            opacity: 1,
+            x: 0,
+            filter: "blur(0px)",
+          }}
+          transition={{
+            duration: 0.7,
+            ease: [0.16, 1, 0.3, 1],
+            delay: 0.12,
+          }}
+        >
+          <div className="side-dock__frame">
+            {navigationItems.map((item) => (
+              <DockIconButton
+                key={item.id}
+                item={item}
+                active={activeSection === item.id}
+                mouseY={mouseY}
+              />
+            ))}
+            
+            <button
+              type="button"
+              className="side-dock__language-item"
+              onClick={onToggleLocale}
+              aria-label={locale === "es" ? "Cambiar a inglés" : "Switch to Spanish"}
+            >
+              <img
+                src={locale === "es" ? "/peru-icon.png" : "/usa-icon.png"}
+                alt={locale === "es" ? "Spanish" : "English"}
+                className="side-dock__language-icon"
+              />
+            </button>
+          </div>
 
-        <div className="side-dock__divider" />
-      </motion.nav>
+          <div className="side-dock__divider" />
+        </motion.nav>
+      </div>
     </aside>
   );
 }

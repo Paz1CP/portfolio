@@ -1,13 +1,22 @@
-"use client";
+﻿"use client";
 
 import { ArrowRight, FileDown, Mail } from "lucide-react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
-import { contactContent, siteConfig } from "@/content/site";
+import type { Dictionary } from "@/app/i18n";
 
 const easeOutExpo = [0.16, 1, 0.3, 1] as const;
 
-export function Contact() {
+type ContactContent = Dictionary["contactContent"];
+type SiteConfig = Dictionary["siteConfig"];
+
+export function Contact({
+  content,
+  siteConfig,
+}: {
+  content: ContactContent;
+  siteConfig: SiteConfig;
+}) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const shouldReduceMotion = useReducedMotion();
 
@@ -73,7 +82,7 @@ export function Contact() {
                 delay: shouldReduceMotion ? 0 : 0.08,
               }}
             >
-              {contactContent.eyebrow}
+              {content.eyebrow}
             </motion.p>
 
             <motion.h2
@@ -97,7 +106,7 @@ export function Contact() {
                 delay: shouldReduceMotion ? 0 : 0.14,
               }}
             >
-              {contactContent.headline}
+              {content.headline}
             </motion.h2>
 
             <motion.p
@@ -120,7 +129,7 @@ export function Contact() {
                 delay: shouldReduceMotion ? 0 : 0.2,
               }}
             >
-              {contactContent.body}
+              {content.body}
             </motion.p>
 
             <motion.div
@@ -149,7 +158,7 @@ export function Contact() {
                 aria-label="Email Christopher Paz León"
               >
                 <Mail size={19} strokeWidth={2.2} />
-                {contactContent.primaryCta}
+                {content.primaryCta}
               </a>
 
               <a
@@ -160,7 +169,7 @@ export function Contact() {
                 aria-label="View Christopher Paz León resume"
               >
                 <FileDown size={19} strokeWidth={2.2} />
-                {contactContent.secondaryCta}
+                {content.secondaryCta}
               </a>
 
               <a
@@ -177,7 +186,7 @@ export function Contact() {
                   width={19}
                   height={19}
                 />
-                {contactContent.tertiaryCta}
+                {content.tertiaryCta}
                 <ArrowRight size={17} strokeWidth={2.2} />
               </a>
             </motion.div>
@@ -203,11 +212,11 @@ export function Contact() {
               }}
             >
               <p className="contact-card__looking-title type-label-s">
-                {contactContent.lookingForTitle}
+                {content.lookingForTitle}
               </p>
 
               <div className="contact-card__chips">
-                {contactContent.lookingFor.map((item) => (
+                {content.lookingFor.map((item) => (
                   <span key={item} className="contact-card__chip">
                     {item}
                   </span>
@@ -237,7 +246,7 @@ export function Contact() {
             >
               Direct line:{" "}
               <a href={`mailto:${siteConfig.email}`}>
-                {contactContent.contactLine}
+                {content.contactLine}
               </a>
             </motion.p>
           </div>

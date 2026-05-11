@@ -2,10 +2,7 @@
 
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef, type KeyboardEvent, type PointerEvent } from "react";
-import {
-  experienceContent,
-  type ExperienceItem as ExperienceItemType,
-} from "@/content/site";
+import type { Dictionary } from "@/app/i18n";
 
 const easeOutExpo = [0.16, 1, 0.3, 1] as const;
 const experienceCaseStudySlugs = [
@@ -13,6 +10,9 @@ const experienceCaseStudySlugs = [
   "jobmatch",
   "4track-vistogps-pro",
 ] as const;
+
+type ExperienceContent = Dictionary["experienceContent"];
+type ExperienceItemType = ExperienceContent["items"][number];
 
 function ExperienceTimelineItem({
   item,
@@ -134,7 +134,11 @@ function ExperienceTimelineItem({
   );
 }
 
-export function Experience() {
+export function Experience({
+  content,
+}: {
+  content: ExperienceContent;
+}) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const shouldReduceMotion = useReducedMotion();
   const isInView = useInView(sectionRef, {
@@ -171,19 +175,19 @@ export function Experience() {
             ease: easeOutExpo,
           }}
         >
-          <p className="type-eyebrow">{experienceContent.eyebrow}</p>
+          <p className="type-eyebrow">{content.eyebrow}</p>
 
           <h2 id="experience-title" className="experience__title type-section-title">
-            {experienceContent.headline}
+            {content.headline}
           </h2>
 
           <p className="experience__intro type-body-l">
-            {experienceContent.intro}
+            {content.intro}
           </p>
         </motion.div>
 
         <div className="experience__timeline">
-          {experienceContent.items.map((item, index) => (
+          {content.items.map((item, index) => (
             <ExperienceTimelineItem
               key={`${item.company}-${item.date}`}
               item={item}

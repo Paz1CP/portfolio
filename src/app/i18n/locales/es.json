@@ -79,7 +79,7 @@
                 "slug": "jobmatch",
                 "title": "JobMatch",
                 "description": "Construí la base MVP de una plataforma de reclutamiento con IA para candidatos, empresas y recruiters.",
-                "proof": "Base técnica y de producto detrás de un hito de financiamiento.",
+                "proof": "Base técnica y de producto detrás de un hito de financiamiento. (~S/67,000 / Startup Perú 12G)",
                 "tags": [
                     "Supabase",
                     "RLS",
@@ -316,5 +316,186 @@
                 "external": true
             }
         ]
-    }
+    },
+    "caseStudies": [
+        {
+            "slug": "4track-vistogps-pro",
+            "projectName": "4Track / VistoGPS",
+            "eyebrow": "Caso / Mobile en producción",
+            "title": "Apps Flutter de tracking GPS publicadas en stores.",
+            "role": "Mobile Software Engineer",
+            "timeline": "Oct 2024 – Oct 2025",
+            "context": "4Track / VistoGPS es un producto de rastreo GPS usado por empresas para monitorear vehículos y actividad operativa. El producto necesitaba una experiencia móvil más sólida para tracking en tiempo real, mapas, autenticación y despliegue en varias stores.",
+            "ownedTitle": "Qué tuve a cargo",
+            "owned": "Me encargué del lado mobile/frontend de punta a punta: rediseño UX/UI, implementación en Flutter, flujos de mapas en tiempo real, arquitectura móvil, integraciones nativas, publicación en stores y coordinación con backend, infraestructura y dirección.",
+            "keyWork": [
+                "Rediseñé la UX/UI móvil en Figma.",
+                "Implementé apps Flutter de producción desde Figma hasta publicación en stores.",
+                "Construí flujos de tracking GPS en tiempo real con WebSockets y renderizado de mapas.",
+                "Integré auth/push con backend propio, autenticación biométrica, sync offline y persistencia local.",
+                "Publiqué apps en Google Play, App Store y Huawei Gallery.",
+                "Entregué diseño e implementación mobile que siguieron usándose en producción después del proyecto."
+            ],
+            "technicalHighlights": [
+                "Flutter",
+                "Dart",
+                "Riverpod",
+                "Clean Architecture",
+                "WebSockets",
+                "Mapas",
+                "Auth/push con backend propio",
+                "Autenticación biométrica",
+                "Sync offline",
+                "Persistencia local",
+                "Codemagic",
+                "Google Play Console",
+                "App Store Connect",
+                "Huawei Gallery"
+            ],
+            "assets": [
+                "4track_google_play_listing",
+                "vistogps_google_play_listing",
+                "4track_huawei_gallery_listing",
+                "4track_map_screen",
+                "4track_figma_redesign",
+                "4track_mobile_flow"
+            ],
+            "visualVariant": "map",
+            "proof": [
+                "Apps de producción publicadas en Google Play, App Store y Huawei Gallery.",
+                "Los listings públicos muestran 1K+ descargas entre apps relacionadas.",
+                "El diseño y la implementación mobile entregados siguieron en producción después del proyecto."
+            ]
+        },
+        {
+            "slug": "jobmatch",
+            "projectName": "JobMatch",
+            "eyebrow": "Caso / MVP con IA",
+            "title": "Base MVP para una plataforma de reclutamiento con IA.",
+            "role": "Technical Product Lead — Contract",
+            "timeline": "May 2025 – Mar 2026",
+            "context": "JobMatch es una plataforma de reclutamiento para candidatos, empresas y recruiters. El producto necesitaba una base MVP funcional: autenticación, flujos de candidato y empresa, publicaciones de empleo, postulaciones, dashboards, lógica de matching e infraestructura backend.",
+            "ownedTitle": "Qué tuve a cargo",
+            "owned": "Construí la base del MVP y trabajé entre planificación de producto, arquitectura técnica, implementación, UX/UI y handoff. Esa base apoyó el proceso de ProInnóvate / Startup Perú 12G y luego fue extendida por otro developer para la V1.",
+            "keyWork": [
+                "Construí la base MVP para candidatos, empresas y recruiters.",
+                "Implementé autenticación, flujos de usuario, publicaciones de empleo, postulaciones y dashboards.",
+                "Estructuré el backend en Supabase, el schema de base de datos, Row Level Security y Edge Functions.",
+                "Diseñé flujos de matching asistidos por IA que luego se extendieron hacia producción.",
+                "Implementé diseños UX/UI compartidos y flujos de producto.",
+                "Apoyé la planificación técnica y de producto para ProInnóvate / Startup Perú 12G.",
+                "Realicé un handoff técnico limpio para continuar el desarrollo de la V1."
+            ],
+            "technicalHighlights": [
+                "Supabase",
+                "PostgreSQL",
+                "SQL",
+                "Row Level Security",
+                "RLS",
+                "Edge Functions",
+                "Supabase Auth",
+                "Next.js",
+                "AI APIs",
+                "Prompt systems",
+                "Dashboards",
+                "Lógica de matching",
+                "Handoff técnico"
+            ],
+            "assets": [
+                "jm_candidate_dashboard",
+                "jm_company_dashboard",
+                "jm_matching_results",
+                "jm_job_post_flow",
+                "jm_application_pipeline",
+                "jm_admin_metrics",
+                "jm_ai_matching_flow"
+            ],
+            "visualVariant": "matching",
+            "workflowTitle": "Flujo de IA / matching",
+            "workflow": [
+                "Datos del perfil del candidato",
+                "Requisitos del puesto",
+                "Lógica de matching",
+                "Flujo asistido por IA",
+                "Score de compatibilidad",
+                "Dashboard para recruiters",
+                "Extensión a producción después del handoff"
+            ],
+            "businessProof": "La base de plataforma contribuyó a la preparación técnica y de producto detrás de S/67,000 en financiamiento de ProInnóvate / Startup Perú 12G."
+        },
+        {
+            "slug": "cookpilot",
+            "projectName": "CookPilot",
+            "eyebrow": "Caso / Producto pre-launch",
+            "title": "Un producto AI-native construido desde cero.",
+            "role": "Lead Product Engineer — Proyecto propio pre-launch",
+            "timeline": "Oct 2025 – Presente",
+            "context": "CookPilot es un producto pre-launch que estoy construyendo como side project y laboratorio de producto. Muestra trabajo end-to-end en estrategia de producto, UX/UI, sistemas en Figma, desarrollo Flutter, arquitectura Supabase, modelado de datos, assets high-fidelity y flujos asistidos por IA.",
+            "ownedTitle": "Qué tengo a cargo",
+            "owned": "Lidero producto, UX/UI, design system en Figma, desarrollo Flutter, arquitectura Supabase, modelado de datos, assets visuales y flujos estructurados con IA.",
+            "keyWork": [
+                "Construí desde cero la dirección de producto, el sistema UX/UI y la experiencia móvil.",
+                "Creé un design system en Figma y pantallas de producto high-fidelity.",
+                "Desarrollé landing pública, demo y waitlist.",
+                "Construí la base de la app Flutter y el backend en Supabase.",
+                "Modelé datos de producto y flujos de decisión alrededor del contexto del usuario.",
+                "Creé assets de producto, íconos y materiales visuales high-fidelity.",
+                "Construí flujos asistidos por IA usando LLM APIs, salidas estructuradas, prompt systems y restricciones backend."
+            ],
+            "technicalHighlights": [
+                "Flutter",
+                "Dart",
+                "Supabase",
+                "PostgreSQL",
+                "RLS",
+                "Edge Functions",
+                "LLM APIs",
+                "Salidas estructuradas",
+                "Prompt systems",
+                "UX/UI",
+                "Figma",
+                "Design systems",
+                "Assets de producto",
+                "Modelado de datos"
+            ],
+            "assets": [
+                "cookpilot_figma_board",
+                "cookpilot_mobile_home",
+                "cookpilot_decision_flow",
+                "cookpilot_design_system",
+                "cookpilot_avatar_asset",
+                "cookpilot_ai_workflow",
+                "cookpilot_product_wall"
+            ],
+            "visualVariant": "system",
+            "workflowTitle": "Flujo con IA",
+            "workflow": [
+                "Contexto del usuario",
+                "Restricciones del producto",
+                "Reglas del backend",
+                "Salida estructurada del LLM",
+                "Respuesta validada del producto",
+                "Acción en la UI móvil"
+            ],
+            "designSystemWork": [
+                "Dirección UX/UI",
+                "Design system en Figma",
+                "Jerarquía visual",
+                "Superficies de producto",
+                "Design tokens",
+                "Assets high-fidelity",
+                "Patrones de interacción de la app",
+                "Ejecución Figma-to-Flutter"
+            ],
+            "currentState": [
+                "Producto pre-launch",
+                "Landing pública",
+                "Demo",
+                "Waitlist",
+                "App Flutter en desarrollo",
+                "Backend en Supabase",
+                "Sistema de producto en progreso"
+            ]
+        }
+    ]
 }

@@ -1,16 +1,29 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { DocumentDownload, Send2 } from "iconsax-reactjs";
 import { motion, useReducedMotion } from "framer-motion";
-import { heroContent, siteConfig } from "@/content/site";
+import type { Dictionary } from "@/app/i18n";
 
 const easeOutExpo = [0.16, 1, 0.3, 1] as const;
 
-export function Hero() {
+type HeroContent = Dictionary["heroContent"];
+type SiteConfig = Dictionary["siteConfig"];
+
+export function Hero({
+  content,
+  siteConfig,
+}: {
+  content: HeroContent;
+  siteConfig: SiteConfig;
+}) {
   const shouldReduceMotion = useReducedMotion();
 
-  const [headlineLead, headlineTail] = heroContent.headline.split(" and ship ");
+  const splitToken = " and ship ";
+  const hasAccent = content.headline.includes(splitToken);
+  const [headlineLead, headlineTail] = hasAccent
+    ? content.headline.split(splitToken)
+    : [content.headline, ""];
 
   const containerTransition = shouldReduceMotion
     ? { duration: 0 }
@@ -56,7 +69,7 @@ export function Hero() {
             variants={itemVariants}
             transition={{ duration: 0.7, ease: easeOutExpo }}
           >
-            {heroContent.availability}
+            {content.availability}
           </motion.p>
 
           <motion.p
@@ -64,7 +77,7 @@ export function Hero() {
             variants={itemVariants}
             transition={{ duration: 0.7, ease: easeOutExpo }}
           >
-            {heroContent.eyebrow}
+            {content.eyebrow}
           </motion.p>
 
           <motion.h1
@@ -73,10 +86,16 @@ export function Hero() {
             variants={itemVariants}
             transition={{ duration: 0.78, ease: easeOutExpo }}
           >
-            <span className="portfolio-hero__title-line">{headlineLead}</span>
-            <span className="portfolio-hero__title-accent">
-              and ship {headlineTail}
-            </span>
+            {hasAccent ? (
+              <>
+                <span className="portfolio-hero__title-line">{headlineLead}</span>
+                <span className="portfolio-hero__title-accent">
+                  and ship {headlineTail}
+                </span>
+              </>
+            ) : (
+              <span className="portfolio-hero__title-line">{headlineLead}</span>
+            )}
           </motion.h1>
 
           <motion.p
@@ -84,7 +103,7 @@ export function Hero() {
             variants={itemVariants}
             transition={{ duration: 0.7, ease: easeOutExpo }}
           >
-            {heroContent.subheadline}
+            {content.subheadline}
           </motion.p>
 
           <motion.div
@@ -98,7 +117,7 @@ export function Hero() {
               aria-label="Contact Christopher Paz León by email"
             >
               <Send2 size={19} color="currentColor" variant="Bold" />
-              {heroContent.primaryCta}
+              {content.primaryCta}
             </a>
 
             <a
@@ -109,7 +128,7 @@ export function Hero() {
               aria-label="View Christopher Paz León resume"
             >
               <DocumentDownload size={19} color="currentColor" variant="TwoTone" />
-              {heroContent.secondaryCta}
+              {content.secondaryCta}
             </a>
           </motion.div>
 
@@ -118,7 +137,7 @@ export function Hero() {
             variants={itemVariants}
             transition={{ duration: 0.7, ease: easeOutExpo }}
           >
-            {heroContent.microProof}
+            {content.microProof}
           </motion.p>
         </motion.div>
 

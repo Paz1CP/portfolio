@@ -9,7 +9,13 @@
 @import "../../design/layout.css";
 @import "../../design/components.css";
 @import "../../design/navigation.css";
-@import "../../design/hero.css"; @import "../../design/selected-work.css";@import "../../design/case-study-modal.css";@import "../../design/experience.css";@import "../../design/capabilities.css";@import "../../design/contact.css"; @import "../../design/footer.css";
+@import "../../design/hero.css";
+@import "../../design/selected-work.css";
+@import "../../design/case-study-modal.css";
+@import "../../design/experience.css";
+@import "../../design/capabilities.css";
+@import "../../design/contact.css";
+@import "../../design/footer.css";
 * {
   box-sizing: border-box;
 }

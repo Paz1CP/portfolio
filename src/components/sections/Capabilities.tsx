@@ -11,19 +11,19 @@ import {
 } from "lucide-react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
-import {
-  capabilitiesContent,
-  type CapabilityItem,
-} from "@/content/site";
+import type { Dictionary } from "@/app/i18n";
 
 const easeOutExpo = [0.16, 1, 0.3, 1] as const;
 
-const capabilityIcons: Record<CapabilityItem["title"], LucideIcon> = {
-  "Mobile Product Development": Smartphone,
-  "UX/UI Systems": Palette,
-  "Supabase Backends": Database,
-  "AI Product Workflows": Bot,
-  "Production Delivery": Rocket,
+type CapabilitiesContent = Dictionary["capabilitiesContent"];
+type CapabilityItem = CapabilitiesContent["items"][number];
+
+const capabilityIcons: Record<string, LucideIcon> = {
+  "01": Smartphone,
+  "02": Palette,
+  "03": Database,
+  "04": Bot,
+  "05": Rocket,
 };
 
 function CapabilityCard({
@@ -35,7 +35,7 @@ function CapabilityCard({
   index: number;
   shouldReduceMotion: boolean;
 }) {
-  const Icon = capabilityIcons[item.title];
+  const Icon = capabilityIcons[item.index] ?? Smartphone;
 
   return (
     <motion.article
@@ -107,7 +107,11 @@ function CapabilityCard({
   );
 }
 
-export function Capabilities() {
+export function Capabilities({
+  content,
+}: {
+  content: CapabilitiesContent;
+}) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const shouldReduceMotion = useReducedMotion();
   const isInView = useInView(sectionRef, {
@@ -144,22 +148,22 @@ export function Capabilities() {
             ease: easeOutExpo,
           }}
         >
-          <p className="type-eyebrow">{capabilitiesContent.eyebrow}</p>
+          <p className="type-eyebrow">{content.eyebrow}</p>
 
           <h2
             id="capabilities-title"
             className="capabilities__title type-section-title"
           >
-            {capabilitiesContent.headline}
+            {content.headline}
           </h2>
 
           <p className="capabilities__intro type-body-l">
-            {capabilitiesContent.intro}
+            {content.intro}
           </p>
         </motion.div>
 
         <div className="capabilities__grid">
-          {capabilitiesContent.items.map((item, index) => (
+          {content.items.map((item, index) => (
             <CapabilityCard
               key={item.title}
               item={item}

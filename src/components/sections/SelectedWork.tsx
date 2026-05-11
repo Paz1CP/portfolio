@@ -4,24 +4,24 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
-import {
-  selectedWorkContent,
-  type SelectedProject,
-} from "@/content/site";
+import type { Dictionary } from "@/app/i18n";
 
 const easeOutExpo = [0.16, 1, 0.3, 1] as const;
 
-const projectThumbnailImages = {
+type SelectedWorkContent = Dictionary["selectedWorkContent"];
+type SelectedProject = SelectedWorkContent["projects"][number];
+
+const projectThumbnailImages: Record<string, string> = {
   "4track-vistogps-pro": "/images/experience/4track_mobile_store_map.webp",
   jobmatch: "/images/experience/jm_product_proof.webp",
   cookpilot: "/images/experience/cookpilot_product_proof.webp",
-} as const;
+};
 
-const projectLogos = {
+const projectLogos: Record<string, string> = {
   "4track-vistogps-pro": "/images/experience/4TRACK/4track-logo.webp",
   jobmatch: "/images/experience/JM/jobmatch_orange.jpg",
   cookpilot: "/images/experience/CookPilot/cookpilot_logo.png",
-} as const;
+};
 
 function ProjectAsset({ project }: { project: SelectedProject }) {
   return (
@@ -162,7 +162,11 @@ function ProjectCard({
   );
 }
 
-export function SelectedWork() {
+export function SelectedWork({
+  content,
+}: {
+  content: SelectedWorkContent;
+}) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const shouldReduceMotion = useReducedMotion();
   const isInView = useInView(sectionRef, {
@@ -200,24 +204,24 @@ export function SelectedWork() {
               ease: easeOutExpo,
             }}
           >
-            <p className="type-eyebrow">{selectedWorkContent.eyebrow}</p>
+            <p className="type-eyebrow">{content.eyebrow}</p>
 
             <h2
               id="selected-work-title"
               className="selected-work__title type-section-title"
             >
-              {selectedWorkContent.headline}
+              {content.headline}
             </h2>
 
             <p className="selected-work__intro type-body-l">
-              {selectedWorkContent.intro}
+              {content.intro}
             </p>
           </motion.div>
 
         </div>
 
         <div className="selected-work__grid">
-          {selectedWorkContent.projects.map((project, index) => (
+          {content.projects.map((project, index) => (
             <ProjectCard
               key={project.slug}
               project={project}

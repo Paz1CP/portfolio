@@ -11,11 +11,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState, type ReactNode } from "react";
-import {
-  getCaseStudyBySlug,
-  type CaseStudy,
-  type CaseStudySlug,
-} from "@/content/caseStudies";
+import type { Dictionary } from "@/app/i18n";
 
 const easeOutExpo = [0.16, 1, 0.3, 1] as const;
 
@@ -145,7 +141,7 @@ function GalleryCarousel({ images }: { images: string[] }) {
   );
 }
 
-function CaseShowcase({ caseStudy }: { caseStudy: CaseStudy }) {
+function CaseShowcase({ caseStudy }: { caseStudy: Dictionary["caseStudies"][number] }) {
   const images = imagesBySlug[caseStudy.slug] ?? [];
 
   return (
@@ -210,7 +206,7 @@ function FlowList({ items }: { items: readonly string[] }) {
   );
 }
 
-function CaseStudyContent({ caseStudy }: { caseStudy: CaseStudy }) {
+function CaseStudyContent({ caseStudy }: { caseStudy: Dictionary["caseStudies"][number] }) {
   return (
     <div className="case-modal__content">
       <div className="case-modal__hero">
@@ -296,13 +292,13 @@ function CaseStudyContent({ caseStudy }: { caseStudy: CaseStudy }) {
   );
 }
 
-export function CaseStudyModal() {
+export function CaseStudyModal({ caseStudies }: { caseStudies: Dictionary["caseStudies"] }) {
   const shouldReduceMotion = useReducedMotion();
-  const [selectedSlug, setSelectedSlug] = useState<CaseStudySlug | null>(null);
+  const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
 
   useEffect(() => {
     const handleOpen = (event: Event) => {
-      const detail = (event as CustomEvent<{ slug?: CaseStudySlug }>).detail;
+      const detail = (event as CustomEvent<{ slug?: string }>).detail;
       if (!detail?.slug) return;
       setSelectedSlug(detail.slug);
     };
@@ -321,7 +317,7 @@ export function CaseStudyModal() {
   }, []);
 
   const selectedCaseStudy = selectedSlug
-    ? getCaseStudyBySlug(selectedSlug)
+    ? caseStudies.find((c) => c.slug === selectedSlug) ?? null
     : null;
 
   return (
@@ -367,7 +363,7 @@ export function CaseStudyModal() {
                     <div className="case-modal__topbar-content">
                       <div className="case-modal__topbar-logo-wrapper">
                         <Image
-                          src={companyLogos[selectedCaseStudy.slug as CaseStudySlug]}
+                            src={companyLogos[selectedCaseStudy.slug]}
                           alt={`${selectedCaseStudy.projectName} logo`}
                           width={80}
                           height={80}

@@ -2,22 +2,19 @@
 
 import { ArrowUp, ExternalLink, FileDown, Mail } from "lucide-react";
 import Image from "next/image";
-import { footerContent } from "@/content/site";
+import type { Dictionary } from "@/app/i18n";
 
-function getFooterIcon(label: string) {
-  switch (label) {
-    case "Email":
-      return Mail;
-    case "LinkedIn":
-      return null;
-    case "Resume":
-      return FileDown;
-    default:
-      return ExternalLink;
-  }
+type FooterContent = Dictionary["footerContent"];
+type FooterLink = FooterContent["links"][number];
+
+function getFooterIcon(link: FooterLink) {
+  if (link.href.startsWith("mailto:")) return Mail;
+  if (link.href.includes("linkedin.com")) return null;
+  if (link.href.endsWith(".pdf")) return FileDown;
+  return ExternalLink;
 }
 
-export function Footer() {
+export function Footer({ content }: { content: FooterContent }) {
   return (
     <>
       <footer className="footer">
@@ -25,11 +22,11 @@ export function Footer() {
           <div className="footer__layout">
             <div className="footer__identity">
               <h2 className="footer__name type-title-m">
-                {footerContent.name}
+                {content.name}
               </h2>
 
               <p className="footer__role type-body-s">
-                {footerContent.role}
+                {content.role}
               </p>
 
             </div>
@@ -42,8 +39,9 @@ export function Footer() {
               />
 
               <nav className="footer__links" aria-label="Footer links">
-                {footerContent.links.map((link) => {
-                  const Icon = getFooterIcon(link.label);
+                {content.links.map((link) => {
+                  const Icon = getFooterIcon(link);
+                  const isLinkedIn = link.href.includes("linkedin.com");
 
                   return (
                     <a
@@ -53,7 +51,7 @@ export function Footer() {
                       target={link.external ? "_blank" : undefined}
                       rel={link.external ? "noreferrer" : undefined}
                     >
-                      {link.label === "LinkedIn" ? (
+                      {isLinkedIn ? (
                         <img
                           src="/linkedln-icon.svg"
                           alt="LinkedIn"

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Instrument_Sans, Libre_Baskerville } from "next/font/google";
-import { siteConfig } from "@/content/site";
+import { defaultLocale, getDictionary } from "@/app/i18n";
+import { JsonLd } from "@/components/seo/JsonLd";
 import "./globals.css";
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
@@ -15,9 +16,15 @@ const libreBaskerville = Libre_Baskerville({
   display: "swap",
 });
 
+const dictionary = getDictionary(defaultLocale);
+const { siteConfig } = dictionary;
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: siteConfig.title,
+  title: {
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.name}`,
+  },
   description: siteConfig.description,
   applicationName: siteConfig.name,
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
@@ -44,11 +51,22 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     siteName: siteConfig.name,
     locale: "en_US",
+    alternateLocale: ["es_PE"],
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} — ${siteConfig.role}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
+    images: ["/twitter-image"],
+    creator: "@pazleon",
   },
   robots: {
     index: true,
@@ -60,6 +78,11 @@ export const metadata: Metadata = {
       "max-snippet": -1,
       "max-video-preview": -1,
     },
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
   },
 };
 
@@ -78,10 +101,20 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang={defaultLocale}
       className={`${instrumentSans.variable} ${libreBaskerville.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <JsonLd
+          siteUrl={siteConfig.url}
+          siteName={siteConfig.name}
+          role={siteConfig.role}
+          description={siteConfig.description}
+          linkedInUrl={siteConfig.linkedInUrl}
+          email={siteConfig.email}
+        />
+        {children}
+      </body>
     </html>
   );
 }
