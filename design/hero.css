@@ -56,16 +56,19 @@
     animation: light-drift 14s var(--ease-in-out-quart) infinite alternate;
   }
 
- .portfolio-hero__layout {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1.8fr minmax(28rem, 16rem);
-  align-items: center;
-  gap: clamp(6rem, 12vw, 8rem);
-}
+  .portfolio-hero__layout {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(3.5rem, 7vw, 5rem);
+    width: min(100%, 92rem);
+    margin-inline: auto;
+  }
 
   .portfolio-hero__content {
-    max-width: 90rem;
+    flex: 0 1 46rem;
+    max-width: 46rem;
   }
 
   .portfolio-hero__availability {
@@ -208,13 +211,13 @@
    * Portrait
    * -------------------------------------------------------------------------- */
 
- .portfolio-hero__portrait-wrap {
-  position: relative;
-  justify-self: center;
-  width: min(100%, 42rem);
-  padding-bottom: 4.9rem;
-  transform: translateX(-0.75rem);
-}
+  .portfolio-hero__portrait-wrap {
+    position: relative;
+    flex: 0 0 min(32rem, 100%);
+    width: min(100%, 32rem);
+    padding-bottom: 4.9rem;
+    transform: translateX(0);
+  }
 
   .portfolio-hero__portrait {
     position: relative;
@@ -292,7 +295,7 @@
   z-index: 6;
   right: -6.5rem;
   bottom: -3.5rem;
-  width: min(34.5rem, 104%);
+  width: min(24rem, 104%);
   aspect-ratio: 1;
   pointer-events: none;
 }
@@ -344,19 +347,17 @@
 
   @media (max-width: 1440px) {
     .portfolio-hero__layout {
-      grid-template-columns: 1.25fr minmax(19rem, 27.6rem);
-      gap: clamp(4.5rem, 8vw, 7.5rem);
+      gap: clamp(3rem, 6vw, 5rem);
     }
 
-  .portfolio-hero__portrait-wrap {
-    width: min(100%, 64rem);
-  transform: translateX(-0.25rem);
-}
+    .portfolio-hero__portrait-wrap {
+      width: min(100%, 29rem);
+    }
 
-.portfolio-hero__signature {
-  right: -3rem;
-  width: min(36.8rem, 110%);
-}
+    .portfolio-hero__signature {
+      right: -3rem;
+      width: min(36.8rem, 110%);
+    }
   }
 
   @media (max-width: 940px) {
@@ -366,13 +367,14 @@
     }
 
     .portfolio-hero__layout {
+      display: grid;
       grid-template-columns: 1fr;
       gap: var(--space-64);
     }
 
     .portfolio-hero__portrait-wrap {
       justify-self: center;
-      width: min(100%, 64rem);
+      width: min(100%, 36rem);
       padding-bottom: 3.8rem;
     }
   }
@@ -405,7 +407,7 @@
     }
 
     .portfolio-hero__portrait-wrap {
-      width: min(100%, 32);
+      width: min(100%, 32rem);
       padding-bottom: 3.2rem;
     }
 

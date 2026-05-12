@@ -19,11 +19,13 @@ function ExperienceTimelineItem({
   index,
   isCurrent,
   shouldReduceMotion,
+  impactLabel,
 }: {
   item: ExperienceItemType;
   index: number;
   isCurrent: boolean;
   shouldReduceMotion: boolean;
+  impactLabel: string;
 }) {
   const itemRef = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(itemRef, {
@@ -107,7 +109,9 @@ function ExperienceTimelineItem({
           </p>
 
           <div className="experience-item__impact">
-            <p className="experience-item__impact-label type-label-s">Why it matters</p>
+            <p className="experience-item__impact-label type-label-s">
+              {impactLabel}
+            </p>
             <p className="experience-item__impact-text type-body-s">
               {item.impact}
             </p>
@@ -194,6 +198,7 @@ export function Experience({
               index={index}
               isCurrent={index === 0}
               shouldReduceMotion={Boolean(shouldReduceMotion)}
+              impactLabel={content.impactLabel}
             />
           ))}
         </div>

@@ -206,7 +206,13 @@ function FlowList({ items }: { items: readonly string[] }) {
   );
 }
 
-function CaseStudyContent({ caseStudy }: { caseStudy: Dictionary["caseStudies"][number] }) {
+function CaseStudyContent({
+  caseStudy,
+  sectionTitles,
+}: {
+  caseStudy: Dictionary["caseStudies"][number];
+  sectionTitles: Dictionary["caseStudySectionTitles"];
+}) {
   return (
     <div className="case-modal__content">
       <div className="case-modal__hero">
@@ -241,7 +247,7 @@ function CaseStudyContent({ caseStudy }: { caseStudy: Dictionary["caseStudies"][
       </section>
 
       <section className="case-modal__section">
-        <SectionTitle>Key work</SectionTitle>
+        <SectionTitle>{sectionTitles.keyWork}</SectionTitle>
         <BulletList items={caseStudy.keyWork} />
       </section>
 
@@ -254,19 +260,19 @@ function CaseStudyContent({ caseStudy }: { caseStudy: Dictionary["caseStudies"][
 
       {caseStudy.designSystemWork && (
         <section className="case-modal__section">
-          <SectionTitle>Design system work</SectionTitle>
+          <SectionTitle>{sectionTitles.designSystemWork}</SectionTitle>
           <BulletList items={caseStudy.designSystemWork} />
         </section>
       )}
 
       <section className="case-modal__section">
-        <SectionTitle>Technical highlights</SectionTitle>
+        <SectionTitle>{sectionTitles.technicalHighlights}</SectionTitle>
         <ChipList items={caseStudy.technicalHighlights} />
       </section>
 
       {caseStudy.proof && (
         <section className="case-modal__section">
-          <SectionTitle>Proof</SectionTitle>
+          <SectionTitle>{sectionTitles.proof}</SectionTitle>
           <div className="case-modal__proof-card">
             <BulletList items={caseStudy.proof} />
           </div>
@@ -275,7 +281,7 @@ function CaseStudyContent({ caseStudy }: { caseStudy: Dictionary["caseStudies"][
 
       {caseStudy.businessProof && (
         <section className="case-modal__section">
-          <SectionTitle>Business proof</SectionTitle>
+          <SectionTitle>{sectionTitles.businessProof}</SectionTitle>
           <div className="case-modal__proof-card">
             <p className="type-body-m">{caseStudy.businessProof}</p>
           </div>
@@ -284,7 +290,7 @@ function CaseStudyContent({ caseStudy }: { caseStudy: Dictionary["caseStudies"][
 
       {caseStudy.currentState && (
         <section className="case-modal__section">
-          <SectionTitle>Current state</SectionTitle>
+          <SectionTitle>{sectionTitles.currentState}</SectionTitle>
           <ChipList items={caseStudy.currentState} />
         </section>
       )}
@@ -292,7 +298,13 @@ function CaseStudyContent({ caseStudy }: { caseStudy: Dictionary["caseStudies"][
   );
 }
 
-export function CaseStudyModal({ caseStudies }: { caseStudies: Dictionary["caseStudies"] }) {
+export function CaseStudyModal({
+  caseStudies,
+  sectionTitles,
+}: {
+  caseStudies: Dictionary["caseStudies"];
+  sectionTitles: Dictionary["caseStudySectionTitles"];
+}) {
   const shouldReduceMotion = useReducedMotion();
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
 
@@ -389,7 +401,10 @@ export function CaseStudyModal({ caseStudies }: { caseStudies: Dictionary["caseS
                     </Dialog.Close>
                   </header>
 
-                  <CaseStudyContent caseStudy={selectedCaseStudy} />
+                  <CaseStudyContent
+                    caseStudy={selectedCaseStudy}
+                    sectionTitles={sectionTitles}
+                  />
                 </div>
               </motion.div>
             </Dialog.Content>

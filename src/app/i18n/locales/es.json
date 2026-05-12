@@ -48,7 +48,7 @@
         "subheadline": "Construyo apps Flutter en producción, bases MVP para startups, backends con Supabase, sistemas UX/UI y flujos de producto asistidos por IA.",
         "primaryCta": "Contáctame",
         "secondaryCta": "Ver CV",
-        "microProof": "Enfocado en producción, cómodo trabajando async y abierto a colaboración remota.",
+        "microProof": "Enfocado en producción, trabajo asíncrono y abierto a colaboración remota.",
         "ornaments": [
             "Zonas horarias LATAM / US",
             "Inglés C1",
@@ -57,20 +57,20 @@
     },
     "selectedWorkContent": {
         "eyebrow": "Proyectos seleccionados",
-        "headline": "Productos reales, no demos de juguete.",
+        "headline": "Trabajo real, construido para usarse.",
         "intro": "Una selección enfocada de trabajo en desarrollo móvil, arquitectura de producto, UX/UI, backend y flujos asistidos por IA.",
         "projects": [
             {
                 "slug": "4track-vistogps-pro",
                 "title": "4Track / VistoGPS",
                 "description": "Rediseñé y desarrollé apps Flutter de rastreo GPS publicadas en Google Play, App Store y Huawei Gallery.",
-                "proof": "Trabajo móvil publicado en stores, con tracking en tiempo real y mapas.",
+                "proof": "Trabajo móvil publicado en tiendas, con tracking en tiempo real y mapas.",
                 "tags": [
                     "Flutter",
                     "GPS en tiempo real",
                     "WebSockets",
                     "Mapas",
-                    "Publicación en stores"
+                    "Publicación en tiendas"
                 ],
                 "cta": "Ver caso",
                 "assetVariant": "map"
@@ -93,7 +93,7 @@
             {
                 "slug": "cookpilot",
                 "title": "CookPilot",
-                "description": "Estoy construyendo un producto AI-native desde cero: Flutter, Supabase, UX/UI, modelado de datos, design systems y flujos con IA.",
+                "description": "Estoy construyendo un producto AI-native desde cero: Flutter, Supabase, UX/UI, modelado de datos, diseño de sistemas y flujos con IA.",
                 "proof": "Trabajo zero-to-one entre app, backend, UX y lógica de IA.",
                 "tags": [
                     "Flutter",
@@ -111,13 +111,14 @@
         "eyebrow": "Experiencia",
         "headline": "Construí en producción, MVPs y productos pre-launch.",
         "intro": "Una línea de tiempo compacta del trabajo detrás de los casos.",
+        "impactLabel": "Por qué importa",
         "items": [
             {
                 "index": "01",
                 "date": "Oct 2025 – Presente",
                 "role": "Lead Product Engineer — Proyecto propio pre-launch",
                 "company": "CookPilot",
-                "summary": "Construyendo un producto AI-native pre-launch con Flutter, Supabase, UX/UI, design systems en Figma, modelado de datos, assets de producto y flujos estructurados con IA.",
+                "summary": "Construyendo un producto AI-native pre-launch con Flutter, Supabase, UX/UI, diseño de sistemas en Figma, modelado de datos, assets de producto y flujos estructurados con IA.",
                 "impact": "Un laboratorio de producto end-to-end que muestra estrategia, ejecución móvil, arquitectura backend y ownership de flujos con IA.",
                 "details": [
                     "Lidero dirección de producto, sistema UX/UI, base Flutter de la app y arquitectura Supabase.",
@@ -169,11 +170,11 @@
                 "date": "Oct 2024 – Oct 2025",
                 "role": "Mobile Software Engineer",
                 "company": "4Track S.A.S",
-                "summary": "Rediseñé y desarrollé apps Flutter de tracking GPS en producción, desde Figma hasta publicación en stores, como responsable mobile/frontend.",
-                "impact": "Apps móviles publicadas en stores que siguieron en producción después del proyecto.",
+                "summary": "Rediseñé y desarrollé apps Flutter de tracking GPS en producción, desde Figma hasta publicación en tiendas, como responsable mobile/frontend.",
+                "impact": "Apps móviles publicadas en tiendas que siguieron en producción después del proyecto.",
                 "details": [
                     "Me encargué de la implementación Figma-to-Flutter, flujos GPS en tiempo real, mapas y arquitectura móvil.",
-                    "Integré WebSockets, auth/push con backend propio, autenticación biométrica, sync offline y publicación en stores."
+                    "Integré WebSockets, auth/push con backend propio, autenticación biométrica, sync offline y publicación en tiendas."
                 ],
                 "tags": [
                     "Flutter",
@@ -187,7 +188,7 @@
                     "Biometría",
                     "Push notifications",
                     "Codemagic",
-                    "Publicación en stores"
+                    "Publicación en tiendas"
                 ]
             }
         ]
@@ -211,7 +212,7 @@
                     "UI móvil",
                     "Android",
                     "iOS",
-                    "Publicación en stores"
+                    "Publicación en tiendas"
                 ]
             },
             {
@@ -223,7 +224,7 @@
                 "keywords": [
                     "Figma",
                     "UX/UI",
-                    "Design systems",
+                    "diseño de sistemas",
                     "Jerarquía visual",
                     "Figma-to-Flutter",
                     "Assets high-fidelity"
@@ -254,7 +255,7 @@
                 "keywords": [
                     "LLM APIs",
                     "Flujos con IA",
-                    "Prompt systems",
+                    "System Prompts",
                     "Salidas estructuradas",
                     "Lógica de producto",
                     "Features asistidas por IA"
@@ -322,15 +323,15 @@
             "slug": "4track-vistogps-pro",
             "projectName": "4Track / VistoGPS",
             "eyebrow": "Caso / Mobile en producción",
-            "title": "Apps Flutter de tracking GPS publicadas en stores.",
+            "title": "Apps Flutter de tracking GPS publicadas en tiendas.",
             "role": "Mobile Software Engineer",
             "timeline": "Oct 2024 – Oct 2025",
-            "context": "4Track / VistoGPS es un producto de rastreo GPS usado por empresas para monitorear vehículos y actividad operativa. El producto necesitaba una experiencia móvil más sólida para tracking en tiempo real, mapas, autenticación y despliegue en varias stores.",
+            "context": "4Track / VistoGPS es un producto de rastreo GPS usado por empresas para monitorear vehículos y actividad operativa. El producto necesitaba una experiencia móvil más sólida para tracking en tiempo real, mapas, autenticación y despliegue en varias tiendas.",
             "ownedTitle": "Qué tuve a cargo",
-            "owned": "Me encargué del lado mobile/frontend de punta a punta: rediseño UX/UI, implementación en Flutter, flujos de mapas en tiempo real, arquitectura móvil, integraciones nativas, publicación en stores y coordinación con backend, infraestructura y dirección.",
+            "owned": "Me encargué del lado mobile/frontend de punta a punta: rediseño UX/UI, implementación en Flutter, flujos de mapas en tiempo real, arquitectura móvil, integraciones nativas, publicación en tiendas y coordinación con backend, infraestructura y dirección.",
             "keyWork": [
                 "Rediseñé la UX/UI móvil en Figma.",
-                "Implementé apps Flutter de producción desde Figma hasta publicación en stores.",
+                "Implementé apps Flutter de producción desde Figma hasta publicación en tiendas.",
                 "Construí flujos de tracking GPS en tiempo real con WebSockets y renderizado de mapas.",
                 "Integré auth/push con backend propio, autenticación biométrica, sync offline y persistencia local.",
                 "Publiqué apps en Google Play, App Store y Huawei Gallery.",
@@ -396,7 +397,7 @@
                 "Supabase Auth",
                 "Next.js",
                 "AI APIs",
-                "Prompt systems",
+                "System Prompts",
                 "Dashboards",
                 "Lógica de matching",
                 "Handoff técnico"
@@ -440,7 +441,7 @@
                 "Construí la base de la app Flutter y el backend en Supabase.",
                 "Modelé datos de producto y flujos de decisión alrededor del contexto del usuario.",
                 "Creé assets de producto, íconos y materiales visuales high-fidelity.",
-                "Construí flujos asistidos por IA usando LLM APIs, salidas estructuradas, prompt systems y restricciones backend."
+                "Construí flujos asistidos por IA usando LLM APIs, salidas estructuradas, System Prompts y restricciones backend."
             ],
             "technicalHighlights": [
                 "Flutter",
@@ -451,10 +452,10 @@
                 "Edge Functions",
                 "LLM APIs",
                 "Salidas estructuradas",
-                "Prompt systems",
+                "System Prompts",
                 "UX/UI",
                 "Figma",
-                "Design systems",
+                "diseño de sistemas",
                 "Assets de producto",
                 "Modelado de datos"
             ],
@@ -497,5 +498,13 @@
                 "Sistema de producto en progreso"
             ]
         }
-    ]
+    ],
+    "caseStudySectionTitles": {
+        "keyWork": "Qué tuve a cargo",
+        "designSystemWork": "Trabajo de design system",
+        "technicalHighlights": "Herramientas y tecnologías",
+        "proof": "Pruebas",
+        "businessProof": "Prueba de negocio",
+        "currentState": "Estado actual"
+    }
 }

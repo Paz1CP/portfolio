@@ -57,7 +57,7 @@
     },
     "selectedWorkContent": {
         "eyebrow": "Selected work",
-        "headline": "Real products, not playground demos.",
+        "headline": "Real products, ready to use.",
         "intro": "A focused selection of work across mobile development, product architecture, UX/UI, backend systems and AI-assisted workflows.",
         "projects": [
             {
@@ -111,6 +111,7 @@
         "eyebrow": "Experience",
         "headline": "Built across production, MVPs and pre-launch products.",
         "intro": "A compact timeline of the work behind the case studies.",
+        "impactLabel": "Why it matters",
         "items": [
             {
                 "index": "01",
@@ -254,7 +255,7 @@
                 "keywords": [
                     "LLM APIs",
                     "AI workflows",
-                    "Prompt systems",
+                    "System Prompts",
                     "Structured outputs",
                     "Product logic",
                     "AI-assisted features"
@@ -396,7 +397,7 @@
                 "Supabase Auth",
                 "Next.js",
                 "AI APIs",
-                "Prompt systems",
+                "System Prompts",
                 "Dashboards",
                 "Matching logic",
                 "Technical handoff"
@@ -440,7 +441,7 @@
                 "Built the Flutter app foundation and Supabase backend.",
                 "Modeled product data and decision flows around user context.",
                 "Created high-fidelity product assets, icons and visual materials.",
-                "Built AI-assisted workflows using LLM APIs, structured outputs, prompt systems and backend constraints."
+                "Built AI-assisted workflows using LLM APIs, structured outputs, System Prompts and backend constraints."
             ],
             "technicalHighlights": [
                 "Flutter",
@@ -451,7 +452,7 @@
                 "Edge Functions",
                 "LLM APIs",
                 "Structured outputs",
-                "Prompt systems",
+                "System Prompts",
                 "UX/UI",
                 "Figma",
                 "Design systems",
@@ -497,5 +498,13 @@
                 "Product system in progress"
             ]
         }
-    ]
+    ],
+    "caseStudySectionTitles": {
+        "keyWork": "Key work",
+        "designSystemWork": "Design system work",
+        "technicalHighlights": "Technical highlights",
+        "proof": "Proof",
+        "businessProof": "Business proof",
+        "currentState": "Current state"
+    }
 }

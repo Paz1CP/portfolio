@@ -42,7 +42,10 @@ export function ClientHome() {
       <Contact content={dictionary.contactContent} siteConfig={dictionary.siteConfig} />
       <Footer content={dictionary.footerContent} />
 
-        <CaseStudyModal caseStudies={dictionary.caseStudies} />
+      <CaseStudyModal
+        caseStudies={dictionary.caseStudies}
+        sectionTitles={dictionary.caseStudySectionTitles}
+      />
     </main>
   );
 }

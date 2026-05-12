@@ -21,6 +21,12 @@ export function Footer({ content }: { content: FooterContent }) {
         <div className="site-shell-wide">
           <div className="footer__layout">
             <div className="footer__identity">
+              <img
+                src="/images/signature.png"
+                alt="Signature"
+                className="footer__signature"
+              />
+
               <h2 className="footer__name type-title-m">
                 {content.name}
               </h2>
@@ -32,12 +38,6 @@ export function Footer({ content }: { content: FooterContent }) {
             </div>
 
             <div className="footer__sidebar">
-              <img
-                src="/images/signature.png"
-                alt="Signature"
-                className="footer__signature"
-              />
-
               <nav className="footer__links" aria-label="Footer links">
                 {content.links.map((link) => {
                   const Icon = getFooterIcon(link);

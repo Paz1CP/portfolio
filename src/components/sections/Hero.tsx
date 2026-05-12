@@ -211,7 +211,7 @@ export function Hero({
       src="/images/signature.png"
       alt=""
       fill
-      sizes="(max-width: 960px) 22rem, 30rem"
+      sizes="(max-width: 960px) 20rem, 30rem"
       className="object-contain"
     />
   </div>
