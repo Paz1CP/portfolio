@@ -126,7 +126,39 @@
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-12);
+    align-items: stretch;
     margin-top: var(--space-32);
+  }
+
+  .portfolio-hero__contact-btn,
+  .portfolio-hero__resume-btn {
+    flex: 1 1 16rem;
+    min-width: 0;
+  }
+
+  .portfolio-hero__whatsapp-btn {
+    flex: 0 0 3.25rem;
+    width: 3.25rem;
+    min-height: 3.25rem;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    filter: none;
+    backdrop-filter: none;
+    appearance: none;
+  }
+
+  .portfolio-hero__whatsapp-icon {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    display: block;
+    filter: none;
   }
 
   .portfolio-hero__actions .btn {
@@ -363,7 +395,7 @@
   @media (max-width: 940px) {
     .portfolio-hero {
       min-height: auto;
-      padding-block: 7.5rem 5rem;
+      padding-block: 5rem 5rem;
     }
 
     .portfolio-hero__layout {
@@ -381,7 +413,8 @@
 
   @media (max-width: 720px) {
     .portfolio-hero {
-      padding-block: 7rem 4.5rem;
+      padding-top: max(2.75rem, calc(env(safe-area-inset-top, 0px) + 1rem));
+      padding-bottom: 4.25rem;
     }
 
     .portfolio-hero__title {
@@ -400,6 +433,23 @@
       width: 100%;
       min-height: 3.35rem;
       font-size: 0.95rem;
+    }
+
+    .portfolio-hero__actions {
+      align-items: stretch;
+    }
+
+    .portfolio-hero__contact-btn {
+      flex: 1 1 calc(100% - 3.35rem - var(--space-12));
+    }
+
+    .portfolio-hero__resume-btn {
+      flex-basis: 100%;
+    }
+
+    .portfolio-hero__whatsapp-btn {
+      width: 3.35rem;
+      min-height: 3.35rem;
     }
 
     .portfolio-hero__proof {

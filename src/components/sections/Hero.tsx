@@ -112,20 +112,36 @@ export function Hero({
             transition={{ duration: 0.7, ease: easeOutExpo }}
           >
             <a
-              className="btn btn-primary focus-ring group"
+              className="portfolio-hero__whatsapp-btn"
+              href={content.whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={content.whatsappAriaLabel}
+            >
+              <Image
+                src="/whatsapp.png"
+                alt=""
+                width={52}
+                height={52}
+                className="portfolio-hero__whatsapp-icon"
+              />
+            </a>
+
+            <a
+              className="btn btn-primary focus-ring group portfolio-hero__contact-btn"
               href={`mailto:${siteConfig.email}`}
-              aria-label="Contact Christopher Paz León by email"
+              aria-label={content.primaryAriaLabel}
             >
               <Send2 size={19} color="currentColor" variant="Bold" />
               {content.primaryCta}
             </a>
 
             <a
-              className="btn btn-secondary focus-ring group"
+              className="btn btn-secondary focus-ring group portfolio-hero__resume-btn"
               href={siteConfig.resumeUrl}
               target="_blank"
               rel="noreferrer"
-              aria-label="View Christopher Paz León resume"
+              aria-label={content.secondaryAriaLabel}
             >
               <DocumentDownload size={19} color="currentColor" variant="TwoTone" />
               {content.secondaryCta}

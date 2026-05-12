@@ -49,7 +49,7 @@
     display: grid;
     gap: clamp(1rem, 2.5vw, 1.75rem);
     align-content: start;
-    padding-top: calc(clamp(5.5rem, 9.7vw, 8.3rem) + var(--space-12));
+    padding-top: clamp(2.25rem, 4.5vw, 3.5rem);
   }
 
   .footer__name {

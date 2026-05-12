@@ -94,6 +94,8 @@
     height: calc((var(--label-s-size) * 1) + 0.45rem + (var(--title-m-size) * 1.25));
     width: calc((var(--label-s-size) * 1) + 0.45rem + (var(--title-m-size) * 1.25));
     max-height: 100%;
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
   }
 
   .case-modal__topbar-logo {
@@ -732,18 +734,21 @@
 
   @media (max-width: 720px) {
     .case-modal__overlay {
-      align-items: end;
-      padding: 0;
+      align-items: center;
+      padding: 1rem;
     }
 
     .case-modal {
-      width: 100%;
-      max-height: 91vh;
-      border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+      position: relative;
+      inset: auto;
+      width: min(calc(100vw - 2rem), 42rem);
+      max-height: calc(100svh - 2rem);
+      border-radius: var(--radius-2xl);
+      margin: 0;
     }
 
     .case-modal__scroll {
-      max-height: 91vh;
+      max-height: calc(100svh - 2rem);
     }
 
     .case-modal__topbar {

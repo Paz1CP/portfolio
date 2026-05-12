@@ -6,7 +6,7 @@
         "description": "Flutter Developer y Mobile Product Engineer en Perú. Construyo apps móviles en producción, backends con Supabase, sistemas UX/UI y flujos de producto asistidos por IA.",
         "url": "https://christopherpaz.dev",
         "email": "contact@christopherpaz.dev",
-        "resumeUrl": "/Christopher_Paz_CV.pdf",
+        "resumeUrl": "/Christopher_Paz_CV_es.pdf",
         "linkedInUrl": "https://linkedin.com/in/pazleon"
     },
     "navigationItems": [
@@ -48,6 +48,10 @@
         "subheadline": "Construyo apps Flutter en producción, bases MVP para startups, backends con Supabase, sistemas UX/UI y flujos de producto asistidos por IA.",
         "primaryCta": "Contáctame",
         "secondaryCta": "Ver CV",
+        "primaryAriaLabel": "Contactar por correo a Christopher Paz Leon",
+        "secondaryAriaLabel": "Ver CV de Christopher Paz Leon",
+        "whatsappAriaLabel": "Contactar por WhatsApp",
+        "whatsappUrl": "https://api.whatsapp.com/send/?phone=51973886687&text=Hola+Christopher%2C20%25vi+tu+perfil&type=phone_number&app_absent=0",
         "microProof": "Enfocado en producción, trabajo asíncrono y abierto a colaboración remota.",
         "ornaments": [
             "Zonas horarias LATAM / US",

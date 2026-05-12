@@ -35,7 +35,10 @@ export function ClientHome() {
         locale={locale}
         onToggleLocale={handleToggleLocale}
       />
-      <Hero content={dictionary.heroContent} siteConfig={dictionary.siteConfig} />
+      <Hero
+        content={dictionary.heroContent}
+        siteConfig={dictionary.siteConfig}
+      />
       <SelectedWork content={dictionary.selectedWorkContent} />
       <Experience content={dictionary.experienceContent} />
       <Capabilities content={dictionary.capabilitiesContent} />

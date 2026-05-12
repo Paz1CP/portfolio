@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
-import { useRef } from "react";
+import { useRef, type MouseEvent } from "react";
 import type { Dictionary } from "@/app/i18n";
 
 const easeOutExpo = [0.16, 1, 0.3, 1] as const;
@@ -65,8 +65,8 @@ function ProjectCard({
     );
   };
 
-  const handleCardPointerDown = (
-    event: React.PointerEvent<HTMLElement>
+  const handleCardClick = (
+    event: MouseEvent<HTMLElement>
   ) => {
     if (event.button !== 0) return;
     handleOpenCaseStudy();
@@ -108,7 +108,7 @@ function ProjectCard({
         ease: easeOutExpo,
         delay: shouldReduceMotion ? 0 : index * 0.08,
       }}
-      onPointerDown={handleCardPointerDown}
+      onClick={handleCardClick}
       onKeyDown={handleCardKeyDown}
     >
       <span className="selected-work-card__corner selected-work-card__corner--tl" />
@@ -150,8 +150,11 @@ function ProjectCard({
             className="selected-work-card__cta"
             aria-label={`${project.cta}: ${project.title}`}
             data-case-study={project.slug}
-            onClick={handleOpenCaseStudy}
-            onPointerDown={(event) => event.stopPropagation()}
+            onClick={(event) => {
+              event.stopPropagation();
+              handleOpenCaseStudy();
+            }}
+            onMouseDown={(event) => event.stopPropagation()}
           >
             {project.cta}
             <ArrowRight size={16} strokeWidth={2.2} />

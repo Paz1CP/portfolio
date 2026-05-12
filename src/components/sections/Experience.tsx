@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView, useReducedMotion } from "framer-motion";
-import { useRef, type KeyboardEvent, type PointerEvent } from "react";
+import { useRef, type KeyboardEvent, type MouseEvent } from "react";
 import type { Dictionary } from "@/app/i18n";
 
 const easeOutExpo = [0.16, 1, 0.3, 1] as const;
@@ -45,7 +45,7 @@ function ExperienceTimelineItem({
     );
   };
 
-  const handleCardPointerDown = (event: PointerEvent<HTMLElement>) => {
+  const handleCardClick = (event: MouseEvent<HTMLElement>) => {
     if (event.button !== 0) return;
     handleOpenCaseStudy();
   };
@@ -96,7 +96,7 @@ function ExperienceTimelineItem({
         role="button"
         tabIndex={0}
         aria-label={`Open case study: ${item.company}`}
-        onPointerDown={handleCardPointerDown}
+        onClick={handleCardClick}
         onKeyDown={handleCardKeyDown}
       >
         <span className="experience-item__corner experience-item__corner--tl" />

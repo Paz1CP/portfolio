@@ -282,6 +282,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
   }
 
   .selected-work-card__title-logo {

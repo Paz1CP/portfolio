@@ -48,6 +48,10 @@
         "subheadline": "I build production Flutter apps, startup MVP foundations, Supabase backends, UX/UI systems and AI-assisted product workflows.",
         "primaryCta": "Contact me",
         "secondaryCta": "View resume",
+        "primaryAriaLabel": "Contact Christopher Paz Leon by email",
+        "secondaryAriaLabel": "View Christopher Paz Leon resume",
+        "whatsappAriaLabel": "Contact via WhatsApp",
+        "whatsappUrl": "https://api.whatsapp.com/send/?phone=51973886687&text=Hi+Christopher%2C+I+saw+your+portfolio.&type=phone_number&app_absent=0",
         "microProof": "Production-focused, async-friendly, and open to remote collaboration.",
         "ornaments": [
             "LATAM / US Time Zones",

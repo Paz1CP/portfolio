@@ -72,7 +72,7 @@ export function Footer({ content }: { content: FooterContent }) {
         
         </div>
       </footer>
-      <a className="footer__back-to-top" href="#hero" aria-label="Back to top">
+      <a data-scroll-top className="footer__back-to-top" href="#hero" aria-label="Back to top">
         <ArrowUp size={16} strokeWidth={2.2} />
       </a>
     </>

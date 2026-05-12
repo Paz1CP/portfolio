@@ -1,18 +1,8 @@
 ﻿"use client";
 
-import {
-  Briefcase,
-  Cpu,
-  Home2,
-  MedalStar,
-  Send2,
-} from "iconsax-reactjs";
-import {
-  motion,
-  MotionValue,
-  useMotionValue,
-  useTransform,
-} from "framer-motion";
+import Image from "next/image";
+import { Briefcase, Cpu, Home2, MedalStar, Send2 } from "iconsax-reactjs";
+import { motion, MotionValue, useMotionValue, useTransform } from "framer-motion";
 import {
   ComponentType,
   MouseEvent,
@@ -141,10 +131,12 @@ function DockIconButton({
   item,
   active,
   mouseY,
+  mobileHidden = false,
 }: {
   item: NavigationItem;
   active: boolean;
   mouseY: MotionValue<number>;
+  mobileHidden?: boolean;
 }) {
   const ref = useRef<HTMLAnchorElement | null>(null);
   const Icon = navigationIcons[item.id];
@@ -170,6 +162,7 @@ function DockIconButton({
       href={`#${item.id}`}
       className="side-dock__item"
       data-active={active ? "true" : "false"}
+      data-mobile-hidden={mobileHidden ? "true" : "false"}
       aria-label={item.ariaLabel}
       aria-current={active ? "page" : undefined}
       onClick={handleClick}
@@ -185,7 +178,6 @@ function DockIconButton({
         ease: [0.16, 1, 0.3, 1],
       }}
     >
-
       <motion.span className="side-dock__icon">
         <motion.span
           aria-hidden="true"
@@ -196,11 +188,7 @@ function DockIconButton({
             placeItems: "center",
           }}
         >
-          <Icon
-            size="100%"
-            color="currentColor"
-            variant={active ? "Bulk" : "TwoTone"}
-          />
+          <Icon size="100%" color="currentColor" variant={active ? "Bulk" : "TwoTone"} />
         </motion.span>
       </motion.span>
 
@@ -211,8 +199,6 @@ function DockIconButton({
     </motion.a>
   );
 }
-
-// Resume CTA removed per request
 
 export function SideDock({
   navigationItems,
@@ -269,18 +255,21 @@ export function SideDock({
                 item={item}
                 active={activeSection === item.id}
                 mouseY={mouseY}
+                mobileHidden={item.id === "hero"}
               />
             ))}
-            
+
             <button
               type="button"
-              className="side-dock__language-item"
+              className="side-dock__language-item side-dock__language-item--desktop"
               onClick={onToggleLocale}
               aria-label={locale === "es" ? "Cambiar a inglés" : "Switch to Spanish"}
             >
-              <img
+              <Image
                 src={locale === "es" ? "/peru-icon.png" : "/usa-icon.png"}
                 alt={locale === "es" ? "Spanish" : "English"}
+                width={24}
+                height={24}
                 className="side-dock__language-icon"
               />
             </button>
@@ -288,6 +277,21 @@ export function SideDock({
 
           <div className="side-dock__divider" />
         </motion.nav>
+
+        <button
+          type="button"
+          className="side-dock__language-item side-dock__language-item--mobile"
+          onClick={onToggleLocale}
+          aria-label={locale === "es" ? "Cambiar a inglés" : "Switch to Spanish"}
+        >
+          <Image
+            src={locale === "es" ? "/peru-icon.png" : "/usa-icon.png"}
+            alt={locale === "es" ? "Spanish" : "English"}
+            width={24}
+            height={24}
+            className="side-dock__language-icon"
+          />
+        </button>
       </div>
     </aside>
   );

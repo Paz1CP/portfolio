@@ -370,6 +370,24 @@ export function CaseStudyModal({
                   ease: easeOutExpo,
                 }}
               >
+                <Dialog.Title asChild>
+                  <h2
+                    style={{
+                      position: "absolute",
+                      width: "1px",
+                      height: "1px",
+                      padding: 0,
+                      margin: "-1px",
+                      overflow: "hidden",
+                      clip: "rect(0, 0, 0, 0)",
+                      whiteSpace: "nowrap",
+                      border: 0,
+                    }}
+                  >
+                    {selectedCaseStudy.title}
+                  </h2>
+                </Dialog.Title>
+
                 <div className="case-modal__scroll">
                   <header className="case-modal__topbar">
                     <div className="case-modal__topbar-content">
