@@ -245,4 +245,10 @@
       gap: var(--space-16);
     }
   }
+
+  @media (max-width: 767px) {
+    .footer__back-to-top {
+      display: none;
+    }
+  }
 }
