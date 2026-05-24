@@ -231,6 +231,41 @@ export function SideDock({
       }}
     >
       <div className="side-dock__stack">
+        <div className="side-dock__mobile-utilities">
+          <button
+            type="button"
+            className="side-dock__utility-btn side-dock__utility-btn--language"
+            onClick={onToggleLocale}
+            aria-label={locale === "es" ? "Cambiar a inglés" : "Switch to Spanish"}
+          >
+            <Image
+              src={locale === "es" ? "/peru-icon.png" : "/usa-icon.png"}
+              alt={locale === "es" ? "Spanish" : "English"}
+              width={24}
+              height={24}
+              className="side-dock__language-icon"
+            />
+          </button>
+
+          <a
+            href="#hero"
+            className="side-dock__utility-btn side-dock__utility-btn--back-to-top"
+            aria-label="Back to top"
+            onClick={(e) => {
+              e.preventDefault();
+              const heroEl = document.getElementById("hero");
+              if (heroEl) {
+                heroEl.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }
+            }}
+          >
+            <ArrowUp size={18} strokeWidth={2.2} />
+          </a>
+        </div>
+
         <motion.nav
           className="side-dock__shell"
           initial={{
@@ -278,41 +313,6 @@ export function SideDock({
 
           <div className="side-dock__divider" />
         </motion.nav>
-
-        <div className="side-dock__mobile-utilities">
-          <button
-            type="button"
-            className="side-dock__utility-btn side-dock__utility-btn--language"
-            onClick={onToggleLocale}
-            aria-label={locale === "es" ? "Cambiar a inglés" : "Switch to Spanish"}
-          >
-            <Image
-              src={locale === "es" ? "/peru-icon.png" : "/usa-icon.png"}
-              alt={locale === "es" ? "Spanish" : "English"}
-              width={24}
-              height={24}
-              className="side-dock__language-icon"
-            />
-          </button>
-
-          <a
-            href="#hero"
-            className="side-dock__utility-btn side-dock__utility-btn--back-to-top"
-            aria-label="Back to top"
-            onClick={(e) => {
-              e.preventDefault();
-              const heroEl = document.getElementById("hero");
-              if (heroEl) {
-                heroEl.scrollIntoView({
-                  behavior: "smooth",
-                  block: "start",
-                });
-              }
-            }}
-          >
-            <ArrowUp size={18} strokeWidth={2.2} />
-          </a>
-        </div>
       </div>
     </aside>
   );
