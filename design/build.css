@@ -1,0 +1,495 @@
+/* ==========================================================================
+   Paz Portfolio DS — Build / Services
+   Section: Pricing cards for design & development services
+   ========================================================================== */
+
+@layer components {
+  .build {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-block: clamp(8.5rem, 13vw, 12rem);
+  }
+
+  .build__container {
+    width: min(calc(100% - (var(--page-gutter) * 2)), 100rem);
+    margin-inline: auto;
+  }
+
+  /* Ambient glow — left side warm, right side cognac */
+  .build::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: -8%;
+    top: 14%;
+    width: min(38rem, 42vw);
+    height: min(28rem, 34vw);
+    border-radius: 999px;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 42% 32%, rgba(201, 150, 46, 0.1), transparent 42%),
+      radial-gradient(circle at 68% 62%, rgba(154, 90, 46, 0.08), transparent 48%);
+    filter: blur(48px);
+    opacity: 0.72;
+  }
+
+  .build::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    right: -6%;
+    bottom: 10%;
+    width: min(32rem, 36vw);
+    height: min(24rem, 28vw);
+    border-radius: 999px;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 55% 45%, rgba(201, 150, 46, 0.07), transparent 40%);
+    filter: blur(52px);
+    opacity: 0.6;
+  }
+
+  /* --------------------------------------------------------------------------
+   * Header
+   * -------------------------------------------------------------------------- */
+
+  .build__header {
+    text-align: center;
+    max-width: 52rem;
+    margin-inline: auto;
+  }
+
+  .build__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-family: var(--font-sans-stack);
+    font-size: var(--label-s-size);
+    line-height: 1;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--copy-tertiary);
+  }
+
+  .build__eyebrow::before {
+    content: "";
+    width: 1.5rem;
+    height: 1px;
+    background: var(--leather-gold-muted);
+  }
+
+  .build__eyebrow::after {
+    content: "";
+    width: 1.5rem;
+    height: 1px;
+    background: var(--leather-gold-muted);
+  }
+
+  .build__title {
+    margin-top: var(--space-24);
+    color: var(--copy-primary);
+  }
+
+  .build__subtitle {
+    margin-top: var(--space-16);
+    max-width: 44rem;
+    margin-inline: auto;
+    color: var(--copy-secondary);
+  }
+
+  /* --------------------------------------------------------------------------
+   * Action buttons (WhatsApp, Email, PDF)
+   * -------------------------------------------------------------------------- */
+
+  .build__actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-16);
+    margin-top: clamp(2.25rem, 4vw, 3rem);
+  }
+
+  .build__action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.95rem 1.85rem;
+    border-radius: var(--radius-full);
+    font-size: 0.95rem;
+    font-weight: 650;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    cursor: pointer;
+    user-select: none;
+    background: rgba(20, 17, 14, 0.78);
+    color: var(--copy-primary);
+    border: 1px solid rgba(243, 231, 210, 0.12);
+    transition:
+      transform var(--motion-base) var(--ease-out-expo),
+      background var(--motion-base) var(--ease-out-expo),
+      border-color var(--motion-base) var(--ease-out-expo),
+      box-shadow var(--motion-base) var(--ease-out-expo);
+  }
+
+  .build__action-btn:hover {
+    transform: translateY(-2px);
+    background: var(--dark-soft);
+    border-color: var(--border-active);
+    box-shadow: 0 12px 32px rgba(201, 150, 46, 0.08);
+  }
+
+  .build__action-btn:active {
+    transform: translateY(0);
+  }
+
+  .build__action-icon {
+    width: 21px;
+    height: 21px;
+    flex-shrink: 0;
+  }
+
+  .build__whatsapp-icon {
+    width: 23px;
+    height: 23px;
+    flex-shrink: 0;
+    border-radius: 4px;
+  }
+
+  /* --------------------------------------------------------------------------
+   * Cards Grid
+   * -------------------------------------------------------------------------- */
+
+  .build__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1.25rem, 2.5vw, 2rem);
+    margin-top: clamp(3.5rem, 6vw, 5.5rem);
+    align-items: stretch;
+  }
+
+  /* --------------------------------------------------------------------------
+   * Card
+   * -------------------------------------------------------------------------- */
+
+  .build-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-xl);
+    padding: clamp(1.5rem, 2.8vw, 2.25rem);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    background:
+      linear-gradient(180deg, rgba(243, 231, 210, 0.03), transparent 44%),
+      rgba(20, 17, 14, 0.76);
+    border: 1px solid rgba(243, 231, 210, 0.08);
+    box-shadow:
+      0 18px 54px rgba(0, 0, 0, 0.26),
+      inset 0 1px 0 rgba(243, 231, 210, 0.045);
+    transform: translateZ(0);
+    transition:
+      transform 520ms var(--ease-out-expo),
+      border-color 420ms var(--ease-out-expo),
+      box-shadow 420ms var(--ease-out-expo),
+      background 420ms var(--ease-out-expo);
+  }
+
+  /* Hover glow overlay */
+  .build-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    background:
+      radial-gradient(circle at 20% 0%, rgba(231, 200, 120, 0.1), transparent 36%),
+      radial-gradient(circle at 85% 78%, rgba(154, 90, 46, 0.08), transparent 44%);
+    transition: opacity 420ms var(--ease-out-expo);
+  }
+
+  /* Shimmer sweep */
+  .build-card::after {
+    content: "";
+    position: absolute;
+    inset: -50% -80%;
+    pointer-events: none;
+    opacity: 0;
+    background: linear-gradient(
+      112deg,
+      transparent 42%,
+      rgba(243, 231, 210, 0.08) 48%,
+      rgba(231, 200, 120, 0.06) 52%,
+      transparent 58%
+    );
+    transform: translateX(-42%) rotate(8deg);
+    transition:
+      opacity 240ms var(--ease-out-expo),
+      transform 900ms var(--ease-out-expo);
+  }
+
+  .build-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(201, 150, 46, 0.26);
+    box-shadow:
+      0 28px 80px rgba(0, 0, 0, 0.34),
+      0 18px 56px rgba(201, 150, 46, 0.08),
+      inset 0 1px 0 rgba(243, 231, 210, 0.06);
+  }
+
+  .build-card:hover::before {
+    opacity: 1;
+  }
+
+  .build-card:hover::after {
+    opacity: 1;
+    transform: translateX(42%) rotate(8deg);
+  }
+
+  /* Featured card (center card — "Producto Real") with warm gold neon glow */
+  .build-card--featured {
+    border-color: rgba(201, 150, 46, 0.75);
+    background:
+      linear-gradient(180deg, rgba(243, 231, 210, 0.05), transparent 46%),
+      rgba(20, 17, 14, 0.85);
+    box-shadow:
+      0 0 20px rgba(201, 150, 46, 0.22),
+      0 0 40px rgba(201, 150, 46, 0.12),
+      0 22px 62px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(243, 231, 210, 0.08),
+      inset 0 0 12px rgba(201, 150, 46, 0.08);
+  }
+
+  .build-card--featured:hover {
+    border-color: var(--leather-gold);
+    box-shadow:
+      0 0 35px rgba(255, 195, 0, 0.5),
+      0 0 65px rgba(255, 195, 0, 0.3),
+      0 32px 90px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 225, 100, 0.25),
+      inset 0 0 20px rgba(255, 195, 0, 0.25);
+  }
+
+  /* Corner decorators */
+  .build-card__corner {
+    position: absolute;
+    z-index: 3;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-color: rgba(201, 150, 46, 0.28);
+    opacity: 0.65;
+    pointer-events: none;
+    transition: opacity 420ms var(--ease-out-expo);
+  }
+
+  .build-card:hover .build-card__corner {
+    opacity: 1;
+  }
+
+  .build-card__corner--tl {
+    top: 1.1rem;
+    left: 1.1rem;
+    border-top: 1px solid;
+    border-left: 1px solid;
+  }
+
+  .build-card__corner--br {
+    right: 1.1rem;
+    bottom: 1.1rem;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+  }
+
+  /* Card inner content */
+  .build-card__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+  }
+
+  .build-card__title {
+    font-family: var(--font-serif-stack) !important;
+    font-size: clamp(1.65rem, 2.5vw, 2.15rem) !important;
+    font-weight: 400 !important;
+    letter-spacing: -0.02em !important;
+    color: var(--copy-primary) !important;
+    line-height: 1.15 !important;
+  }
+
+  .build-card__starting {
+    margin-top: 0.75rem;
+    color: var(--copy-tertiary);
+    font-size: var(--body-xs-size);
+    line-height: 1;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .build-card__price {
+    margin-top: 0.35rem;
+    font-family: var(--font-sans-stack);
+    font-size: clamp(2.35rem, 3.8vw, 3rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--leather-gold-soft);
+  }
+
+  .build-card__timeline {
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    gap: 0.45rem;
+    margin-top: 0.85rem;
+    border-radius: 999px;
+    padding: 0.45rem 0.85rem;
+    color: var(--copy-secondary);
+    background: rgba(11, 9, 7, 0.44);
+    border: 1px solid rgba(243, 231, 210, 0.08);
+    font-size: 0.75rem;
+    line-height: 1;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+  }
+
+  .build-card__timeline-icon {
+    flex-shrink: 0;
+    color: var(--leather-gold-soft);
+    filter: drop-shadow(0 0 4px rgba(201, 150, 46, 0.36));
+  }
+
+  /* --------------------------------------------------------------------------
+   * Card layout: text left + image right
+   * -------------------------------------------------------------------------- */
+
+  .build-card__body {
+    display: grid;
+    /* Features take ~38%, image gets ~62% — big bold illustrations */
+    grid-template-columns: 0.9fr 1.6fr;
+    gap: clamp(1rem, 1.8vw, 1.5rem);
+    margin-top: clamp(1.25rem, 2.5vw, 1.75rem);
+    flex: 1;
+    align-items: center;
+  }
+
+  /* Feature list */
+  .build-card__features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    align-self: center;
+  }
+
+  .build-card__feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+    color: var(--copy-secondary);
+    font-size: var(--body-xs-size);
+    line-height: 1.4;
+  }
+
+  .build-card__feature-icon {
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+    width: 13px;
+    height: 13px;
+  }
+
+  /* Asset image — big, unclipped, centered */
+  .build-card__asset {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    align-self: center;
+    overflow: visible;
+  }
+
+  .build-card__asset-image {
+    object-fit: contain !important;
+    object-position: center center !important;
+    transition: transform 700ms var(--ease-out-expo);
+  }
+
+  .build-card:hover .build-card__asset-image {
+    transform: scale(1.07);
+  }
+
+  /* ==========================================================================
+     Responsive
+     ========================================================================== */
+
+  @media (max-width: 1280px) {
+    .build-card__body {
+      grid-template-columns: 1fr 1.4fr;
+    }
+
+    .build-card__asset {
+      height: 360px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .build__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .build-card--featured {
+      grid-column: 1 / -1;
+    }
+
+    .build-card__body {
+      grid-template-columns: 1fr 1.5fr;
+    }
+
+    .build-card__asset {
+      height: 340px;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .build {
+      padding-block: 5rem;
+    }
+
+    .build__grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-20);
+    }
+
+    .build-card {
+      padding: 1.5rem;
+    }
+
+    .build-card__body {
+      grid-template-columns: 1fr 1.4fr;
+      align-items: center;
+    }
+
+    .build-card__asset {
+      height: 260px;
+    }
+
+    .build-card__price {
+      font-size: clamp(2rem, 5vw, 2.5rem);
+    }
+  }
+
+  @media (max-width: 520px) {
+    .build-card__body {
+      grid-template-columns: 1fr;
+      gap: var(--space-16);
+    }
+
+    .build-card__asset {
+      height: 280px;
+    }
+  }
+}

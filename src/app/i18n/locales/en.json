@@ -24,18 +24,24 @@
         },
         {
             "index": "03",
+            "id": "build",
+            "label": "Build",
+            "ariaLabel": "Go to build services section"
+        },
+        {
+            "index": "04",
             "id": "experience",
             "label": "Experience",
             "ariaLabel": "Go to experience section"
         },
         {
-            "index": "04",
+            "index": "05",
             "id": "capabilities",
             "label": "Capabilities",
             "ariaLabel": "Go to capabilities section"
         },
         {
-            "index": "05",
+            "index": "06",
             "id": "contact",
             "label": "Contact",
             "ariaLabel": "Go to contact section"
@@ -108,6 +114,63 @@
                 ],
                 "cta": "View case study",
                 "assetVariant": "system"
+            }
+        ]
+    },
+    "buildContent": {
+        "eyebrow": "Services",
+        "headline": "Three ways to turn your idea into a real product.",
+        "subtitle": "Design & mobile development services to turn ideas into real, clear, production-ready products.",
+        "whatsappLabel": "WhatsApp",
+        "emailLabel": "Email",
+        "pdfLabel": "Full PDF",
+        "pdfUrl": "/images/build/Design_Development_and_Deployment_of_Production_Mobile_Applications.pdf",
+        "whatsappUrl": "https://api.whatsapp.com/send/?phone=51973886687&text=Hi+Christopher%2C+I+have+an+app+idea%2Fproject+and+I%27d+be+interested+in+working+on+it+with+you&type=phone_number&app_absent=0",
+        "emailAddress": "contact@christopherpaz.dev",
+        "cards": [
+            {
+                "title": "Operational MVP",
+                "startingLabel": "From",
+                "price": "US$1,000",
+                "timeline": "Up to 1 month",
+                "features": [
+                    "Clear scope to get started",
+                    "Essential product flow",
+                    "Mobile interface ready to present",
+                    "Functional app to validate direction"
+                ],
+                "asset": "/images/build/pack_1.png"
+            },
+            {
+                "title": "Real Product",
+                "startingLabel": "From",
+                "price": "US$2,500",
+                "timeline": "Up to 3 months",
+                "features": [
+                    "Product defined end to end",
+                    "Premium UX/UI for real users",
+                    "Mobile app ready for distribution",
+                    "Cloud infrastructure/backend",
+                    "AI integrated into the main flow",
+                    "Deployment to production"
+                ],
+                "asset": "/images/build/pack_2.png"
+            },
+            {
+                "title": "Full App",
+                "startingLabel": "From",
+                "price": "US$4,500",
+                "timeline": "3\u20136 months",
+                "features": [
+                    "Complete product strategy",
+                    "End-to-end app architecture",
+                    "Premium UX/UI for multiple flows",
+                    "Robust cloud infrastructure",
+                    "Advanced AI workflows",
+                    "Preparation for official launch",
+                    "Post-launch growth roadmap"
+                ],
+                "asset": "/images/build/pack_3.png"
             }
         ]
     },

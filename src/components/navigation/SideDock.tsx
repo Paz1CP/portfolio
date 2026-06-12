@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Briefcase, Cpu, Home2, MedalStar, Send2 } from "iconsax-reactjs";
+import { Briefcase, Cpu, Designtools, Home2, MedalStar, Send2 } from "iconsax-reactjs";
 import { ArrowUp } from "lucide-react";
 import { motion, MotionValue, useMotionValue, useTransform } from "framer-motion";
 import {
@@ -33,6 +33,7 @@ type NavigationItem = Dictionary["navigationItems"][number];
 const navigationIcons: Record<NavigationItem["id"], IconsaxIcon> = {
   hero: Home2,
   work: Briefcase,
+  build: Designtools,
   experience: MedalStar,
   capabilities: Cpu,
   contact: Send2,

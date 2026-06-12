@@ -24,18 +24,24 @@
         },
         {
             "index": "03",
+            "id": "build",
+            "label": "Servicios",
+            "ariaLabel": "Ir a la sección de servicios"
+        },
+        {
+            "index": "04",
             "id": "experience",
             "label": "Experiencia",
             "ariaLabel": "Ir a la sección de experiencia"
         },
         {
-            "index": "04",
+            "index": "05",
             "id": "capabilities",
             "label": "Capacidades",
             "ariaLabel": "Ir a la sección de capacidades"
         },
         {
-            "index": "05",
+            "index": "06",
             "id": "contact",
             "label": "Contacto",
             "ariaLabel": "Ir a la sección de contacto"
@@ -108,6 +114,63 @@
                 ],
                 "cta": "Ver caso",
                 "assetVariant": "system"
+            }
+        ]
+    },
+    "buildContent": {
+        "eyebrow": "Servicios",
+        "headline": "Tres formas de llevar tu idea a producto real.",
+        "subtitle": "Servicios de diseño & desarrollo mobile para convertir ideas en productos reales, claros y listos para producción.",
+        "whatsappLabel": "WhatsApp",
+        "emailLabel": "Email",
+        "pdfLabel": "PDF Completo",
+        "pdfUrl": "/images/build/Dise%C3%B1o%2C%20Desarrollo%20y%20Despliegue%20de%20Aplicaciones%20Mobile%20de%20Producci%C3%B3n.pdf",
+        "whatsappUrl": "https://api.whatsapp.com/send/?phone=51973886687&text=Hola+Christopher%2C+tengo+una+idea%2Fproyecto+de+app+y+me+interesar%C3%ADa+trabajarla+contigo&type=phone_number&app_absent=0",
+        "emailAddress": "contact@christopherpaz.dev",
+        "cards": [
+            {
+                "title": "MVP Operativo",
+                "startingLabel": "Desde",
+                "price": "US$1,000",
+                "timeline": "Hasta 1 mes",
+                "features": [
+                    "Alcance claro para empezar",
+                    "Flujo esencial del producto",
+                    "Interfaz mobile lista para presentar",
+                    "App funcional para validar dirección"
+                ],
+                "asset": "/images/build/pack_1.png"
+            },
+            {
+                "title": "Producto Real",
+                "startingLabel": "Desde",
+                "price": "US$2,500",
+                "timeline": "Hasta 3 meses",
+                "features": [
+                    "Producto definido de inicio a fin",
+                    "UX/UI premium para usuarios reales",
+                    "App Mobile lista para distribución",
+                    "Infraestructura/Backend en la nube",
+                    "IA integrada al flujo principal",
+                    "Despliegue hacia producción"
+                ],
+                "asset": "/images/build/pack_2.png"
+            },
+            {
+                "title": "App Completa",
+                "startingLabel": "Desde",
+                "price": "US$4,500",
+                "timeline": "3–6 meses",
+                "features": [
+                    "Estrategia completa de producto",
+                    "Arquitectura E2E de la aplicación",
+                    "UX/UI premium para múltiples flujos",
+                    "Infraestructura robusta en la nube",
+                    "Flujos de AI avanzados",
+                    "Preparación para publicación oficial",
+                    "Roadmap de crecimiento posterior"
+                ],
+                "asset": "/images/build/pack_3.png"
             }
         ]
     },
