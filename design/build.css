@@ -12,7 +12,7 @@
   }
 
   .build__container {
-    width: min(calc(100% - (var(--page-gutter) * 2)), 100rem);
+    width: min(calc(100% - (var(--page-gutter) * 2)), 112rem);
     margin-inline: auto;
   }
 
@@ -368,9 +368,9 @@
 
   .build-card__body {
     display: grid;
-    /* Features take ~38%, image gets ~62% — big bold illustrations */
+    /* Features take ~36%, image gets ~64% — big bold illustrations */
     grid-template-columns: 0.9fr 1.6fr;
-    gap: clamp(1rem, 1.8vw, 1.5rem);
+    gap: clamp(1.5rem, 3.2vw, 3.5rem);
     margin-top: clamp(1.25rem, 2.5vw, 1.75rem);
     flex: 1;
     align-items: center;
@@ -416,10 +416,12 @@
     object-fit: contain !important;
     object-position: center center !important;
     transition: transform 700ms var(--ease-out-expo);
+    transform-origin: bottom center;
+    transform: scale(1.2);
   }
 
   .build-card:hover .build-card__asset-image {
-    transform: scale(1.07);
+    transform: scale(1.27);
   }
 
   /* ==========================================================================
