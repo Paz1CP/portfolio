@@ -103,16 +103,16 @@
             {
                 "slug": "cookpilot",
                 "title": "CookPilot",
-                "description": "Estoy construyendo un producto AI-native desde cero: Flutter, Supabase, UX/UI, modelado de datos, diseño de sistemas y flujos con IA.",
-                "proof": "Trabajo zero-to-one entre app, backend, UX y lógica de IA.",
+                "description": "Construí y lancé un producto mobile que organiza comida real desde la decisión hasta la compra y la cocina.",
+                "proof": "Producto, UX/UI, Flutter, Supabase e IA de punta a punta.",
                 "tags": [
                     "Flutter",
                     "Supabase",
                     "UX/UI",
-                    "Design system",
-                    "Flujos LLM"
+                    "Riverpod",
+                    "LLM APIs"
                 ],
-                "cta": "Ver caso",
+                "cta": "Ver caso →",
                 "assetVariant": "system"
             }
         ]
@@ -183,27 +183,28 @@
             {
                 "index": "01",
                 "date": "Oct 2025 – Presente",
-                "role": "Lead Product Engineer — Proyecto propio pre-launch",
+                "role": "Founder & Lead Product Engineer — Producto propio",
                 "company": "CookPilot",
-                "summary": "Construyendo un producto AI-native pre-launch con Flutter, Supabase, UX/UI, diseño de sistemas en Figma, modelado de datos, assets de producto y flujos estructurados con IA.",
-                "impact": "Un laboratorio de producto end-to-end que muestra estrategia, ejecución móvil, arquitectura backend y ownership de flujos con IA.",
+                "summary": "Construí y lancé CookPilot, un producto mobile que conecta decisión, planificación, compra y cocina dentro de un mismo sistema. Lo desarrollo end-to-end con Flutter, Supabase y flujos estructurados de IA.",
+                "impact": "Es la prueba más completa de mi trabajo: producto, UX/UI, arquitectura, backend y ejecución mobile reunidos en un producto real.",
                 "details": [
-                    "Lidero dirección de producto, sistema UX/UI, base Flutter de la app y arquitectura Supabase.",
-                    "Modelo flujos de decisión alrededor de contexto de usuario, restricciones, salidas estructuradas de IA y acciones en la UI móvil."
+                    "Diseñé una arquitectura que conecta ingredientes, recetas, menús, días y semanas con nutrición, costos, compra y cocina.",
+                    "Lancé la app con autenticación, billing, IA multimodal, flujos realtime e integraciones nativas."
                 ],
                 "tags": [
                     "Flutter",
                     "Dart",
+                    "Riverpod",
                     "Supabase",
                     "PostgreSQL",
                     "RLS",
                     "Edge Functions",
+                    "Realtime",
                     "UX/UI",
                     "Figma",
-                    "Design system",
                     "LLM APIs",
-                    "Salidas estructuradas",
-                    "Assets de producto"
+                    "MediaPipe",
+                    "RevenueCat"
                 ]
             },
             {
@@ -494,37 +495,37 @@
         {
             "slug": "cookpilot",
             "projectName": "CookPilot",
-            "eyebrow": "Caso / Producto pre-launch",
-            "title": "Un producto AI-native construido desde cero.",
-            "role": "Lead Product Engineer — Proyecto propio pre-launch",
+            "eyebrow": "Caso / Producto propio",
+            "title": "Un sistema mobile construido de extremo a extremo.",
+            "role": "Founder & Lead Product Engineer",
             "timeline": "Oct 2025 – Presente",
-            "context": "CookPilot es un producto pre-launch que estoy construyendo como side project y laboratorio de producto. Muestra trabajo end-to-end en estrategia de producto, UX/UI, sistemas en Figma, desarrollo Flutter, arquitectura Supabase, modelado de datos, assets high-fidelity y flujos asistidos por IA.",
-            "ownedTitle": "Qué tengo a cargo",
-            "owned": "Lidero producto, UX/UI, design system en Figma, desarrollo Flutter, arquitectura Supabase, modelado de datos, assets visuales y flujos estructurados con IA.",
+            "context": "CookPilot organiza comida real dentro de un solo sistema. Ingredientes, recetas, menús, momentos del día, días y semanas se conectan con nutrición, costos, compra, ejecución y progreso.\n\nDiseñé y construí el producto completo: UX/UI, arquitectura de datos, app Flutter, backend en Supabase, monetización, integraciones nativas y flujos especializados de IA.",
+            "ownedTitle": "Responsabilidad",
+            "owned": "Dirijo producto, UX/UI, desarrollo Flutter, arquitectura Supabase, modelado de datos, IA aplicada, monetización y releases.",
             "keyWork": [
-                "Construí desde cero la dirección de producto, el sistema UX/UI y la experiencia móvil.",
-                "Creé un design system en Figma y pantallas de producto high-fidelity.",
-                "Desarrollé landing pública, demo y waitlist.",
-                "Construí la base de la app Flutter y el backend en Supabase.",
-                "Modelé datos de producto y flujos de decisión alrededor del contexto del usuario.",
-                "Creé assets de producto, íconos y materiales visuales high-fidelity.",
-                "Construí flujos asistidos por IA usando LLM APIs, salidas estructuradas, System Prompts y restricciones backend."
+                "Definí la arquitectura de producto y el modelo de datos que conecta ingredientes, recetas, menús, momentos del día, días y semanas.",
+                "Diseñé el sistema UX/UI en Figma y lo implementé en Flutter con Riverpod y componentes reutilizables.",
+                "Construí el backend con Supabase, PostgreSQL, Auth, RLS, Edge Functions, RPCs, Storage y Realtime.",
+                "Desarrollé CookPlan, CookSearch, CookImport, CookList, CookMode y CookBalance como partes de un mismo loop.",
+                "Integré LLM APIs, structured outputs, prompt systems, procesamiento multimodal y validaciones backend para producir acciones tipadas dentro del producto.",
+                "Implementé Google Sign-In, Credential Manager, RevenueCat, Huawei IAP, MediaPipe, flavors y workflows de release para tiendas."
             ],
             "technicalHighlights": [
                 "Flutter",
                 "Dart",
+                "Riverpod",
                 "Supabase",
                 "PostgreSQL",
                 "RLS",
                 "Edge Functions",
+                "Realtime",
+                "REST APIs",
                 "LLM APIs",
-                "Salidas estructuradas",
-                "System Prompts",
+                "Structured Outputs",
+                "MediaPipe",
+                "RevenueCat",
                 "UX/UI",
-                "Figma",
-                "diseño de sistemas",
-                "Assets de producto",
-                "Modelado de datos"
+                "Figma"
             ],
             "assets": [
                 "cookpilot_figma_board",
@@ -539,30 +540,30 @@
             "workflowTitle": "Flujo con IA",
             "workflow": [
                 "Contexto del usuario",
-                "Restricciones del producto",
-                "Reglas del backend",
+                "Reglas y restricciones del producto",
+                "Orquestación backend",
                 "Salida estructurada del LLM",
-                "Respuesta validada del producto",
-                "Acción en la UI móvil"
+                "Validación y normalización",
+                "Acción tipada en la app"
             ],
             "designSystemWork": [
                 "Dirección UX/UI",
                 "Design system en Figma",
                 "Jerarquía visual",
+                "Tokens y componentes",
+                "Estados e interacción",
                 "Superficies de producto",
-                "Design tokens",
                 "Assets high-fidelity",
-                "Patrones de interacción de la app",
-                "Ejecución Figma-to-Flutter"
+                "Implementación Figma-to-Flutter"
             ],
             "currentState": [
-                "Producto pre-launch",
+                "Producto lanzado",
+                "App Flutter en producción",
+                "Backend Supabase en producción",
                 "Landing pública",
-                "Demo",
-                "Waitlist",
-                "App Flutter en desarrollo",
-                "Backend en Supabase",
-                "Sistema de producto en progreso"
+                "Publicado en tiendas",
+                "Billing activo",
+                "Desarrollo continuo"
             ]
         }
     ],
