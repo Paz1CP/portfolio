@@ -7,11 +7,21 @@
   .portfolio-hero {
     position: relative;
     isolation: isolate;
-    min-height: 75svh;
+    /* Keep the first screen dedicated to Home. Size the composition from
+       both viewport axes; allow natural growth if content cannot safely fit. */
+    --hero-pad-block: clamp(var(--space-16), 4dvh, var(--space-64));
+    --hero-signature-space: clamp(var(--space-16), 3dvh, var(--space-48));
+    --content-wide: 136rem;
+    --display-hero-size: clamp(2.25rem, min(5.1vw, 9.5dvh), 9rem);
+    --body-l-size: clamp(1rem, min(1.35vw, 2.25dvh), 1.75rem);
+    --body-s-size: clamp(0.875rem, min(1vw, 1.6dvh), 1.125rem);
+    min-height: 100vh;
+    min-height: 100svh;
+    min-height: 100dvh;
     display: flex;
     align-items: center;
     overflow: hidden;
-    padding-block: clamp(5.25rem, 9vw, 7.5rem);
+    padding-block: var(--hero-pad-block);
   }
 
   .portfolio-hero__ambient {
@@ -61,14 +71,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: clamp(3.5rem, 7vw, 5rem);
-    width: min(100%, 110.4rem);
+    gap: clamp(var(--space-24), min(4vw, 6dvh), var(--space-96));
+    max-width: min(var(--content-wide), 175dvh);
     margin-inline: auto;
   }
 
   .portfolio-hero__content {
-    flex: 0 1 55.2rem;
-    max-width: 55.2rem;
+    flex: 1 1 0;
+    min-width: 0;
   }
 
   .portfolio-hero__availability {
@@ -98,7 +108,7 @@
   .portfolio-hero__identity {
     display: grid;
     gap: var(--space-4);
-    margin-top: var(--space-24);
+    margin-top: clamp(var(--space-12), 2.5dvh, var(--space-32));
   }
 
   .portfolio-hero__name {
@@ -121,24 +131,24 @@
   }
 
   .portfolio-hero__title {
-    margin-top: var(--space-24);
-    max-width: 17ch;
+    margin-top: clamp(var(--space-12), 2.5dvh, var(--space-32));
+    max-width: none;
     color: var(--copy-primary);
     text-wrap: balance;
   }
 
   .portfolio-hero__title-line {
-    display: block;
+    display: inline;
   }
 
   .portfolio-hero__title-accent {
-    display: block;
+    display: inline;
     color: var(--text-primary);
   }
 
   .portfolio-hero__subtitle {
-    margin-top: var(--space-32);
-    max-width: 46rem;
+    margin-top: clamp(var(--space-16), 3dvh, var(--space-48));
+    max-width: 60rem;
     color: var(--copy-secondary);
   }
 
@@ -147,12 +157,12 @@
     flex-wrap: wrap;
     gap: var(--space-12);
     align-items: stretch;
-    margin-top: var(--space-32);
+    margin-top: clamp(var(--space-16), 3dvh, var(--space-48));
   }
 
   .portfolio-hero__contact-btn,
   .portfolio-hero__resume-btn {
-    flex: 1 1 16rem;
+    flex: 1 1 8rem;
     min-width: 0;
   }
 
@@ -265,9 +275,11 @@
 
   .portfolio-hero__portrait-wrap {
     position: relative;
-    flex: 0 0 min(38.4rem, 100%);
-    width: min(100%, 38.4rem);
-    padding-bottom: 4.9rem;
+    /* Preserve the original 3:4 portrait and reserve space for its signature. */
+    --hero-portrait-width: min(43%, 50rem, max(0px, calc((100dvh - 2 * var(--hero-pad-block) - var(--hero-signature-space)) * 0.75)));
+    flex: 0 0 var(--hero-portrait-width);
+    width: var(--hero-portrait-width);
+    padding-bottom: var(--hero-signature-space);
     transform: translateX(0);
   }
 
@@ -345,9 +357,9 @@
 .portfolio-hero__signature {
   position: absolute;
   z-index: 6;
-  right: -6.5rem;
-  bottom: -3.5rem;
-  width: min(24rem, 104%);
+  right: calc(-1 * min(2vw, var(--space-32)));
+  bottom: calc(-0.5 * var(--hero-signature-space));
+  width: min(32rem, 72%);
   aspect-ratio: 1;
   pointer-events: none;
 }
@@ -397,91 +409,78 @@
     border-bottom: 1px solid;
   }
 
-  @media (max-width: 1440px) {
-    .portfolio-hero__layout {
-      gap: clamp(3rem, 6vw, 5rem);
-    }
-
-    .portfolio-hero__portrait-wrap {
-      flex-basis: min(100%, 34.8rem);
-      width: min(100%, 34.8rem);
-    }
-
-    .portfolio-hero__signature {
-      right: -3rem;
-      width: min(36.8rem, 110%);
-    }
-  }
-
-  @media (max-width: 940px) {
+  /* Portrait tablets and narrow screens: stack without imposing a fixed
+     height, so zoom and longer translations never hide content. */
+  @media (max-width: 940px) and (orientation: portrait), (max-width: 767px) {
     .portfolio-hero {
-      min-height: auto;
-      padding-block: 3.75rem;
+      --hero-pad-block: clamp(var(--space-24), 4dvh, var(--space-48));
+      --display-hero-size: clamp(2rem, min(8.7vw, 6.5dvh), 4.25rem);
+      --body-l-size: clamp(1rem, 2.2vw, 1.25rem);
     }
 
     .portfolio-hero__layout {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--space-64);
+      grid-template-columns: minmax(0, 1fr);
+      gap: clamp(var(--space-16), 3dvh, var(--space-48));
+      max-width: 48rem;
     }
 
     .portfolio-hero__portrait-wrap {
       justify-self: center;
-      width: min(100%, 36rem);
-      padding-bottom: 3.8rem;
+      width: min(100%, 30rem, 30dvh);
     }
   }
 
-  @media (max-width: 720px) {
+  @media (max-width: 767px) {
     .portfolio-hero {
-      padding-top: max(2.75rem, calc(env(safe-area-inset-top, 0px) + 1rem));
-      padding-bottom: 3.1875rem;
+      --hero-signature-space: var(--space-16);
+      padding-top: max(var(--hero-pad-block), calc(env(safe-area-inset-top, 0px) + var(--space-16)));
+      /* Leave the fixed mobile dock clear of the portrait and CTAs. */
+      padding-bottom: max(var(--hero-pad-block), calc(env(safe-area-inset-bottom, 0px) + var(--space-128) + var(--space-16)));
+    }
+
+    .portfolio-hero__layout {
+      gap: var(--space-16);
     }
 
     .portfolio-hero__title {
-      max-width: 16ch;
+      margin-top: var(--space-12);
     }
 
-    .portfolio-hero__subtitle {
-      margin-top: var(--space-24);
+    .portfolio-hero__subtitle,
+    .portfolio-hero__actions {
+      margin-top: var(--space-16);
     }
 
     .portfolio-hero__actions {
       width: 100%;
+      gap: var(--space-8);
     }
 
     .portfolio-hero__actions .btn {
-      width: 100%;
-      min-height: 3.35rem;
-      font-size: 0.95rem;
+      min-height: 3rem;
+      padding: var(--space-12) var(--space-8);
+      font-size: 0.875rem;
+      gap: var(--space-8);
     }
 
-    .portfolio-hero__actions {
-      align-items: stretch;
-    }
-
-    .portfolio-hero__contact-btn {
-      flex: 1 1 calc(100% - 3.35rem - var(--space-12));
-    }
-
+    .portfolio-hero__contact-btn,
     .portfolio-hero__resume-btn {
-      flex-basis: 100%;
+      flex: 1 1 7rem;
     }
 
     .portfolio-hero__whatsapp-btn {
-      width: 3.35rem;
-      min-height: 3.35rem;
-    }
-
-    .portfolio-hero__proof {
-      margin-top: var(--space-32);
+      flex: 0 0 3rem;
+      width: 3rem;
+      min-height: 3rem;
     }
 
     .portfolio-hero__portrait-wrap {
-      width: min(100%, 32rem);
-      padding-bottom: 3.2rem;
+      width: min(100%, 24rem, max(9rem, 23dvh));
     }
 
-   
+    .portfolio-hero__signature {
+      right: calc(-1 * var(--space-8));
+    }
   }
 }
