@@ -601,15 +601,15 @@
                 },
                 {
                     "src": "/images/experience/CookPilot/img_app_recipe_detail.png",
-                    "alt": "Recipe details"
+                    "alt": "Menu details"
                 },
                 {
-                    "src": "/images/experience/CookPilot/img_app_cookflow_chat.jpg",
+                    "src": "/images/experience/CookPilot/img_app_cookmode.png",
                     "alt": "Cooking assistance"
                 },
                 {
-                    "src": "/images/experience/CookPilot/cookpilot.png",
-                    "alt": "CookPilot product interface"
+                    "src": "/images/experience/CookPilot/cooklist.png",
+                    "alt": "Grocery shopping list"
                 },
                 {
                     "src": "/images/experience/CookPilot/img_app_pricing_comparator.png",

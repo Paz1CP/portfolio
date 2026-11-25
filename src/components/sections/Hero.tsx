@@ -100,7 +100,7 @@ export function Hero({
           >
             <a
               className="portfolio-hero__whatsapp-btn"
-              href={`https://api.whatsapp.com/send/?phone=51973886687&text=${encodeURIComponent(content.whatsappMessage)}`}
+              href={`https://wa.me/51973886687?text=${encodeURIComponent(content.whatsappMessage)}`}
               target="_blank"
               rel="noreferrer"
               aria-label={content.whatsappAriaLabel}
