@@ -1,5 +1,7 @@
 ﻿import { ImageResponse } from "next/og";
 
+import { getDictionary } from "@/app/i18n";
+
 export const size = {
   width: 1200,
   height: 630,
@@ -8,6 +10,7 @@ export const size = {
 export const contentType = "image/png";
 
 export default function TwitterImage() {
+  const { siteConfig } = getDictionary();
   return new ImageResponse(
     (
       <div
@@ -31,11 +34,10 @@ export default function TwitterImage() {
             gap: "12px",
             fontSize: 28,
             letterSpacing: "0.08em",
-            textTransform: "uppercase",
             color: "#e7c878",
           }}
         >
-          Flutter Developer - Mobile Product Engineer
+          {siteConfig.role}
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
@@ -48,7 +50,7 @@ export default function TwitterImage() {
               maxWidth: 900,
             }}
           >
-            Christopher Paz Leon
+            {siteConfig.name}
           </div>
           <div
             style={{
@@ -57,7 +59,7 @@ export default function TwitterImage() {
               color: "rgba(243, 231, 210, 0.85)",
             }}
           >
-            Design. Build. Ship.
+            Backend systems, full-stack development and applied AI.
           </div>
         </div>
 

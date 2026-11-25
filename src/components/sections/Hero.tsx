@@ -19,11 +19,7 @@ export function Hero({
 }) {
   const shouldReduceMotion = useReducedMotion();
 
-  const splitToken = " and ship ";
-  const hasAccent = content.headline.includes(splitToken);
-  const [headlineLead, headlineTail] = hasAccent
-    ? content.headline.split(splitToken)
-    : [content.headline, ""];
+  const headlineLead = content.headline.slice(0, -content.headlineAccent.length).trimEnd();
 
   const containerTransition = shouldReduceMotion
     ? { duration: 0 }
@@ -72,13 +68,14 @@ export function Hero({
             {content.availability}
           </motion.p>
 
-          <motion.p
-            className="portfolio-hero__eyebrow type-label-m"
+          <motion.div
+            className="portfolio-hero__identity"
             variants={itemVariants}
             transition={{ duration: 0.7, ease: easeOutExpo }}
           >
-            {content.eyebrow}
-          </motion.p>
+            <p className="portfolio-hero__name type-body-s">{siteConfig.name}</p>
+            <p className="portfolio-hero__eyebrow">{siteConfig.role}</p>
+          </motion.div>
 
           <motion.h1
             id="portfolio-hero-title"
@@ -86,16 +83,8 @@ export function Hero({
             variants={itemVariants}
             transition={{ duration: 0.78, ease: easeOutExpo }}
           >
-            {hasAccent ? (
-              <>
-                <span className="portfolio-hero__title-line">{headlineLead}</span>
-                <span className="portfolio-hero__title-accent">
-                  and ship {headlineTail}
-                </span>
-              </>
-            ) : (
-              <span className="portfolio-hero__title-line">{headlineLead}</span>
-            )}
+            <span className="portfolio-hero__title-line">{headlineLead}</span>{" "}
+            <span className="portfolio-hero__title-accent">{content.headlineAccent}</span>
           </motion.h1>
 
           <motion.p
@@ -113,7 +102,7 @@ export function Hero({
           >
             <a
               className="portfolio-hero__whatsapp-btn"
-              href={content.whatsappUrl}
+              href={`https://api.whatsapp.com/send/?phone=51973886687&text=${encodeURIComponent(content.whatsappMessage)}`}
               target="_blank"
               rel="noreferrer"
               aria-label={content.whatsappAriaLabel}
@@ -148,13 +137,6 @@ export function Hero({
             </a>
           </motion.div>
 
-          <motion.p
-            className="portfolio-hero__proof type-label-m"
-            variants={itemVariants}
-            transition={{ duration: 0.7, ease: easeOutExpo }}
-          >
-            {content.microProof}
-          </motion.p>
         </motion.div>
 
         <motion.div
@@ -194,7 +176,7 @@ export function Hero({
           <div className="portfolio-hero__portrait">
             <Image
               src="/images/me.png"
-              alt="Portrait of Christopher Paz León"
+              alt={content.portraitAlt}
               fill
               priority
               sizes="(max-width: 1440px) 84vw, (max-width: 1180px) 24rem, 29rem"

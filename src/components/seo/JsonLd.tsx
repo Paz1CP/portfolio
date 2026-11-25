@@ -4,6 +4,7 @@ type JsonLdProps = {
   role: string;
   description: string;
   linkedInUrl: string;
+  githubUrl: string;
   email: string;
 };
 
@@ -13,24 +14,34 @@ export function JsonLd({
   role,
   description,
   linkedInUrl,
+  githubUrl,
   email,
 }: JsonLdProps) {
   const person = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "Christopher Paz León",
+    name: siteName,
     jobTitle: role,
     url: siteUrl,
-    sameAs: [linkedInUrl],
+    sameAs: [linkedInUrl, githubUrl],
     email: `mailto:${email}`,
     knowsAbout: [
-      "Flutter",
-      "Dart",
-      "Supabase",
+      "Software Engineering",
+      "Backend Engineering",
+      "Full-Stack Development",
+      "Applied AI",
+      "Autonomous Agents",
       "PostgreSQL",
+      "Node.js",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Google Cloud",
+      "Docker",
+      "CI/CD",
+      "Payments and Billing",
+      "Flutter",
       "UX/UI",
-      "AI workflows",
-      "Mobile development",
     ],
     description,
   };
@@ -51,7 +62,7 @@ export function JsonLd({
     inLanguage: "en",
     mainEntity: {
       "@type": "Person",
-      name: "Christopher Paz León",
+      name: siteName,
       jobTitle: role,
     },
   };

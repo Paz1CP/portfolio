@@ -5,7 +5,7 @@ export function middleware(request: NextRequest) {
   if (request.nextUrl.pathname === "/build") {
     const url = request.nextUrl.clone();
     url.pathname = "/";
-    url.hash = "#build";
+    url.hash = "#contact";
     return NextResponse.redirect(url, 308);
   }
 

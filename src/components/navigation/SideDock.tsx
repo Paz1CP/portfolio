@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Briefcase, Cpu, Designtools, Home2, MedalStar, Send2 } from "iconsax-reactjs";
+import { Cpu, Home2, MedalStar, Send2 } from "iconsax-reactjs";
 import { ArrowUp } from "lucide-react";
 import { motion, MotionValue, useMotionValue, useTransform } from "framer-motion";
 import {
@@ -32,8 +32,6 @@ type NavigationItem = Dictionary["navigationItems"][number];
 
 const navigationIcons: Record<NavigationItem["id"], IconsaxIcon> = {
   hero: Home2,
-  work: Briefcase,
-  build: Designtools,
   experience: MedalStar,
   capabilities: Cpu,
   contact: Send2,
@@ -49,28 +47,20 @@ function useActiveSection(sectionIds: string[]) {
 
     if (elements.length === 0) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntries = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+    function updateActiveSection() {
+      const midpoint = window.innerHeight / 2;
+      const current = elements.findLast((element) => element.getBoundingClientRect().top <= midpoint);
+      setActiveSection(current?.id ?? sectionIds[0]);
+    }
 
-        const bestMatch = visibleEntries[0]?.target.id;
-
-        if (bestMatch) {
-          setActiveSection(bestMatch);
-        }
-      },
-      {
-        root: null,
-        rootMargin: "-42% 0px -42% 0px",
-        threshold: [0.12, 0.24, 0.36, 0.48, 0.6],
-      }
-    );
-
-    elements.forEach((element) => observer.observe(element));
-
-    return () => observer.disconnect();
+    const frame = window.requestAnimationFrame(updateActiveSection);
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
   }, [sectionIds]);
 
   return activeSection;
@@ -190,7 +180,7 @@ function DockIconButton({
             placeItems: "center",
           }}
         >
-          <Icon size="100%" color="currentColor" variant={active ? "Bulk" : "TwoTone"} />
+          <Icon size="100%" color="currentColor" variant="Bold" />
         </motion.span>
       </motion.span>
 
@@ -223,7 +213,7 @@ export function SideDock({
   return (
     <aside
       className="side-dock"
-      aria-label="Portfolio navigation"
+      aria-label={locale === "es" ? "Navegación del portafolio" : "Portfolio navigation"}
       onMouseMove={(event) => {
         mouseY.set(event.clientY);
       }}
@@ -241,7 +231,7 @@ export function SideDock({
           >
             <Image
               src={locale === "es" ? "/peru-icon.png" : "/usa-icon.png"}
-              alt={locale === "es" ? "Spanish" : "English"}
+              alt=""
               width={24}
               height={24}
               className="side-dock__language-icon"
@@ -251,7 +241,7 @@ export function SideDock({
           <a
             href="#hero"
             className="side-dock__utility-btn side-dock__utility-btn--back-to-top"
-            aria-label="Back to top"
+            aria-label={locale === "es" ? "Volver al inicio" : "Back to top"}
             onClick={(e) => {
               e.preventDefault();
               const heroEl = document.getElementById("hero");
@@ -304,7 +294,7 @@ export function SideDock({
             >
               <Image
                 src={locale === "es" ? "/peru-icon.png" : "/usa-icon.png"}
-                alt={locale === "es" ? "Spanish" : "English"}
+                alt=""
                 width={24}
                 height={24}
                 className="side-dock__language-icon"

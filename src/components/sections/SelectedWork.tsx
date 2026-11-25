@@ -4,12 +4,25 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef, type MouseEvent } from "react";
-import type { Dictionary } from "@/app/i18n";
 
 const easeOutExpo = [0.16, 1, 0.3, 1] as const;
 
-type SelectedWorkContent = Dictionary["selectedWorkContent"];
-type SelectedProject = SelectedWorkContent["projects"][number];
+type SelectedWorkContent = {
+  eyebrow: string;
+  headline: string;
+  intro: string;
+  projects: SelectedProject[];
+};
+
+type SelectedProject = {
+  slug: string;
+  title: string;
+  description: string;
+  proof: string;
+  tags: string[];
+  cta: string;
+  assetVariant: string;
+};
 
 const projectThumbnailImages: Record<string, string> = {
   "4track-vistogps-pro": "/images/experience/4track_mobile_store_map.webp",

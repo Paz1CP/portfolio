@@ -8,7 +8,7 @@
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    padding-block: clamp(7rem, 11vw, 10rem);
+    padding-block: clamp(5.25rem, 8.25vw, 7.5rem);
   }
 
   .capabilities::before {
@@ -46,7 +46,7 @@
 
   .capabilities__grid {
     display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: clamp(1.25rem, 2vw, 1.75rem);
     margin-top: clamp(3.5rem, 6vw, 5.5rem);
   }
@@ -55,8 +55,7 @@
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    min-height: 34.25rem;
-    grid-column: span 4;
+    grid-column: span 2;
     display: flex;
     flex-direction: column;
     border-radius: var(--radius-xl);
@@ -76,10 +75,8 @@
       background 420ms var(--ease-out-expo);
   }
 
-  .capability-card:nth-child(4),
-  .capability-card:nth-child(5) {
-    grid-column: span 6;
-    min-height: 34rem;
+  .capability-card:nth-child(n + 4) {
+    grid-column: span 3;
   }
 
   .capability-card::before {
@@ -99,7 +96,7 @@
     content: "";
     position: absolute;
     inset: -48% -80%;
-    z-index: 4;
+    z-index: 1;
     opacity: 0;
     pointer-events: none;
     background: linear-gradient(
@@ -234,82 +231,9 @@
     transform: translateZ(0);
   }
 
-  .capability-card__proof::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    pointer-events: none;
-    background:
-      linear-gradient(180deg, rgba(5, 4, 3, 0.08), transparent 42%, rgba(5, 4, 3, 0.26)),
-      radial-gradient(circle at 18% 0%, rgba(231, 200, 120, 0.11), transparent 36%);
-    opacity: 0.78;
-    transition: opacity 520ms var(--ease-out-expo);
-  }
-
-  .capability-card__proof::after {
-    content: "";
-    position: absolute;
-    inset: -40% -80%;
-    z-index: 4;
-    pointer-events: none;
-    opacity: 0;
-    background: linear-gradient(
-      112deg,
-      transparent 42%,
-      rgba(243, 231, 210, 0.13) 48%,
-      rgba(231, 200, 120, 0.09) 52%,
-      transparent 58%
-    );
-    transform: translateX(-42%) rotate(8deg);
-    transition:
-      opacity 220ms var(--ease-out-expo),
-      transform 850ms var(--ease-out-expo);
-  }
-
-  .capability-card:hover .capability-card__proof::before {
-    opacity: 0.48;
-  }
-
-  .capability-card:hover .capability-card__proof::after {
-    opacity: 1;
-    transform: translateX(42%) rotate(8deg);
-  }
-
   .capability-card__proof-image {
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
-    transform: scale(1.01);
-    filter: saturate(0.92) contrast(0.96) brightness(0.82);
-    transition:
-      transform 900ms var(--ease-out-expo),
-      filter 700ms var(--ease-out-expo);
-  }
-
-  .capability-card:hover .capability-card__proof-image {
-    transform: scale(1.055);
-    filter: saturate(1.04) contrast(1.04) brightness(0.98);
-  }
-
-  .capability-card__proof-glow {
-    position: absolute;
-    inset: auto 8% -18% 8%;
-    z-index: 3;
-    height: 38%;
-    border-radius: 999px;
-    pointer-events: none;
-    background: radial-gradient(
-      circle,
-      rgba(201, 150, 46, 0.18),
-      transparent 68%
-    );
-    filter: blur(18px);
-    opacity: 0.48;
-    transition: opacity 520ms var(--ease-out-expo);
-  }
-
-  .capability-card:hover .capability-card__proof-glow {
-    opacity: 0.82;
   }
 
   .capability-card__proof-label {
@@ -401,16 +325,18 @@
 
   @media (max-width: 1120px) {
     .capability-card,
-    .capability-card:nth-child(4),
-    .capability-card:nth-child(5) {
+    .capability-card:nth-child(n + 4) {
+      grid-column: span 3;
+    }
+
+    .capability-card:last-child {
       grid-column: span 6;
-      min-height: 34rem;
     }
   }
 
   @media (max-width: 720px) {
     .capabilities {
-      padding-block: 5rem;
+      padding-block: 3.75rem;
     }
 
     .capabilities__title {
@@ -424,10 +350,8 @@
     }
 
     .capability-card,
-    .capability-card:nth-child(4),
-    .capability-card:nth-child(5) {
+    .capability-card:nth-child(n + 4) {
       grid-column: auto;
-      min-height: auto;
       padding: 1.45rem;
     }
 

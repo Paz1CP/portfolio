@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 import {
   dictionaries,
   defaultLocale,
+  isLocale,
   type Locale,
 } from "@/app/i18n";
 import { SideDock } from "@/components/navigation/SideDock";
@@ -12,35 +13,107 @@ import { Hero } from "@/components/sections/Hero";
 import { Capabilities } from "@/components/sections/Capabilities";
 import { Contact } from "@/components/sections/Contact";
 import { CaseStudyModal } from "@/components/sections/CaseStudyModal";
-import { SelectedWork } from "@/components/sections/SelectedWork";
-import { Build } from "@/components/sections/Build";
 import { Experience } from "@/components/sections/Experience";
 import { Footer } from "@/components/sections/Footer";
 
+const localeKey = "portfolio:locale";
+const experienceChange = "portfolio:experience-changed";
+const localeChange = "portfolio:locale-changed";
+let sessionLocale: Locale = defaultLocale;
+
+function readLocale(): Locale {
+  try {
+    const stored = localStorage.getItem(localeKey);
+    if (stored && isLocale(stored)) return stored;
+  } catch {
+    // Storage can be unavailable in privacy-restricted sessions.
+  }
+
+  return sessionLocale;
+}
+
+function subscribeLocale(notify: () => void) {
+  window.addEventListener(localeChange, notify);
+  window.addEventListener("storage", notify);
+  return () => {
+    window.removeEventListener(localeChange, notify);
+    window.removeEventListener("storage", notify);
+  };
+}
+
+function readExperience() {
+  return new URLSearchParams(window.location.search).get("experience");
+}
+
+function subscribeExperience(notify: () => void) {
+  window.addEventListener(experienceChange, notify);
+  window.addEventListener("popstate", notify);
+  return () => {
+    window.removeEventListener(experienceChange, notify);
+    window.removeEventListener("popstate", notify);
+  };
+}
+
+function redirectLegacyAnchor() {
+  const url = new URL(window.location.href);
+  const target = { "#work": "experience", "#build": "contact" }[url.hash];
+  if (!target) return;
+
+  url.hash = target;
+  window.history.replaceState(window.history.state, "", url);
+  document.getElementById(target)?.scrollIntoView({ block: "start" });
+}
+
+function openExperience(slug: string) {
+  const url = new URL(window.location.href);
+  url.searchParams.delete("experience");
+  url.hash = "experience";
+
+  // Back should return to the timeline at the original scroll position.
+  window.history.replaceState(window.history.state, "", url);
+  url.searchParams.set("experience", slug);
+  window.history.pushState({ portfolioExperience: true }, "", url);
+  window.dispatchEvent(new Event(experienceChange));
+}
+
+function closeExperience() {
+  if (window.history.state?.portfolioExperience) {
+    window.history.back();
+    return;
+  }
+
+  const url = new URL(window.location.href);
+  url.searchParams.delete("experience");
+  url.hash = "experience";
+  window.history.replaceState(window.history.state, "", url);
+  window.dispatchEvent(new Event(experienceChange));
+}
+
 export function ClientHome() {
-  const [locale, setLocale] = useState<Locale>(defaultLocale);
+  const locale = useSyncExternalStore(subscribeLocale, readLocale, (): Locale => defaultLocale);
+  const selectedSlug = useSyncExternalStore(subscribeExperience, readExperience, () => null);
   const dictionary = dictionaries[locale];
+  const selectedExperience = dictionary.caseStudies.find((item) => item.slug === selectedSlug);
+  const selectedProject = dictionary.experienceContent.items.find((item) => item.slug === selectedSlug);
 
   const handleToggleLocale = () => {
-    setLocale((current) => (current === "es" ? "en" : "es"));
+    sessionLocale = locale === "es" ? "en" : "es";
+    try {
+      localStorage.setItem(localeKey, sessionLocale);
+    } catch {
+      // Keep the selected language for the current session.
+    }
+    window.dispatchEvent(new Event(localeChange));
   };
 
-  /* Handle #build hash scroll from /build redirect */
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    document.documentElement.lang = locale;
+  }, [locale]);
 
-    const hash = window.location.hash.replace("#", "");
-    if (!hash) return;
-
-    /* Small delay so DOM is fully rendered */
-    const timer = setTimeout(() => {
-      const el = document.getElementById(hash);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }, 350);
-
-    return () => clearTimeout(timer);
+  useEffect(() => {
+    redirectLegacyAnchor();
+    window.addEventListener("hashchange", redirectLegacyAnchor);
+    return () => window.removeEventListener("hashchange", redirectLegacyAnchor);
   }, []);
 
   return (
@@ -58,16 +131,16 @@ export function ClientHome() {
         content={dictionary.heroContent}
         siteConfig={dictionary.siteConfig}
       />
-      <SelectedWork content={dictionary.selectedWorkContent} />
-      <Build content={dictionary.buildContent} />
-      <Experience content={dictionary.experienceContent} />
+      <Experience content={dictionary.experienceContent} onOpen={openExperience} />
       <Capabilities content={dictionary.capabilitiesContent} />
       <Contact content={dictionary.contactContent} siteConfig={dictionary.siteConfig} />
-      <Footer content={dictionary.footerContent} />
+      <Footer content={dictionary.footerContent} siteConfig={dictionary.siteConfig} />
 
       <CaseStudyModal
-        caseStudies={dictionary.caseStudies}
+        experience={selectedExperience}
+        logo={selectedProject?.logo}
         sectionTitles={dictionary.caseStudySectionTitles}
+        onClose={closeExperience}
       />
     </main>
   );

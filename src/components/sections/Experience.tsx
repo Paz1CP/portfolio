@@ -1,67 +1,32 @@
 "use client";
 
 import { motion, useInView, useReducedMotion } from "framer-motion";
-import { useRef, type KeyboardEvent, type MouseEvent } from "react";
+import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+import { useRef } from "react";
 import type { Dictionary } from "@/app/i18n";
 
 const easeOutExpo = [0.16, 1, 0.3, 1] as const;
-const experienceCaseStudySlugs = [
-  "cookpilot",
-  "jobmatch",
-  "4track-vistogps-pro",
-] as const;
-
 type ExperienceContent = Dictionary["experienceContent"];
 type ExperienceItemType = ExperienceContent["items"][number];
 
 function ExperienceTimelineItem({
   item,
   index,
-  isCurrent,
   shouldReduceMotion,
-  impactLabel,
+  cta,
+  onOpen,
 }: {
   item: ExperienceItemType;
   index: number;
-  isCurrent: boolean;
   shouldReduceMotion: boolean;
-  impactLabel: string;
+  cta: string;
+  onOpen: (slug: string) => void;
 }) {
-  const itemRef = useRef<HTMLDivElement | null>(null);
-  const isInView = useInView(itemRef, {
-    once: false,
-    amount: 0.52,
-    margin: "-18% 0px -22% 0px",
-  });
-
-  const handleOpenCaseStudy = () => {
-    const slug = experienceCaseStudySlugs[index];
-    if (!slug) return;
-
-    window.dispatchEvent(
-      new CustomEvent("portfolio:open-case-study", {
-        detail: { slug },
-      })
-    );
-  };
-
-  const handleCardClick = (event: MouseEvent<HTMLElement>) => {
-    if (event.button !== 0) return;
-    handleOpenCaseStudy();
-  };
-
-  const handleCardKeyDown = (event: KeyboardEvent<HTMLElement>) => {
-    if (event.key !== "Enter" && event.key !== " ") return;
-
-    event.preventDefault();
-    handleOpenCaseStudy();
-  };
-
   return (
     <motion.div
-      ref={itemRef}
       className="experience-item"
-      data-active={isCurrent ? "true" : "false"}
+      data-active={item.slug === "mirai"}
       initial={{
         opacity: 0,
         y: shouldReduceMotion ? 0 : 24,
@@ -82,39 +47,41 @@ function ExperienceTimelineItem({
         delay: shouldReduceMotion ? 0 : index * 0.08,
       }}
     >
-      <aside className="experience-item__meta" aria-label={`${item.company} metadata`}>
+      <div className="experience-item__meta">
         <p className="experience-item__date type-label-s">{item.date}</p>
 
         <div className="experience-item__role-group">
           <h3 className="experience-item__role type-title-m">{item.role}</h3>
           <p className="experience-item__company type-body-s">{item.company}</p>
+          <p className="experience-item__context type-body-s">{item.contextLabel}</p>
         </div>
-      </aside>
+      </div>
 
-      <article
-        className="experience-item__card"
-        role="button"
-        tabIndex={0}
-        aria-label={`Open case study: ${item.company}`}
-        onClick={handleCardClick}
-        onKeyDown={handleCardKeyDown}
-      >
+      <article className="experience-item__card">
+        <button
+          id={`experience-${item.slug}-trigger`}
+          type="button"
+          className="experience-item__card-trigger"
+          aria-label={`${cta} · ${item.company}`}
+          aria-haspopup="dialog"
+          onClick={() => onOpen(item.slug)}
+        />
         <span className="experience-item__corner experience-item__corner--tl" />
         <span className="experience-item__corner experience-item__corner--br" />
 
         <div className="experience-item__card-content">
+          <div className="experience-item__cover">
+            <Image
+              src={item.cover}
+              alt={item.coverAlt}
+              fill
+              sizes="(max-width: 980px) 90vw, (max-width: 1470px) 62vw, 900px"
+            />
+          </div>
 
-          <p className="experience-item__summary type-body-m">
-            {item.summary}
-          </p>
-
-          <div className="experience-item__impact">
-            <p className="experience-item__impact-label type-label-s">
-              {impactLabel}
-            </p>
-            <p className="experience-item__impact-text type-body-s">
-              {item.impact}
-            </p>
+          <div className="experience-item__overview">
+            <Image className="experience-item__logo" src={item.logo} alt="" width={160} height={160} sizes="208px" />
+            <p className="experience-item__summary type-body-m">{item.summary}</p>
           </div>
 
           <ul className="experience-item__details">
@@ -125,11 +92,20 @@ function ExperienceTimelineItem({
             ))}
           </ul>
 
-          <div className="experience-item__tags" aria-label={`${item.company} tags`}>
+          <div className="experience-item__tags">
             {item.tags.map((tag) => (
               <span key={tag} className="experience-item__tag">
                 {tag}
               </span>
+            ))}
+          </div>
+
+          <div className="experience-item__actions">
+            {item.links.map(({ href, label }) => (
+              <a key={href} className="focus-ring experience-item__link" href={href} target="_blank" rel="noreferrer">
+                {label}
+                <ArrowUpRight size={15} aria-hidden="true" />
+              </a>
             ))}
           </div>
         </div>
@@ -140,8 +116,10 @@ function ExperienceTimelineItem({
 
 export function Experience({
   content,
+  onOpen,
 }: {
   content: ExperienceContent;
+  onOpen: (slug: string) => void;
 }) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const shouldReduceMotion = useReducedMotion();
@@ -181,7 +159,7 @@ export function Experience({
         >
           <p className="type-eyebrow">{content.eyebrow}</p>
 
-          <h2 id="experience-title" className="experience__title type-section-title">
+          <h2 id="experience-title" className="experience__title type-section-title" tabIndex={-1}>
             {content.headline}
           </h2>
 
@@ -193,12 +171,12 @@ export function Experience({
         <div className="experience__timeline">
           {content.items.map((item, index) => (
             <ExperienceTimelineItem
-              key={`${item.company}-${item.date}`}
+              key={item.slug}
               item={item}
               index={index}
-              isCurrent={index === 0}
               shouldReduceMotion={Boolean(shouldReduceMotion)}
-              impactLabel={content.impactLabel}
+              cta={content.cta}
+              onOpen={onOpen}
             />
           ))}
         </div>

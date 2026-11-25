@@ -2,158 +2,120 @@
 
 import * as Dialog from "@radix-ui/react-dialog";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import {
-  ArrowLeft,
-  ArrowRight,
-  BriefcaseBusiness,
-  CalendarDays,
-  X,
-} from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, BriefcaseBusiness, CalendarDays, Maximize2, Pause, Play, X } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState, type ReactNode } from "react";
-import type { Dictionary } from "@/app/i18n";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import type { Dictionary, ExperienceDetail } from "@/app/i18n";
 
 const easeOutExpo = [0.16, 1, 0.3, 1] as const;
+type SectionTitles = Dictionary["caseStudySectionTitles"];
 
-const imagesBySlug: Record<string, string[]> = {
-  "4track-vistogps-pro": [
-    "/images/experience/4TRACK/4T_01.png",
-    "/images/experience/4TRACK/4T_02.png",
-    "/images/experience/4TRACK/4T_03.png",
-    "/images/experience/4TRACK/4T_04.png",
-  ],
-  jobmatch: [
-    "/images/experience/JM/jm_candidate_dashboard.png",
-    "/images/experience/JM/jm_candidate_job_search.png",
-    "/images/experience/JM/jm_candidate_applications_lane.png",
-    "/images/experience/JM/jm_recruiter_kanban_mode.png",
-  ],
-  cookpilot: [
-    "/images/experience/CookPilot/img_app_home.png",
-    "/images/experience/CookPilot/img_app_recipe_detail.png",
-    "/images/experience/CookPilot/img_app_cookflow_chat.jpg",
-    "/images/experience/CookPilot/cookpilot.png",
-    "/images/experience/CookPilot/img_app_pricing_comparator.png",
-  ],
-};
-
-const companyLogos: Record<string, string> = {
-  "4track-vistogps-pro": "/images/experience/4TRACK/4track-logo.webp",
-  jobmatch: "/images/experience/JM/jobmatch_orange.jpg",
-  cookpilot: "/images/experience/CookPilot/cookpilot_logo.png",
-};
-
-function GalleryCarousel({ images }: { images: string[] }) {
+function GalleryCarousel({
+  images,
+  labels,
+}: {
+  images: ExperienceDetail["images"];
+  labels: SectionTitles;
+}) {
   const shouldReduceMotion = useReducedMotion();
   const [index, setIndex] = useState(0);
   const [isHover, setIsHover] = useState(false);
-  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
-  const len = images.length;
+  const [isPaused, setIsPaused] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const count = images.length;
 
   useEffect(() => {
-    if (!len || isHover || shouldReduceMotion) return;
+    if (count < 2 || isHover || isPaused || isExpanded || shouldReduceMotion) return;
 
-    const id = window.setInterval(() => {
-      setIndex((current) => (current + 1) % len);
+    const timer = window.setInterval(() => {
+      setIndex((current) => (current + 1) % count);
     }, 3500);
 
-    return () => window.clearInterval(id);
-  }, [len, isHover, shouldReduceMotion]);
+    return () => window.clearInterval(timer);
+  }, [count, isHover, isPaused, isExpanded, shouldReduceMotion]);
 
-  const prev = () => setIndex((current) => (current - 1 + len) % len);
-  const next = () => setIndex((current) => (current + 1) % len);
+  const currentImage = images[index];
+  if (!currentImage) return null;
 
-  useEffect(() => {
-    if (!lightboxSrc) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setLightboxSrc(null);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [lightboxSrc]);
+  function step(direction: number) {
+    setIsPaused(true);
+    setIndex((current) => (current + direction + count) % count);
+  }
 
-  if (!len) return <div className="case-modal__placeholder" aria-hidden="true" />;
-
+  const RotationIcon = isPaused ? Play : Pause;
   return (
-    <div
-      className="case-modal__carousel"
-      onMouseEnter={() => setIsHover(true)}
-      onMouseLeave={() => setIsHover(false)}
-    >
-      <div
-        className="case-modal__carousel-side case-modal__carousel-side--left"
-        aria-hidden="true"
-      />
-      <div
-        className="case-modal__carousel-side case-modal__carousel-side--right"
-        aria-hidden="true"
-      />
+    <figure className="case-modal__gallery" aria-label={labels.gallery}>
+      <div className="case-modal__showcase">
+        <span className="case-modal__showcase-corner case-modal__showcase-corner--tl" />
+        <span className="case-modal__showcase-corner case-modal__showcase-corner--br" />
 
-      {images.map((src, i) => (
-        <img
-          key={src}
-          src={src}
-          alt=""
-          onClick={() => setLightboxSrc(src)}
-          className={`case-modal__carousel-slide ${i === index ? "is-active" : ""}`}
-          style={{
-            cursor: i === index ? "pointer" : "default",
-            pointerEvents: i === index ? "auto" : "none",
-          }}
-        />
-      ))}
-
-      <div className="case-modal__carousel-controls" aria-hidden={!isHover}>
-        <button
-          className="case-modal__carousel-arrow case-modal__carousel-arrow--left"
-          onClick={prev}
-          aria-label="Previous image"
-        >
-          <ArrowLeft size={18} />
-        </button>
-
-        <button
-          className="case-modal__carousel-arrow case-modal__carousel-arrow--right"
-          onClick={next}
-          aria-label="Next image"
-        >
-          <ArrowRight size={18} />
-        </button>
-      </div>
-      {lightboxSrc && (
         <div
-          className="case-modal__lightbox"
-          role="dialog"
-          aria-modal="true"
-          onClick={() => setLightboxSrc(null)}
+          className="case-modal__carousel"
+          onMouseEnter={() => setIsHover(true)}
+          onMouseLeave={() => setIsHover(false)}
         >
-          <img src={lightboxSrc} alt="Preview" onClick={(e) => e.stopPropagation()} />
-          <button
-            className="case-modal__lightbox-close"
-            aria-label="Close image"
-            onClick={() => setLightboxSrc(null)}
-          >
-            ×
-          </button>
+          <Dialog.Root open={isExpanded} onOpenChange={setIsExpanded}>
+            <Dialog.Trigger asChild>
+              <button type="button" className="case-modal__carousel-expand focus-ring" aria-label={labels.expand}>
+                {images.map(({ src, alt }, i) => (
+                  <Image
+                    key={src}
+                    src={src}
+                    alt={alt}
+                    aria-hidden={i !== index}
+                    fill
+                    sizes="(max-width: 760px) 90vw, 560px"
+                    className={i === index ? "case-modal__carousel-slide is-active" : "case-modal__carousel-slide"}
+                  />
+                ))}
+                <span className="case-modal__carousel-expand-icon" aria-hidden="true">
+                  <Maximize2 size={17} />
+                </span>
+              </button>
+            </Dialog.Trigger>
+            <Dialog.Portal>
+              <Dialog.Overlay className="case-modal__lightbox-overlay" />
+              <Dialog.Content className="case-modal__lightbox" aria-describedby={undefined}>
+                <Dialog.Title className="sr-only">{currentImage.alt}</Dialog.Title>
+                {/* Preserve the original screenshot at full size in the lightbox. */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={currentImage.src} alt={currentImage.alt} />
+                <Dialog.Close className="case-modal__lightbox-close focus-ring" aria-label={labels.closeImage}>
+                  <X size={22} aria-hidden="true" />
+                </Dialog.Close>
+              </Dialog.Content>
+            </Dialog.Portal>
+          </Dialog.Root>
+
+          {count > 1 && (
+            <div className="case-modal__carousel-controls">
+              <button type="button" className="case-modal__carousel-arrow focus-ring" onClick={() => step(-1)} aria-label={labels.previousImage}>
+                <ArrowLeft size={18} aria-hidden="true" />
+              </button>
+              <button type="button" className="case-modal__carousel-arrow focus-ring" onClick={() => step(1)} aria-label={labels.nextImage}>
+                <ArrowRight size={18} aria-hidden="true" />
+              </button>
+            </div>
+          )}
         </div>
-      )}
-    </div>
-  );
-}
+      </div>
 
-function CaseShowcase({ caseStudy }: { caseStudy: Dictionary["caseStudies"][number] }) {
-  const images = imagesBySlug[caseStudy.slug] ?? [];
-
-  return (
-    <div
-      className={`case-modal__showcase case-modal__showcase--${caseStudy.visualVariant}`}
-      aria-label={`${caseStudy.projectName} gallery`}
-    >
-      <span className="case-modal__showcase-corner case-modal__showcase-corner--tl" />
-      <span className="case-modal__showcase-corner case-modal__showcase-corner--br" />
-
-      <GalleryCarousel images={images} />
-    </div>
+      <figcaption className="case-modal__gallery-meta">
+        <span className="type-body-s" aria-live={isPaused || shouldReduceMotion ? "polite" : "off"}>
+          {currentImage.alt}
+        </span>
+        {count > 1 && !shouldReduceMotion && (
+          <button
+            type="button"
+            className="case-modal__carousel-toggle focus-ring"
+            onClick={() => setIsPaused((paused) => !paused)}
+            aria-label={isPaused ? labels.resume : labels.pause}
+          >
+            <RotationIcon size={16} aria-hidden="true" />
+          </button>
+        )}
+      </figcaption>
+    </figure>
   );
 }
 
@@ -166,181 +128,197 @@ function SectionTitle({ children }: { children: ReactNode }) {
   );
 }
 
-function BulletList({ items }: { items: readonly string[] }) {
+function BulletList({ items }: { items: string[] }) {
   return (
-    <div className="case-modal__list">
+    <ul className="case-modal__list">
       {items.map((item) => (
-        <div key={item} className="case-modal__list-item type-body-s">
-          <span className="case-modal__list-bullet" />
+        <li key={item} className="case-modal__list-item type-body-s">
+          <span className="case-modal__list-bullet" aria-hidden="true" />
           <span>{item}</span>
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }
 
-function ChipList({ items }: { items: readonly string[] }) {
+function ChipList({ items }: { items: string[] }) {
   return (
     <div className="case-modal__chips">
       {items.map((item) => (
-        <span key={item} className="case-modal__chip">
-          {item}
-        </span>
+        <span key={item} className="case-modal__chip">{item}</span>
       ))}
     </div>
   );
 }
 
-function FlowList({ items }: { items: readonly string[] }) {
+function FlowList({ items }: { items: string[] }) {
   return (
-    <div className="case-modal__flow">
+    <ol className="case-modal__flow">
       {items.map((item, index) => (
-        <div key={item} className="case-modal__flow-step type-body-s">
-          <span className="case-modal__flow-number">
+        <li key={item} className="case-modal__flow-step type-body-s">
+          <span className="case-modal__flow-number" aria-hidden="true">
             {String(index + 1).padStart(2, "0")}
           </span>
           <span>{item}</span>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+function TopicGrid({ items }: { items: { title?: string; body: string }[] }) {
+  return (
+    <div className="case-modal__topic-grid">
+      {items.map(({ title, body }) => (
+        <div key={title ?? body} className="case-modal__proof-card">
+          <h4 className="case-modal__topic-title type-title-s">{title}</h4>
+          <p className="type-body-s">{body}</p>
         </div>
       ))}
     </div>
   );
 }
 
-function CaseStudyContent({
-  caseStudy,
-  sectionTitles,
-}: {
-  caseStudy: Dictionary["caseStudies"][number];
-  sectionTitles: Dictionary["caseStudySectionTitles"];
-}) {
+function CaseStudyContent({ experience, labels }: { experience: ExperienceDetail; labels: SectionTitles }) {
+  const { architecture, engineeringDecisions, evidenceLinks, designSystemWork, businessProof, currentState } = experience;
+
   return (
     <div className="case-modal__content">
       <div className="case-modal__hero">
-        <CaseShowcase caseStudy={caseStudy} />
+        <GalleryCarousel images={experience.images} labels={labels} />
 
         <aside className="case-modal__summary">
           <div className="case-modal__meta-grid">
             <div className="case-modal__meta-card">
-              <p className="case-modal__meta-label type-label-s">Role</p>
+              <p className="case-modal__meta-label type-label-s">{labels.role}</p>
               <p className="case-modal__meta-value type-body-s">
-                <BriefcaseBusiness size={15} strokeWidth={1.8} />
-                <span>{caseStudy.role}</span>
+                <BriefcaseBusiness size={15} strokeWidth={1.8} aria-hidden="true" />
+                <span>{experience.role}</span>
               </p>
             </div>
-
             <div className="case-modal__meta-card">
-              <p className="case-modal__meta-label type-label-s">Timeline</p>
+              <p className="case-modal__meta-label type-label-s">{labels.timeline}</p>
               <p className="case-modal__meta-value type-body-s">
-                <CalendarDays size={15} strokeWidth={1.8} />
-                <span>{caseStudy.timeline}</span>
+                <CalendarDays size={15} strokeWidth={1.8} aria-hidden="true" />
+                <span>{experience.timeline}</span>
               </p>
             </div>
           </div>
 
-          <p className="case-modal__context type-body-s">{caseStudy.context}</p>
+          <Dialog.Description className="case-modal__context type-body-s">{experience.context}</Dialog.Description>
+          {experience.purpose && <p className="case-modal__context type-body-s">{experience.purpose}</p>}
         </aside>
       </div>
 
       <section className="case-modal__section">
-        <SectionTitle>{caseStudy.ownedTitle}</SectionTitle>
-        <p className="case-modal__paragraph type-body-m">{caseStudy.owned}</p>
+        <SectionTitle>{labels.ownership}</SectionTitle>
+        <p className="case-modal__paragraph type-body-m">{experience.owned}</p>
       </section>
 
-      <section className="case-modal__section">
-        <SectionTitle>{sectionTitles.keyWork}</SectionTitle>
-        <BulletList items={caseStudy.keyWork} />
-      </section>
-
-      {caseStudy.workflow && (
+      {architecture && (
         <section className="case-modal__section">
-          <SectionTitle>{caseStudy.workflowTitle}</SectionTitle>
-          <FlowList items={caseStudy.workflow} />
+          <SectionTitle>{labels.architecture}</SectionTitle>
+          <p className="case-modal__paragraph type-body-m">{architecture.body}</p>
+          <figure className="case-modal__architecture">
+            <Image src={architecture.src} alt={architecture.alt} width={1536} height={952} sizes="(max-width: 760px) 90vw, 1020px" />
+            <figcaption className="type-body-s">{architecture.caption}</figcaption>
+          </figure>
         </section>
       )}
 
-      {caseStudy.designSystemWork && (
+      {experience.productWorkflow && <WorkflowSection {...experience.productWorkflow} />}
+
+      <section className="case-modal__section">
+        <SectionTitle>{labels.keyWork}</SectionTitle>
+        {experience.keyWork[0]?.title
+          ? <TopicGrid items={experience.keyWork} />
+          : <BulletList items={experience.keyWork.map(({ body }) => body)} />}
+      </section>
+
+      {experience.workflows?.map((workflow) => (
+        <WorkflowSection key={workflow.title} {...workflow} />
+      ))}
+
+      {engineeringDecisions && (
         <section className="case-modal__section">
-          <SectionTitle>{sectionTitles.designSystemWork}</SectionTitle>
-          <BulletList items={caseStudy.designSystemWork} />
+          <SectionTitle>{labels.decisions}</SectionTitle>
+          <TopicGrid items={engineeringDecisions} />
         </section>
       )}
 
-      <section className="case-modal__section">
-        <SectionTitle>{sectionTitles.technicalHighlights}</SectionTitle>
-        <ChipList items={caseStudy.technicalHighlights} />
-      </section>
-
-      {caseStudy.proof && (
+      {designSystemWork && (
         <section className="case-modal__section">
-          <SectionTitle>{sectionTitles.proof}</SectionTitle>
-          <div className="case-modal__proof-card">
-            <BulletList items={caseStudy.proof} />
+          <SectionTitle>{labels.designSystemWork}</SectionTitle>
+          <BulletList items={designSystemWork} />
+        </section>
+      )}
+
+      {evidenceLinks && (
+        <section className="case-modal__section">
+          <SectionTitle>{labels.evidence}</SectionTitle>
+          <div className="case-modal__topic-grid">
+            {evidenceLinks.map(({ href, label, description }) => (
+              <a key={href} href={href} target="_blank" rel="noreferrer" className="case-modal__proof-card case-modal__evidence-link focus-ring">
+                <h4 className="case-modal__topic-title type-title-s">{label} <ArrowUpRight size={16} aria-hidden="true" /></h4>
+                <p className="type-body-s">{description}</p>
+              </a>
+            ))}
           </div>
         </section>
       )}
 
-      {caseStudy.businessProof && (
+      {businessProof && (
         <section className="case-modal__section">
-          <SectionTitle>{sectionTitles.businessProof}</SectionTitle>
+          <SectionTitle>{labels.results}</SectionTitle>
           <div className="case-modal__proof-card">
-            <p className="type-body-m">{caseStudy.businessProof}</p>
+            <p className="type-body-m">{businessProof}</p>
           </div>
         </section>
       )}
 
-      {caseStudy.currentState && (
+      {currentState && (
         <section className="case-modal__section">
-          <SectionTitle>{sectionTitles.currentState}</SectionTitle>
-          <ChipList items={caseStudy.currentState} />
+          <SectionTitle>{labels.currentState}</SectionTitle>
+          <BulletList items={currentState} />
         </section>
       )}
+
+      <section className="case-modal__section">
+        <SectionTitle>{labels.technicalHighlights}</SectionTitle>
+        <ChipList items={experience.technicalHighlights} />
+      </section>
     </div>
   );
 }
 
+function WorkflowSection({ title, steps, description }: { title: string; steps: string[]; description?: string }) {
+  return (
+    <section className="case-modal__section">
+      <SectionTitle>{title}</SectionTitle>
+      <FlowList items={steps} />
+      {description && <p className="case-modal__paragraph type-body-m">{description}</p>}
+    </section>
+  );
+}
+
 export function CaseStudyModal({
-  caseStudies,
+  experience,
+  logo,
   sectionTitles,
+  onClose,
 }: {
-  caseStudies: Dictionary["caseStudies"];
-  sectionTitles: Dictionary["caseStudySectionTitles"];
+  experience?: ExperienceDetail;
+  logo?: string;
+  sectionTitles: SectionTitles;
+  onClose: () => void;
 }) {
   const shouldReduceMotion = useReducedMotion();
-  const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
-
-  useEffect(() => {
-    const handleOpen = (event: Event) => {
-      const detail = (event as CustomEvent<{ slug?: string }>).detail;
-      if (!detail?.slug) return;
-      setSelectedSlug(detail.slug);
-    };
-
-    window.addEventListener(
-      "portfolio:open-case-study",
-      handleOpen as EventListener
-    );
-
-    return () => {
-      window.removeEventListener(
-        "portfolio:open-case-study",
-        handleOpen as EventListener
-      );
-    };
-  }, []);
-
-  const selectedCaseStudy = selectedSlug
-    ? caseStudies.find((c) => c.slug === selectedSlug) ?? null
-    : null;
+  const returnFocus = useRef<HTMLElement | null>(null);
 
   return (
-    <Dialog.Root
-      open={Boolean(selectedCaseStudy)}
-      onOpenChange={(open) => {
-        if (!open) setSelectedSlug(null);
-      }}
-    >
+    <Dialog.Root open={Boolean(experience)} onOpenChange={(open) => { if (!open) onClose(); }}>
       <AnimatePresence>
-        {selectedCaseStudy && (
+        {experience && (
           <Dialog.Portal forceMount>
             <Dialog.Overlay asChild>
               <motion.div
@@ -351,78 +329,50 @@ export function CaseStudyModal({
                 transition={{ duration: shouldReduceMotion ? 0 : 0.2 }}
               />
             </Dialog.Overlay>
-            <Dialog.Content asChild>
+            <Dialog.Content
+              asChild
+              onOpenAutoFocus={() => {
+                returnFocus.current = document.activeElement?.id === "experience-" + experience.slug + "-trigger"
+                  ? document.getElementById("experience-" + experience.slug + "-trigger")
+                  : null;
+              }}
+              onCloseAutoFocus={(event) => {
+                event.preventDefault();
+                const heading = document.getElementById("experience-title");
+                (returnFocus.current ?? heading)?.focus({ preventScroll: true });
+                if (!returnFocus.current && window.location.hash === "#experience") {
+                  document.getElementById("experience")?.scrollIntoView({ block: "start" });
+                }
+              }}
+            >
               <motion.div
                 className="case-modal"
-                initial={{
-                  opacity: 0,
-                  y: shouldReduceMotion ? 0 : 24,
-                  scale: shouldReduceMotion ? 1 : 0.98,
-                }}
+                initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 24, scale: shouldReduceMotion ? 1 : 0.98 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{
-                  opacity: 0,
-                  y: shouldReduceMotion ? 0 : 16,
-                  scale: shouldReduceMotion ? 1 : 0.98,
-                }}
-                transition={{
-                  duration: shouldReduceMotion ? 0 : 0.45,
-                  ease: easeOutExpo,
-                }}
+                exit={{ opacity: 0, y: shouldReduceMotion ? 0 : 16, scale: shouldReduceMotion ? 1 : 0.98 }}
+                transition={{ duration: shouldReduceMotion ? 0 : 0.45, ease: easeOutExpo }}
               >
-                <Dialog.Title asChild>
-                  <h2
-                    style={{
-                      position: "absolute",
-                      width: "1px",
-                      height: "1px",
-                      padding: 0,
-                      margin: "-1px",
-                      overflow: "hidden",
-                      clip: "rect(0, 0, 0, 0)",
-                      whiteSpace: "nowrap",
-                      border: 0,
-                    }}
-                  >
-                    {selectedCaseStudy.title}
-                  </h2>
-                </Dialog.Title>
-
-                <div className="case-modal__scroll">
+                <div className="case-modal__scroll" key={experience.slug}>
                   <header className="case-modal__topbar">
                     <div className="case-modal__topbar-content">
-                      <div className="case-modal__topbar-logo-wrapper">
-                        <Image
-                            src={companyLogos[selectedCaseStudy.slug]}
-                          alt={`${selectedCaseStudy.projectName} logo`}
-                          width={80}
-                          height={80}
-                          className="case-modal__topbar-logo"
-                        />
-                      </div>
+                      {logo && (
+                        <div className="case-modal__topbar-logo-wrapper">
+                          <Image src={logo} alt={experience.projectName} width={80} height={80} className="case-modal__topbar-logo" />
+                        </div>
+                      )}
 
                       <div className="case-modal__topbar-column">
-                        <p className="case-modal__eyebrow type-label-s">
-                          {selectedCaseStudy.eyebrow}
-                        </p>
-                        <h2 className="case-modal__top-title type-title-m">
-                          {selectedCaseStudy.title}
-                        </h2>
+                        <p className="case-modal__eyebrow type-label-s">{experience.eyebrow}</p>
+                        <Dialog.Title className="case-modal__top-title type-title-m">{experience.title}</Dialog.Title>
                       </div>
                     </div>
 
-                    <Dialog.Close
-                      className="case-modal__close"
-                      aria-label="Close case study"
-                    >
-                      <X size={18} />
+                    <Dialog.Close className="case-modal__close" aria-label={sectionTitles.closeExperience}>
+                      <X size={18} aria-hidden="true" />
                     </Dialog.Close>
                   </header>
 
-                  <CaseStudyContent
-                    caseStudy={selectedCaseStudy}
-                    sectionTitles={sectionTitles}
-                  />
+                  <CaseStudyContent experience={experience} labels={sectionTitles} />
                 </div>
               </motion.div>
             </Dialog.Content>

@@ -3,10 +3,12 @@
 import Image from "next/image";
 import {
   Bot,
-  Database,
+  Cloud,
+  Layers,
   Palette,
   Rocket,
-  Smartphone,
+  Server,
+  Wallet,
   type LucideIcon,
 } from "lucide-react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
@@ -19,11 +21,13 @@ type CapabilitiesContent = Dictionary["capabilitiesContent"];
 type CapabilityItem = CapabilitiesContent["items"][number];
 
 const capabilityIcons: Record<string, LucideIcon> = {
-  "01": Smartphone,
-  "02": Palette,
-  "03": Database,
-  "04": Bot,
-  "05": Rocket,
+  "01": Server,
+  "02": Bot,
+  "03": Cloud,
+  "04": Wallet,
+  "05": Layers,
+  "06": Palette,
+  "07": Rocket,
 };
 
 function CapabilityCard({
@@ -35,7 +39,7 @@ function CapabilityCard({
   index: number;
   shouldReduceMotion: boolean;
 }) {
-  const Icon = capabilityIcons[item.index] ?? Smartphone;
+  const Icon = capabilityIcons[item.index];
 
   return (
     <motion.article
@@ -79,24 +83,19 @@ function CapabilityCard({
           {item.description}
         </p>
 
-        <div className="capability-card__proof" aria-label={`${item.title} proof visual`}>
+        <div className="capability-card__proof">
           <Image
             src={item.proofImage}
             alt={item.proofAlt}
             fill
-            sizes="(max-width: 720px) 100vw, (max-width: 1120px) 50vw, 33vw"
+            sizes={index >= 3 ? "(max-width: 720px) 90vw, 45vw" : "(max-width: 720px) 90vw, (max-width: 1120px) 45vw, 30vw"}
             className="capability-card__proof-image"
           />
 
-          <span className="capability-card__proof-glow" aria-hidden="true" />
-         
         </div>
       </div>
 
-      <div
-        className="capability-card__keywords"
-        aria-label={`${item.title} keywords`}
-      >
+      <div className="capability-card__keywords">
         {item.keywords.map((keyword) => (
           <span key={keyword} className="capability-card__keyword">
             {keyword}
@@ -165,7 +164,7 @@ export function Capabilities({
         <div className="capabilities__grid">
           {content.items.map((item, index) => (
             <CapabilityCard
-              key={item.title}
+              key={item.index}
               item={item}
               index={index}
               shouldReduceMotion={Boolean(shouldReduceMotion)}

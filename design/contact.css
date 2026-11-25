@@ -11,7 +11,7 @@
     display: flex;
     align-items: center;
     overflow: hidden;
-    padding-block: clamp(7rem, 12vw, 11rem);
+    padding-block: clamp(5.25rem, 9vw, 8.25rem);
   }
 
   .contact::before {
@@ -297,6 +297,11 @@
     color: var(--leather-gold-soft);
   }
 
+  .contact-card__availability-note {
+    margin-top: var(--space-16);
+    color: var(--copy-tertiary);
+  }
+
   .contact-card__chips {
     display: flex;
     flex-wrap: wrap;
@@ -349,7 +354,7 @@
   @media (max-width: 720px) {
     .contact {
       min-height: auto;
-      padding-block: 5rem;
+      padding-block: 3.75rem;
     }
 
     .contact-card {

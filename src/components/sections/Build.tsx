@@ -4,12 +4,30 @@ import Image from "next/image";
 import { DocumentDownload, Sms } from "iconsax-reactjs";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
-import type { Dictionary } from "@/app/i18n";
 
 const easeOutExpo = [0.16, 1, 0.3, 1] as const;
 
-type BuildContent = Dictionary["buildContent"];
-type BuildCard = BuildContent["cards"][number];
+type BuildContent = {
+  eyebrow: string;
+  headline: string;
+  subtitle: string;
+  whatsappLabel: string;
+  emailLabel: string;
+  pdfLabel: string;
+  pdfUrl: string;
+  whatsappUrl: string;
+  emailAddress: string;
+  cards: BuildCard[];
+};
+
+type BuildCard = {
+  title: string;
+  startingLabel: string;
+  price: string;
+  timeline: string;
+  features: string[];
+  asset: string;
+};
 
 function BuildPricingCard({
   card,

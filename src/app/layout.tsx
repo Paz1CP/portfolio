@@ -32,14 +32,20 @@ export const metadata: Metadata = {
   publisher: siteConfig.name,
   keywords: [
     "Christopher Paz León",
-    "Flutter Developer",
-    "Mobile Product Engineer",
-    "Supabase Developer",
-    "AI Workflows",
-    "Flutter Engineer Peru",
-    "Mobile Developer LATAM",
-    "UX/UI Systems",
-    "Product Engineer",
+    "Software Engineer",
+    "Backend Engineer",
+    "Full-Stack Engineer",
+    "Applied AI Engineer",
+    "TypeScript",
+    "Node.js",
+    "PostgreSQL",
+    "Next.js",
+    "Google Cloud",
+    "Autonomous Agents",
+    "MCP",
+    "DevSecOps",
+    "Payments",
+    "Flutter",
   ],
   alternates: {
     canonical: "/",
@@ -51,7 +57,6 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     siteName: siteConfig.name,
     locale: "en_US",
-    alternateLocale: ["es_PE"],
     images: [
       {
         url: "/opengraph-image",
@@ -111,6 +116,7 @@ export default function RootLayout({
           role={siteConfig.role}
           description={siteConfig.description}
           linkedInUrl={siteConfig.linkedInUrl}
+          githubUrl={siteConfig.githubUrl}
           email={siteConfig.email}
         />
         {children}

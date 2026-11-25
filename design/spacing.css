@@ -16,12 +16,12 @@
   --space-128: 8rem;
 
   --page-gutter: clamp(1.25rem, 4vw, 3rem);
-  --content-max: 74rem;
-  --content-wide: 78rem;
+  --content-max: 88.8rem;
+  --content-wide: 93.6rem;
   --rail-width: 6.75rem;
 
-  --section-pad-y: clamp(4.5rem, 9vw, 8rem);
-  --hero-pad-y: clamp(6rem, 12vw, 10rem);
+  --section-pad-y: clamp(3.375rem, 6.75vw, 6rem);
+  --hero-pad-y: clamp(4.5rem, 9vw, 7.5rem);
 }
 
 @theme inline {

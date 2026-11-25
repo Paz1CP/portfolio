@@ -1,13 +1,14 @@
 {
     "siteConfig": {
         "name": "Christopher Paz León",
-        "role": "Flutter Developer & Mobile Product Engineer",
-        "title": "Christopher Paz León — Flutter Developer & Mobile Product Engineer",
-        "description": "Flutter Developer and Mobile Product Engineer from Peru building production mobile apps, Supabase backends, UX/UI systems and AI-assisted product workflows.",
+        "role": "Software Engineer | Backend · Full-Stack · Applied AI",
+        "title": "Christopher Paz León — Software Engineer | Backend · Full-Stack · Applied AI",
+        "description": "Software Engineer from Peru specializing in backend systems, full-stack development and applied AI. Experience in autonomous agents, PostgreSQL, cloud infrastructure and end-to-end product delivery.",
         "url": "https://christopherpaz.dev",
         "email": "contact@christopherpaz.dev",
         "resumeUrl": "/Christopher_Paz_CV.pdf",
-        "linkedInUrl": "https://linkedin.com/in/pazleon"
+        "linkedInUrl": "https://linkedin.com/in/pazleon",
+        "githubUrl": "https://github.com/Paz1CP"
     },
     "navigationItems": [
         {
@@ -18,30 +19,18 @@
         },
         {
             "index": "02",
-            "id": "work",
-            "label": "Work",
-            "ariaLabel": "Go to selected work section"
-        },
-        {
-            "index": "03",
-            "id": "build",
-            "label": "Build",
-            "ariaLabel": "Go to build services section"
-        },
-        {
-            "index": "04",
             "id": "experience",
             "label": "Experience",
             "ariaLabel": "Go to experience section"
         },
         {
-            "index": "05",
+            "index": "03",
             "id": "capabilities",
             "label": "Capabilities",
             "ariaLabel": "Go to capabilities section"
         },
         {
-            "index": "06",
+            "index": "04",
             "id": "contact",
             "label": "Contact",
             "ariaLabel": "Go to contact section"
@@ -49,361 +38,796 @@
     ],
     "heroContent": {
         "availability": "Available for remote work",
-        "eyebrow": "Mobile Product Engineer · Flutter Developer · UX/UI",
-        "headline": "I design, build and ship mobile products.",
-        "subheadline": "I build production Flutter apps, startup MVP foundations, Supabase backends, UX/UI systems and AI-assisted product workflows.",
+        "headline": "I design, build and ship software systems.",
+        "subheadline": "I build backend systems, full-stack applications and autonomous agents, from software architecture and data modeling to cloud deployment.",
         "primaryCta": "Contact me",
         "secondaryCta": "View resume",
-        "primaryAriaLabel": "Contact Christopher Paz Leon by email",
-        "secondaryAriaLabel": "View Christopher Paz Leon resume",
+        "microProof": "Production-focused, async-friendly, and open to international remote teams.",
+        "primaryAriaLabel": "Email Christopher Paz León",
+        "secondaryAriaLabel": "View Christopher Paz León's resume",
         "whatsappAriaLabel": "Contact via WhatsApp",
-        "whatsappUrl": "https://api.whatsapp.com/send/?phone=51973886687&text=Hi+Christopher%2C+I+saw+your+portfolio.&type=phone_number&app_absent=0",
-        "microProof": "Production-focused, async-friendly, and open to remote collaboration.",
+        "whatsappMessage": "Hi Christopher, I saw your portfolio and would like to connect about a professional opportunity.",
+        "portraitAlt": "Portrait of Christopher Paz León",
         "ornaments": [
             "LATAM / US Time Zones",
             "English C1",
-            "Contractor-ready"
-        ]
-    },
-    "selectedWorkContent": {
-        "eyebrow": "Selected work",
-        "headline": "Real products, ready to use.",
-        "intro": "A focused selection of work across mobile development, product architecture, UX/UI, backend systems and AI-assisted workflows.",
-        "projects": [
-            {
-                "slug": "4track-vistogps-pro",
-                "title": "4Track / VistoGPS",
-                "description": "Redesigned and developed Flutter GPS tracking apps shipped across Google Play, App Store and Huawei Gallery.",
-                "proof": "Store-shipped mobile work with realtime tracking and maps.",
-                "tags": [
-                    "Flutter",
-                    "Realtime GPS",
-                    "WebSockets",
-                    "Maps",
-                    "Store releases"
-                ],
-                "cta": "View case study",
-                "assetVariant": "map"
-            },
-            {
-                "slug": "jobmatch",
-                "title": "JobMatch",
-                "description": "Built the core MVP foundation for an AI-powered recruiting platform serving candidates, companies and recruiters.",
-                "proof": "Product and technical base behind a funded startup milestone. (~20$K / Startup Perú 12G)",
-                "tags": [
-                    "Supabase",
-                    "RLS",
-                    "Edge Functions",
-                    "AI workflows",
-                    "Recruiting platform"
-                ],
-                "cta": "View case study",
-                "assetVariant": "dashboard"
-            },
-            {
-                "slug": "cookpilot",
-                "title": "CookPilot",
-                "description": "Built and shipped a mobile product that organizes real food from decision to shopping and cooking.",
-                "proof": "Product, UX/UI, Flutter, Supabase and AI end to end.",
-                "tags": [
-                    "Flutter",
-                    "Supabase",
-                    "UX/UI",
-                    "Riverpod",
-                    "LLM APIs"
-                ],
-                "cta": "View case →",
-                "assetVariant": "system"
-            }
-        ]
-    },
-    "buildContent": {
-        "eyebrow": "Services",
-        "headline": "Three ways to turn your idea into a real product.",
-        "subtitle": "Design & mobile development services to turn ideas into real, clear, production-ready products.",
-        "whatsappLabel": "WhatsApp",
-        "emailLabel": "Email",
-        "pdfLabel": "Full PDF",
-        "pdfUrl": "/images/build/Design_Development_and_Deployment_of_Production_Mobile_Applications.pdf",
-        "whatsappUrl": "https://api.whatsapp.com/send/?phone=51973886687&text=Hi+Christopher%2C+I+have+an+app+idea%2Fproject+and+I%27d+be+interested+in+working+on+it+with+you&type=phone_number&app_absent=0",
-        "emailAddress": "contact@christopherpaz.dev",
-        "cards": [
-            {
-                "title": "Operational MVP",
-                "startingLabel": "From",
-                "price": "US$1,000",
-                "timeline": "Up to 1 month",
-                "features": [
-                    "Clear scope to get started",
-                    "Essential product flow",
-                    "Mobile interface ready to present",
-                    "Functional app to validate direction"
-                ],
-                "asset": "/images/build/pack_1.png"
-            },
-            {
-                "title": "Real Product",
-                "startingLabel": "From",
-                "price": "US$2,500",
-                "timeline": "Up to 3 months",
-                "features": [
-                    "Product defined end to end",
-                    "Premium UX/UI for real users",
-                    "Mobile app ready for distribution",
-                    "Cloud infrastructure/backend",
-                    "AI integrated into the main flow",
-                    "Deployment to production"
-                ],
-                "asset": "/images/build/pack_2.png"
-            },
-            {
-                "title": "Full App",
-                "startingLabel": "From",
-                "price": "US$4,500",
-                "timeline": "3\u20136 months",
-                "features": [
-                    "Complete product strategy",
-                    "End-to-end app architecture",
-                    "Premium UX/UI for multiple flows",
-                    "Robust cloud infrastructure",
-                    "Advanced AI workflows",
-                    "Preparation for official launch",
-                    "Post-launch growth roadmap"
-                ],
-                "asset": "/images/build/pack_3.png"
-            }
-        ]
+            "Remote · Contractor"
+        ],
+        "headlineAccent": "and ship software systems."
     },
     "experienceContent": {
         "eyebrow": "Experience",
-        "headline": "Built across production, MVPs and pre-launch products.",
-        "intro": "A compact timeline of the work behind the case studies.",
-        "impactLabel": "Why it matters",
+        "headline": "Engineering across products and systems.",
+        "intro": "My work spans backend architecture, autonomous agents, full-stack and mobile products, with ownership from implementation to production.",
+        "cta": "View experience",
         "items": [
             {
-                "index": "01",
-                "date": "Oct 2025 – Present",
-                "role": "Founder & Lead Product Engineer — Own Product",
-                "company": "CookPilot",
-                "summary": "Built and shipped CookPilot, a mobile product that connects decision, planning, shopping and cooking inside a single system. Developed end-to-end with Flutter, Supabase and structured AI workflows.",
-                "impact": "The most complete proof of my work: product, UX/UI, architecture, backend and mobile execution brought together in a real shipped product.",
+                "slug": "mirai",
+                "date": "Nov 2026 – Present",
+                "role": "Full-Stack Software Engineer",
+                "company": "Mirai",
+                "contextLabel": "Independent · Non-commercial project",
+                "cover": "/images/experience/mirai/mirai_product_showcase.png",
+                "coverAlt": "Mirai chat, campaign dashboard and CV editor shown together.",
+                "logo": "/images/experience/mirai/mirai_logo.svg",
+                "summary": "Autonomous agent for job searches, opportunity discovery, application preparation, and campaign management through the user's local browser.",
                 "details": [
-                    "Designed an architecture that connects ingredients, recipes, menus, days and weeks with nutrition, costs, shopping and cooking.",
-                    "Shipped the app with authentication, billing, multimodal AI, realtime flows and native integrations."
+                    "Designed a full-stack architecture with a modular Node.js and Express backend, PostgreSQL, Next.js, and shared TypeScript contracts.",
+                    "Implemented transactions, concurrency control, idempotency, resource-level authorization, and distributed coordination.",
+                    "Built the agent runtime with Google ADK and Vertex AI, integrating MCP, persistent context, streaming, and browser automation through WebSockets and CDP.",
+                    "Developed a payment system with Paddle, wallets, a transactional ledger, webhooks, and inference usage settlement.",
+                    "Deployed independent services on Google Cloud with Docker, CI/CD, security controls, database migrations, and verified rollback."
+                ],
+                "tags": [
+                    "TypeScript",
+                    "Node.js",
+                    "Express",
+                    "PostgreSQL",
+                    "Next.js",
+                    "Google ADK",
+                    "Vertex AI",
+                    "MCP",
+                    "WebSockets",
+                    "GCP",
+                    "Docker",
+                    "CI/CD",
+                    "Paddle"
+                ],
+                "links": [
+                    {
+                        "href": "https://github.com/Paz1CP/mirai",
+                        "label": "GitHub"
+                    },
+                    {
+                        "href": "https://mirai-web-4nag7kzycq-uk.a.run.app",
+                        "label": "Live app"
+                    },
+                    {
+                        "href": "https://github.com/Paz1CP/mirai/tree/main/docs",
+                        "label": "Technical documentation"
+                    }
+                ]
+            },
+            {
+                "slug": "cookpilot",
+                "date": "Oct 2025 – Nov 2026",
+                "role": "Founder & Lead Product Engineer",
+                "company": "CookPilot",
+                "contextLabel": "Own Comercial Product",
+                "cover": "/images/experience/cookpilot_product_proof.webp",
+                "coverAlt": "CookPilot mobile screens showing meal planning and cooking assistance.",
+                "logo": "/images/experience/CookPilot/cookpilot_logo.png",
+                "summary": "Culinary operating system integrating meal planning, recipes, nutrition, grocery shopping, costs, and cooking assistance within a single mobile product.",
+                "details": [
+                    "Designed, developed, and launched the product end to end, leading software architecture, UX/UI, backend engineering, and cross-platform Flutter development.",
+                    "Built the PostgreSQL and Supabase backend, modeling interconnected domains, business rules, nutritional planning, and a centralized pricing engine.",
+                    "Integrated OpenRouter, multimodal processing, structured outputs, backend validation, conversational assistance, and computer vision with MediaPipe.",
+                    "Implemented monetization through subscriptions and in-app purchases with RevenueCat, Google Play Billing, and Huawei IAP.",
+                    "Integrated Cloudflare media infrastructure, PostHog analytics, OneSignal notifications, and multi-store release workflows."
                 ],
                 "tags": [
                     "Flutter",
                     "Dart",
                     "Riverpod",
-                    "Supabase",
                     "PostgreSQL",
+                    "Supabase",
                     "RLS",
+                    "RPCs",
                     "Edge Functions",
-                    "Realtime",
-                    "UX/UI",
-                    "Figma",
-                    "LLM APIs",
+                    "OpenRouter",
                     "MediaPipe",
-                    "RevenueCat"
-                ]
+                    "RevenueCat",
+                    "Huawei IAP",
+                    "PostHog",
+                    "Cloudflare"
+                ],
+                "links": []
             },
             {
-                "index": "02",
+                "slug": "jobmatch",
                 "date": "May 2025 – Mar 2026",
                 "role": "Technical Product Lead — Contract",
-                "company": "JobMatch S.A.S",
-                "summary": "Built the core MVP foundation for an AI-powered recruiting platform, including Supabase backend infrastructure, candidate/company flows, dashboards and AI-assisted matching workflows.",
-                "impact": "Created the technical/product foundation behind a funded startup milestone and continued V1 development.",
+                "company": "JobMatch S.A.S.",
+                "contextLabel": "Hybrid · Peru",
+                "cover": "/images/experience/jm_product_proof.webp",
+                "coverAlt": "JobMatch recruiting and candidate management interfaces.",
+                "logo": "/images/experience/JM/jobmatch_orange.jpg",
+                "summary": "AI-powered recruiting and job-matching platform for candidates, companies, and recruiters.",
                 "details": [
-                    "Implemented auth, candidate/company flows, job posts, applications, dashboards and backend structure.",
-                    "Engineered matching logic and AI-assisted workflows with Supabase, RLS and Edge Functions."
+                    "Led the architecture, implementation, and technical evolution of the MVP, including authentication, profiles, job listings, applications, and dashboards.",
+                    "Designed the backend with Supabase, PostgreSQL, RLS, and Edge Functions, developing the AI-assisted matching system later used in production.",
+                    "Initially implemented the platform with Flutter Web and migrated it to Next.js, completing the technical handoff for its V1.",
+                    "Built the MVP used by 100+ users and contributed to the technical foundation of the product that secured PEN 67,000 in funding through ProInnóvate / Startup Perú 12G."
                 ],
                 "tags": [
+                    "Next.js",
+                    "Flutter Web",
                     "Supabase",
                     "PostgreSQL",
                     "SQL",
                     "RLS",
                     "Edge Functions",
-                    "Supabase Auth",
-                    "AI workflows",
-                    "Matching logic",
-                    "Dashboards",
-                    "MVP foundation",
-                    "Technical planning",
+                    "Applied AI",
+                    "Technical Leadership",
                     "Handoff"
-                ]
+                ],
+                "links": []
             },
             {
-                "index": "03",
+                "slug": "4track-vistogps-pro",
                 "date": "Oct 2024 – Oct 2025",
                 "role": "Mobile Software Engineer",
-                "company": "4Track S.A.S",
-                "summary": "Redesigned and developed production Flutter GPS tracking apps from Figma to store release as the sole mobile/frontend owner.",
-                "impact": "Mobile apps shipped across stores and remained in production after the engagement.",
+                "company": "4Track / VistoGPS · 4Track S.A.S.",
+                "contextLabel": "Remote · Colombia",
+                "cover": "/images/experience/4track_mobile_store_map.webp",
+                "coverAlt": "4Track and VistoGPS mobile interfaces with real-time maps and vehicle tracking.",
+                "logo": "/images/experience/4TRACK/4track-logo.webp",
+                "summary": "Real-time GPS tracking and fleet management platform.",
                 "details": [
-                    "Owned Figma-to-Flutter implementation, realtime GPS flows, maps and mobile architecture.",
-                    "Integrated WebSockets, custom backend auth/push, biometric auth, offline sync and store releases."
+                    "Redesigned and developed production Flutter applications as the sole mobile/frontend owner for a platform serving 5,000+ customers.",
+                    "Implemented real-time GPS tracking through WebSockets, map rendering, state management, and mobile architecture.",
+                    "Integrated custom backend authentication, push notifications, biometric authentication, offline synchronization, and local persistence.",
+                    "Collaborated with backend, infrastructure, and management teams, releasing applications across Google Play, the App Store, and Huawei AppGallery."
                 ],
                 "tags": [
                     "Flutter",
                     "Dart",
                     "Riverpod",
                     "Clean Architecture",
-                    "Realtime GPS",
                     "WebSockets",
+                    "GPS",
                     "Maps",
-                    "Offline sync",
+                    "Offline Sync",
                     "Biometrics",
-                    "Push notifications",
+                    "Push Notifications",
                     "Codemagic",
-                    "Store releases"
-                ]
+                    "Store Releases"
+                ],
+                "links": []
             }
         ]
     },
     "capabilitiesContent": {
         "eyebrow": "Capabilities",
         "headline": "What I can own end to end.",
-        "intro": "I work best where mobile execution, product thinking, UX/UI, backend logic and AI workflows need to move together.",
+        "intro": "I work across backend systems, applied AI, cloud infrastructure, payments, product engineering and delivery, connecting technical decisions to real product requirements.",
         "items": [
             {
                 "index": "01",
-                "title": "Mobile Product Development",
-                "description": "Flutter apps built with strong UI execution, state management, production readiness and cross-platform delivery.",
-                "proofImage": "/images/capabilities/mobile_dev_proof.png",
-                "proofAlt": "A dark development workspace showing code and a mobile app preview.",
+                "title": "Backend Engineering",
+                "description": "Modular backends built around typed APIs, relational data, business rules and secure access, with transactions, concurrency control and idempotent operations.",
+                "proofImage": "/images/capabilities/backend_engineering.png",
+                "proofAlt": "Conceptual blueprint of a modular backend connecting API requests, domain services, data access and external integrations.",
                 "keywords": [
-                    "Flutter",
-                    "Dart",
-                    "Riverpod",
-                    "Clean Architecture",
-                    "Mobile UI",
-                    "Android",
-                    "iOS",
-                    "Store releases"
+                    "Node.js",
+                    "Express",
+                    "TypeScript",
+                    "PostgreSQL",
+                    "SQL",
+                    "Drizzle ORM",
+                    "Supabase",
+                    "Neon",
+                    "REST APIs",
+                    "WebSockets",
+                    "Zod",
+                    "RLS",
+                    "Transactions",
+                    "Idempotency"
                 ]
             },
             {
                 "index": "02",
-                "title": "UX/UI Systems",
-                "description": "Product interfaces designed with hierarchy, clarity, motion, surfaces and implementation in mind.",
-                "proofImage": "/images/capabilities/ux_ui_proof.png",
-                "proofAlt": "A dark Figma-style workspace showing CookPilot mobile interface screens.",
+                "title": "Applied AI Engineering",
+                "description": "Autonomous agents and AI-powered systems with persistent context, tool orchestration, browser automation, multimodal processing and validated structured outputs.",
+                "proofImage": "/images/capabilities/applied_ai_engineering.png",
+                "proofAlt": "Conceptual agent orchestration map connecting inference, context, tools and validated results.",
                 "keywords": [
-                    "Figma",
-                    "UX/UI",
-                    "Design systems",
-                    "Visual hierarchy",
-                    "Figma-to-Flutter",
-                    "High-fidelity assets"
+                    "Google ADK",
+                    "Vertex AI",
+                    "Gemini",
+                    "MCP",
+                    "Tool Calling",
+                    "Context Engineering",
+                    "Playwright MCP",
+                    "OpenRouter",
+                    "Structured Outputs",
+                    "Multimodal AI",
+                    "Human-in-the-Loop",
+                    "MediaPipe"
                 ]
             },
             {
                 "index": "03",
-                "title": "Supabase Backends",
-                "description": "Backend foundations for MVPs and product features using PostgreSQL, auth, RLS, Edge Functions and structured data.",
-                "proofImage": "/images/capabilities/backend_proof.png",
-                "proofAlt": "A dark database schema visualizer showing related product backend tables.",
+                "title": "Cloud & DevSecOps",
+                "description": "Cloud services delivered through containerized infrastructure, automated CI/CD, integration checks, security gates, controlled deployments and rollback workflows.",
+                "proofImage": "/images/capabilities/cloud_devsecops.png",
+                "proofAlt": "Mirai GitHub Actions workflow showing cloud release and verification stages.",
                 "keywords": [
-                    "Supabase",
-                    "PostgreSQL",
-                    "SQL",
-                    "RLS",
-                    "Edge Functions",
-                    "Auth",
-                    "Realtime"
+                    "Google Cloud",
+                    "Cloud Run",
+                    "Cloud Build",
+                    "Artifact Registry",
+                    "Docker",
+                    "GitHub Actions",
+                    "CI/CD",
+                    "CodeQL",
+                    "Trivy",
+                    "OIDC/WIF",
+                    "Cloudflare R2",
+                    "Workers"
                 ]
             },
             {
                 "index": "04",
-                "title": "AI Product Workflows",
-                "description": "AI-assisted product features built around structured outputs, backend constraints and real user flows.",
-                "proofImage": "/images/capabilities/aiflow_proof.png",
-                "proofAlt": "A dark AI product workflow interface showing structured product logic.",
+                "title": "Payments & Billing",
+                "description": "Payment integrations and backend billing systems for subscriptions, consumable purchases, prepaid balances, usage accounting and transactional reconciliation.",
+                "proofImage": "/images/experience/mirai/mirai_billing.png",
+                "proofAlt": "Mirai's billing and usage interface.",
                 "keywords": [
-                    "LLM APIs",
-                    "AI workflows",
-                    "System Prompts",
-                    "Structured outputs",
-                    "Product logic",
-                    "AI-assisted features"
+                    "Paddle",
+                    "RevenueCat",
+                    "Google Play Billing",
+                    "Huawei IAP",
+                    "Webhooks",
+                    "Entitlements",
+                    "Wallets",
+                    "Ledger",
+                    "Idempotency",
+                    "Reconciliation"
                 ]
             },
             {
                 "index": "05",
-                "title": "Production Delivery",
-                "description": "End-to-end delivery from ambiguous product idea to working software, including deployment, debugging and handoff.",
-                "proofImage": "/images/capabilities/deployment_proof.png",
-                "proofAlt": "A dark release readiness interface showing production delivery states.",
+                "title": "Software & Product Engineering",
+                "description": "End-to-end ownership of product requirements, system design, technical planning and implementation, connecting web and mobile architecture to delivery and operation.",
+                "proofImage": "/images/capabilities/software_product_engineering.png",
+                "proofAlt": "Conceptual product development lifecycle board from discovery and architecture to implementation and operation.",
                 "keywords": [
-                    "CI/CD",
+                    "System Design",
+                    "C4",
+                    "SDLC",
+                    "Requirements Engineering",
+                    "Technical Ownership",
+                    "AI-native Development",
+                    "React",
+                    "Next.js",
+                    "Flutter",
+                    "Git",
+                    "Monorepos"
+                ]
+            },
+            {
+                "index": "06",
+                "title": "UX/UI Systems",
+                "description": "Product interfaces designed around visual hierarchy, reusable components, interaction states and clear user flows, with implementation in mind.",
+                "proofImage": "/images/capabilities/ux_ui_proof.png",
+                "proofAlt": "CookPilot interface design workspace with a collection of mobile screens.",
+                "keywords": [
+                    "Figma",
+                    "UX/UI",
+                    "Design Systems",
+                    "Visual Hierarchy",
+                    "Design Tokens",
+                    "Interaction Design",
+                    "Figma-to-Flutter"
+                ]
+            },
+            {
+                "index": "07",
+                "title": "Production Delivery",
+                "description": "Software delivery from implementation to real releases, including multi-store publishing, production debugging, analytics, native integrations and technical handoff.",
+                "proofImage": "/images/capabilities/deployment_proof.png",
+                "proofAlt": "App Store Connect interface associated with 4Track mobile delivery.",
+                "keywords": [
                     "Codemagic",
-                    "App stores",
-                    "Production debugging",
-                    "Technical handoff",
-                    "Remote collaboration"
+                    "App Stores",
+                    "Release Workflows",
+                    "Production Debugging",
+                    "PostHog",
+                    "OneSignal",
+                    "Technical Handoff",
+                    "Remote Collaboration"
                 ]
             }
         ]
     },
     "contactContent": {
         "eyebrow": "Availability",
-        "headline": "Looking for someone who can design, build and ship?",
-        "body": "I'm open to remote Flutter/Mobile roles, contractor work and MVP/product builds across LATAM and global teams.",
-        "lookingForTitle": "Looking for",
-        "lookingFor": [
-            "Flutter Developer roles",
-            "Mobile Engineer roles",
-            "Mobile Product Engineer roles",
-            "Contractor work",
-            "Startup MVP builds",
-            "AI-assisted product features",
-            "Supabase-backed product work"
-        ],
+        "headline": "Let's build software that matters.",
+        "body": "I'm open to remote Software Engineering roles with a focus on backend, full-stack systems and applied AI. Based in Peru, I work with international teams across LATAM and US time zones.",
+        "lookingForTitle": "Roles I'm open to",
         "primaryCta": "Email me",
         "secondaryCta": "View resume",
         "tertiaryCta": "Connect on LinkedIn",
-        "contactLine": "contact@christopherpaz.dev"
+        "githubCta": "View GitHub",
+        "contactLine": "contact@christopherpaz.dev",
+        "availabilityNote": "Remote · English C1 · LATAM / US Time Zones · Contractor",
+        "lookingFor": [
+            "Software Engineer",
+            "Backend Engineer",
+            "Full-Stack Software Engineer",
+            "Applied AI Engineer",
+            "AI Software Engineer",
+            "Product Engineer",
+            "Mobile Software Engineer"
+        ]
     },
     "footerContent": {
-        "name": "Christopher Paz León",
-        "role": "Flutter Developer  ·  Mobile Product Engineer  ·  UX/UI ",
-        "links": [
-            {
-                "label": "Email",
-                "href": "mailto:contact@christopherpaz.dev",
-                "external": false
-            },
-            {
-                "label": "LinkedIn",
-                "href": "https://linkedin.com/in/pazleon",
-                "external": true
-            },
-            {
-                "label": "Resume",
-                "href": "/Christopher_Paz_CV.pdf",
-                "external": true
-            }
-        ]
+        "linksLabel": "Footer links",
+        "resumeLabel": "Resume",
+        "backToTop": "Back to top"
     },
     "caseStudies": [
         {
+            "slug": "mirai",
+            "projectName": "Mirai",
+            "eyebrow": "Experience / Independent project",
+            "title": "Autonomous agents and distributed browser execution.",
+            "context": "Mirai helps candidates discover opportunities, prepare applications and carry out browser tasks within a user-defined mandate. It connects professional profile data, documents, campaigns and application tracking to an autonomous agent operating the user's linked local Chrome.",
+            "owned": "I designed, implemented and deployed the entire system: product definition, frontend, backend, data architecture, agent runtime, browser extension, billing, security, cloud infrastructure and technical documentation.",
+            "role": "Full-Stack Software Engineer",
+            "timeline": "Nov 2026 – Present",
+            "images": [
+                {
+                    "src": "/images/experience/mirai/mirai_chat.png",
+                    "alt": "Agent conversation and tool execution"
+                },
+                {
+                    "src": "/images/experience/mirai/mirai_dashboard.png",
+                    "alt": "Campaign status and application tracking"
+                },
+                {
+                    "src": "/images/experience/mirai/mirai_library.png",
+                    "alt": "Document and CV library"
+                },
+                {
+                    "src": "/images/experience/mirai/mirai_cv_editor.png",
+                    "alt": "Professional profile and CV editor"
+                },
+                {
+                    "src": "/images/experience/mirai/mirai_billing.png",
+                    "alt": "Billing and inference usage interface"
+                }
+            ],
+            "keyWork": [
+                {
+                    "title": "Backend & data",
+                    "body": "Implemented REST APIs, a modular domain architecture, PostgreSQL persistence, relational constraints, versioned migrations and typed request validation. Used transactions, advisory locks, row-level locking and deterministic identities to coordinate writes and prevent duplicate effects in critical operations."
+                },
+                {
+                    "title": "Applied AI",
+                    "body": "Built the agent runtime with Google ADK, Vertex AI Agent Engine and Gemini inference. Integrated tool calling, MCP, persistent conversational sessions, context compaction, structured outputs, streaming and user intervention for controlled execution."
+                },
+                {
+                    "title": "Distributed browser automation",
+                    "body": "Connected the cloud runtime to local Chrome through Playwright MCP, a browser model adapter, a workspace WebSocket and the WXT extension using the Chrome Debugger API/CDP. Managed workspace ownership, browser events, cancellation and controlled execution recovery."
+                },
+                {
+                    "title": "Product flows & documents",
+                    "body": "Developed chat, campaign orchestration, application tracking, document ingestion, multimodal extraction, structured professional profiles and CV generation. Used persistent execution state, result reconciliation and event-driven updates through PostgreSQL LISTEN/NOTIFY and WebSockets."
+                },
+                {
+                    "title": "Payments & billing",
+                    "body": "Integrated Paddle checkout and signed HMAC-SHA256 webhooks with a prepaid wallet and transactional ledger. Implemented idempotent payment processing, inference usage reservations and settlement, reconciliation and adjustments."
+                },
+                {
+                    "title": "Security & privacy",
+                    "body": "Implemented JWT authentication with Neon Auth, resource-level authorization, account isolation, private object storage and short-lived signed URLs. Defined tool restrictions, protected the Mirai tab and kept execution within the candidate's mandate and intervention boundaries."
+                },
+                {
+                    "title": "Cloud & DevSecOps",
+                    "body": "Deployed the web and API independently with Docker, Google Cloud Build, Artifact Registry and Cloud Run. Automated CI/CD with GitHub Actions, integration tests against Neon dev, CodeQL, Trivy, OIDC/WIF, migration gates, candidate revisions, health checks and traffic rollback."
+                },
+                {
+                    "title": "Engineering lifecycle",
+                    "body": "Documented product requirements, C4 architecture, shared contracts, domain responsibilities, security, delivery and operations. Organized the implementation around a consistent end-to-end development lifecycle."
+                }
+            ],
+            "technicalHighlights": [
+                "TypeScript",
+                "Node.js",
+                "Express",
+                "PostgreSQL",
+                "Next.js",
+                "Google ADK",
+                "Vertex AI",
+                "MCP",
+                "WebSockets",
+                "GCP",
+                "Docker",
+                "CI/CD",
+                "Paddle",
+                "Drizzle ORM",
+                "Neon",
+                "Neon Auth",
+                "Zod",
+                "WXT",
+                "Chrome DevTools Protocol",
+                "Playwright MCP",
+                "LISTEN/NOTIFY",
+                "Agent Engine",
+                "Gemini",
+                "Cloud Run",
+                "Cloud Build",
+                "Artifact Registry",
+                "CodeQL",
+                "Trivy",
+                "OIDC/WIF",
+                "Vitest",
+                "HMAC-SHA256",
+                "C4"
+            ],
+            "purpose": "Independent, non-commercial project for applied research and end-to-end software engineering. Payment integrations demonstrate system engineering and do not constitute a commercial offering.",
+            "architecture": {
+                "body": "A TypeScript monorepo separates the Next.js web application, Express API and WXT browser extension, sharing Zod contracts and CV rendering components. Web and API are deployed as independent Cloud Run services. The API uses a modular monolith with domain modules, Neon PostgreSQL and Drizzle ORM, private S3-compatible object storage, Vertex AI and Paddle. The extension connects the user's local browser to the backend through the workspace WebSocket.",
+                "src": "/images/experience/mirai/mirai_system_architecture.png",
+                "alt": "Logical architecture of Mirai, connecting the web client, browser extension, modular API, agent runtime and external services.",
+                "caption": "Logical overview of Mirai's architecture."
+            },
+            "workflows": [
+                {
+                    "title": "Browser execution flow",
+                    "steps": [
+                        "User mandate",
+                        "Agent runtime",
+                        "Playwright MCP",
+                        "Workspace WebSocket",
+                        "WXT extension / CDP",
+                        "Local Chrome",
+                        "Results and user control"
+                    ]
+                }
+            ],
+            "engineeringDecisions": [
+                {
+                    "title": "Cloud agent needs local browser access",
+                    "body": "An extension-backed WebSocket/CDP bridge connects the runtime to the candidate's own Chrome."
+                },
+                {
+                    "title": "Concurrent operations compete for ownership",
+                    "body": "PostgreSQL locks and conditional state transitions coordinate the workspace and critical writes."
+                },
+                {
+                    "title": "Requests and provider events can repeat",
+                    "body": "Idempotent identities, transactions and reconciliation protect persistence and billing."
+                },
+                {
+                    "title": "Execution or streaming can be interrupted",
+                    "body": "Persistent state, checkpoints, cursors and controlled recovery preserve context where supported; disconnection cancels affected executions."
+                },
+                {
+                    "title": "Inference costs vary with usage",
+                    "body": "Wallet reservations, transactional ledger and usage settlement account for the actual consumption."
+                },
+                {
+                    "title": "A release can break compatibility or traffic",
+                    "body": "Migration gates, candidate revisions and health checks control promotion; verified rollback restores previous traffic."
+                }
+            ],
+            "evidenceLinks": [
+                {
+                    "href": "https://github.com/Paz1CP/mirai",
+                    "label": "Source repository",
+                    "description": "Public code, contracts and implementation."
+                },
+                {
+                    "href": "https://mirai-web-4nag7kzycq-uk.a.run.app",
+                    "label": "Live application",
+                    "description": "Explore the deployed product."
+                },
+                {
+                    "href": "https://github.com/Paz1CP/mirai/tree/main/docs",
+                    "label": "Technical documentation",
+                    "description": "Product, architecture, features and platform documentation."
+                },
+                {
+                    "href": "https://github.com/Paz1CP/mirai/blob/main/docs/architecture/mirai_architecture.md",
+                    "label": "Architecture",
+                    "description": "System boundaries, components and technical decisions."
+                },
+                {
+                    "href": "https://github.com/Paz1CP/mirai/blob/main/docs/platform/mirai_ci_cd.md",
+                    "label": "CI/CD & DevSecOps",
+                    "description": "Delivery, security gates and recovery design."
+                },
+                {
+                    "href": "https://github.com/Paz1CP/mirai/actions/runs/45615408735",
+                    "label": "Verified production release",
+                    "description": "Successful production delivery workflow."
+                },
+                {
+                    "href": "https://github.com/Paz1CP/mirai/actions/runs/45611946799",
+                    "label": "Migration gate",
+                    "description": "Release blocked by an incompatible migration."
+                },
+                {
+                    "href": "https://github.com/Paz1CP/mirai/actions/runs/45616829512",
+                    "label": "Verified rollback",
+                    "description": "Recovery of a previous production revision pair."
+                },
+                {
+                    "href": "https://github.com/Paz1CP/mirai/actions/runs/45617062340",
+                    "label": "Release restoration",
+                    "description": "Successful restoration of the verified release."
+                }
+            ]
+        },
+        {
+            "slug": "cookpilot",
+            "projectName": "CookPilot",
+            "eyebrow": "Experience / Own product",
+            "title": "A culinary operating system built end to end.",
+            "context": "CookPilot connects a daily food decision to an actionable plan, shopping list, cooking session and progress record. Ingredients, recipes, menus, meal moments, days and weeks form a shared domain linked to nutrition, costs, reuse and cooking assistance. I built the product across the Flutter application, backend, data architecture, AI integrations, UX/UI and monetization.",
+            "owned": "I led the entire product lifecycle as founder and lead engineer: product definition, system design, relational modeling, backend, mobile architecture, UX/UI, applied AI, billing, integrations, analytics and store releases.",
+            "role": "Founder & Lead Product Engineer",
+            "timeline": "Oct 2025 – Nov 2026",
+            "images": [
+                {
+                    "src": "/images/experience/CookPilot/img_app_home.png",
+                    "alt": "Home and daily planning"
+                },
+                {
+                    "src": "/images/experience/CookPilot/img_app_recipe_detail.png",
+                    "alt": "Recipe details"
+                },
+                {
+                    "src": "/images/experience/CookPilot/img_app_cookflow_chat.jpg",
+                    "alt": "Cooking assistance"
+                },
+                {
+                    "src": "/images/experience/CookPilot/cookpilot.png",
+                    "alt": "CookPilot product interface"
+                },
+                {
+                    "src": "/images/experience/CookPilot/img_app_pricing_comparator.png",
+                    "alt": "Recipe cost comparison"
+                }
+            ],
+            "keyWork": [
+                {
+                    "title": "Backend & domain architecture",
+                    "body": "Designed the Supabase/PostgreSQL backend with relational domains, Auth, RLS, Edge Functions, SQL RPCs, Storage and Realtime. Modeled ingredients, recipes, menus, days, weeks, shopping and cooking sessions around shared contracts and server-side business rules."
+                },
+                {
+                    "title": "Data consistency & state",
+                    "body": "Developed atomic planning mutations, compact acknowledgments, revision-based persistence and optimistic updates. Structured shared state, serialized critical writes and reconciled remote snapshots in planning, recipe import and shopping flows to avoid conflicting representations."
+                },
+                {
+                    "title": "Financial & nutritional logic",
+                    "body": "Centralized ingredient pricing and recipe cost comparisons in shared SQL functions, using canonical ingredient identities, quantities, unit conversion, serving scaling and price caching. Connected these calculations to planning, shopping and nutritional context."
+                },
+                {
+                    "title": "Applied AI & multimodal processing",
+                    "body": "Integrated OpenRouter and LLM APIs with structured outputs, specialized prompts and backend validation. Developed recipe import from external sources, multimodal extraction, draft review, ingredient matching and typed actions that feed the same culinary domain."
+                },
+                {
+                    "title": "Cooking execution & real-time assistance",
+                    "body": "Developed persistent cooking sessions, timers, pause and resume flows, contextual tools and voice assistance with streaming audio. Coordinated the session runtime, local state, remote persistence and usage accounting."
+                },
+                {
+                    "title": "Computer vision & native integration",
+                    "body": "Implemented MediaPipe gesture recognition and native-to-Flutter communication for hands-free cooking interactions, alongside platform-specific authentication and mobile integrations."
+                },
+                {
+                    "title": "Payments & entitlements",
+                    "body": "Integrated RevenueCat, Google Play Billing and Huawei IAP for subscriptions and consumable packs. Developed server-side entitlement management, verified store synchronization, idempotent purchase materialization, usage consumption and refunds."
+                },
+                {
+                    "title": "Media infrastructure",
+                    "body": "Implemented Cloudflare R2, CDN and a shared Worker for media storage and delivery, including authorized short-lived upload tickets and temporary media handling for recipe import."
+                },
+                {
+                    "title": "Mobile & design systems",
+                    "body": "Built the Flutter/Dart application with Riverpod, reusable components, typed state, navigation and platform-specific flavors. Designed the product's UX/UI system in Figma and implemented its interfaces across interconnected product flows."
+                },
+                {
+                    "title": "Analytics & delivery",
+                    "body": "Integrated PostHog for product analytics, OneSignal for notifications, Google Sign-In and Credential Manager, and managed release workflows for Google Play and Huawei AppGallery. Structured analytics around product events and verified financial records."
+                }
+            ],
+            "technicalHighlights": [
+                "Flutter",
+                "Dart",
+                "Riverpod",
+                "PostgreSQL",
+                "Supabase",
+                "RLS",
+                "RPCs",
+                "Edge Functions",
+                "OpenRouter",
+                "MediaPipe",
+                "RevenueCat",
+                "Huawei IAP",
+                "PostHog",
+                "Cloudflare",
+                "Cloudflare R2",
+                "Workers",
+                "CDN",
+                "Google Play Billing",
+                "OneSignal",
+                "Structured Outputs",
+                "Figma"
+            ],
+            "workflows": [
+                {
+                    "title": "AI workflow",
+                    "steps": [
+                        "User input and context",
+                        "Product rules",
+                        "Backend orchestration",
+                        "Structured LLM output",
+                        "Validation and normalization",
+                        "Typed product action"
+                    ]
+                }
+            ],
+            "designSystemWork": [
+                "UX/UI direction",
+                "Figma design system",
+                "Visual hierarchy",
+                "Design tokens and reusable components",
+                "Interaction states",
+                "Product surfaces",
+                "High-fidelity assets",
+                "Figma-to-Flutter implementation"
+            ],
+            "currentState": [
+                "Built and launched the product end to end, from the initial product and UX/UI definition to the mobile application, backend and integrations.",
+                "Delivered an interconnected culinary workflow covering planning, import, shopping, execution, nutrition and costs.",
+                "Implemented multi-store monetization, product analytics and production releases for Google Play and Huawei AppGallery."
+            ],
+            "productWorkflow": {
+                "title": "Product workflow",
+                "steps": [
+                    "Discover or import",
+                    "Plan",
+                    "Review nutrition and costs",
+                    "Build shopping list",
+                    "Cook",
+                    "Record progress",
+                    "Reuse"
+                ],
+                "description": "CookSearch, CookImport, CookMatch, CookPlan, CookList, CookMode and CookBalance are interconnected parts of this loop, not isolated features. A recipe can be saved, edited, planned, purchased, executed and reused across the same data model."
+            }
+        },
+        {
+            "slug": "jobmatch",
+            "projectName": "JobMatch S.A.S.",
+            "eyebrow": "Experience / Contract",
+            "title": "Full-stack foundation for a recruiting platform.",
+            "context": "JobMatch connects candidates, companies and recruiters through job discovery, applications and AI-assisted matching. I led the technical foundation of its MVP, covering authentication, user and company profiles, vacancies, applications, dashboards and backend infrastructure.",
+            "owned": "I was responsible for technical product definition, architecture, implementation and handoff, collaborating with UX/UI and translating recruiting and business requirements into working software.",
+            "role": "Technical Product Lead — Contract",
+            "timeline": "May 2025 – Mar 2026",
+            "images": [
+                {
+                    "src": "/images/experience/JM/jm_candidate_dashboard.png",
+                    "alt": "Candidate dashboard"
+                },
+                {
+                    "src": "/images/experience/JM/jm_candidate_job_search.png",
+                    "alt": "Job search"
+                },
+                {
+                    "src": "/images/experience/JM/jm_candidate_applications_lane.png",
+                    "alt": "Application tracking"
+                },
+                {
+                    "src": "/images/experience/JM/jm_recruiter_kanban_mode.png",
+                    "alt": "Recruiter pipeline"
+                }
+            ],
+            "keyWork": [
+                {
+                    "body": "Designed and implemented the core MVP for candidates, companies and recruiters, including authentication, profile management, vacancies, applications and dashboards."
+                },
+                {
+                    "body": "Structured the PostgreSQL data model and Supabase backend with Row-Level Security, Auth and Edge Functions to support the platform's business logic and access boundaries."
+                },
+                {
+                    "body": "Developed AI-assisted matching workflows using candidate data, job requirements and backend matching logic; the matching foundation was subsequently used in production."
+                },
+                {
+                    "body": "Implemented the platform initially in Flutter Web and migrated it toward Next.js for a more advanced stage, working with the UX/UI team."
+                },
+                {
+                    "body": "Supported technical planning and the product foundation for ProInnóvate / Startup Perú 12G, then completed the technical handoff for continued V1 development."
+                }
+            ],
+            "technicalHighlights": [
+                "Next.js",
+                "Flutter Web",
+                "Supabase",
+                "PostgreSQL",
+                "SQL",
+                "RLS",
+                "Edge Functions",
+                "Applied AI",
+                "Technical Leadership",
+                "Handoff",
+                "Supabase Auth",
+                "Matching Logic",
+                "LLM APIs",
+                "Figma"
+            ],
+            "workflows": [
+                {
+                    "title": "AI / matching workflow",
+                    "steps": [
+                        "Candidate profile",
+                        "Job requirements",
+                        "Matching logic",
+                        "AI-assisted processing",
+                        "Score output",
+                        "Recruiter dashboard"
+                    ]
+                }
+            ],
+            "businessProof": "The MVP was used by 100+ users. My technical and product contribution supported the foundation behind PEN 67,000 in funding awarded to the project through ProInnóvate / Startup Perú 12G. I delivered the technical foundation and matching workflow for continued development of V1."
+        },
+        {
             "slug": "4track-vistogps-pro",
             "projectName": "4Track / VistoGPS",
-            "eyebrow": "Case study / Production mobile",
-            "title": "Flutter GPS tracking apps shipped across stores.",
+            "eyebrow": "Experience / Production software",
+            "title": "Real-time GPS applications delivered to production.",
+            "context": "4Track / VistoGPS is a real-time GPS tracking and fleet management platform used by businesses to monitor vehicles and operational activity. The mobile work focused on tracking, maps, authentication, synchronization and delivery across multiple app stores.",
+            "owned": "I owned the mobile/frontend work end to end: UX/UI redesign, Flutter implementation, mobile architecture, real-time map flows, native integrations, store releases and collaboration with backend, infrastructure and management teams.",
             "role": "Mobile Software Engineer",
             "timeline": "Oct 2024 – Oct 2025",
-            "context": "4Track / VistoGPS is a GPS tracking product used by businesses to monitor vehicles and operational activity. The product needed a stronger mobile experience for realtime tracking, maps, authentication and production deployment across multiple app stores.",
-            "ownedTitle": "What I owned",
-            "owned": "I owned the mobile/frontend side end to end: UX/UI redesign, Flutter implementation, realtime map flows, mobile architecture, native integrations, store releases and collaboration with backend, infrastructure and management.",
+            "images": [
+                {
+                    "src": "/images/experience/4TRACK/4T_01.png",
+                    "alt": "Visto GPS on Google Play, with vehicle maps and device screens."
+                },
+                {
+                    "src": "/images/experience/4TRACK/4T_02.png",
+                    "alt": "VISTO+ App Store listing with sign-in, map and vehicle screens."
+                },
+                {
+                    "src": "/images/experience/4TRACK/4T_03.png",
+                    "alt": "4Track fleet map with colored vehicle markers and map controls."
+                },
+                {
+                    "src": "/images/experience/4TRACK/4T_04.png",
+                    "alt": "4Track map showing a dated route with direction arrows and an endpoint."
+                }
+            ],
             "keyWork": [
-                "Redesigned the mobile UX/UI in Figma.",
-                "Implemented production Flutter apps from Figma to store release.",
-                "Built realtime GPS tracking flows with WebSockets and map rendering.",
-                "Integrated custom backend auth/push, biometric authentication, offline sync and local persistence.",
-                "Shipped apps across Google Play, App Store and Huawei Gallery.",
-                "Delivered mobile design and implementation still used in production after the engagement."
+                {
+                    "body": "Redesigned the mobile experience in Figma and implemented the production Flutter applications as the sole mobile/frontend owner."
+                },
+                {
+                    "body": "Implemented real-time GPS tracking through WebSockets, map rendering, mobile state management and integration with existing GPS services."
+                },
+                {
+                    "body": "Integrated custom backend authentication, push notifications, biometric authentication, offline synchronization and local persistence."
+                },
+                {
+                    "body": "Worked directly with backend, infrastructure and management teams to align mobile architecture with operational requirements, resolve integration issues and deliver production releases."
+                },
+                {
+                    "body": "Released applications across Google Play, the App Store and Huawei AppGallery, delivering the mobile design and implementation that remained in production after the engagement."
+                }
             ],
             "technicalHighlights": [
                 "Flutter",
@@ -411,168 +835,42 @@
                 "Riverpod",
                 "Clean Architecture",
                 "WebSockets",
+                "GPS",
                 "Maps",
-                "Custom backend auth/push",
-                "Biometric authentication",
-                "Offline sync",
-                "Local persistence",
+                "Offline Sync",
+                "Biometrics",
+                "Push Notifications",
                 "Codemagic",
+                "Store Releases",
+                "Local Persistence",
+                "Figma",
                 "Google Play Console",
                 "App Store Connect",
-                "Huawei Gallery"
+                "Huawei AppGallery"
             ],
-            "assets": [
-                "4track_google_play_listing",
-                "vistogps_google_play_listing",
-                "4track_huawei_gallery_listing",
-                "4track_map_screen",
-                "4track_figma_redesign",
-                "4track_mobile_flow"
-            ],
-            "visualVariant": "map",
-            "proof": [
-                "Published production apps across Google Play, App Store and Huawei Gallery.",
-                "Public listings show 1K+ downloads across related production apps.",
-                "The delivered mobile design and implementation remained in production after the engagement."
-            ]
-        },
-        {
-            "slug": "jobmatch",
-            "projectName": "JobMatch",
-            "eyebrow": "Case study / AI-powered MVP",
-            "title": "Core MVP foundation for an AI-powered recruiting platform.",
-            "role": "Technical Product Lead — Contract",
-            "timeline": "May 2025 – Mar 2026",
-            "context": "JobMatch is a recruiting platform built for candidates, companies and recruiters. The product needed a working MVP foundation: authentication, candidate and company flows, job posts, applications, dashboards, matching logic and backend infrastructure.",
-            "ownedTitle": "What I owned",
-            "owned": "I built the core MVP foundation and worked across product planning, technical architecture, implementation, UX/UI implementation and handoff. The platform foundation supported the ProInnóvate / Startup Perú 12G process and was later extended by another developer for V1.",
-            "keyWork": [
-                "Built the core MVP foundation for candidates, companies and recruiters.",
-                "Implemented authentication, user flows, job posts, applications and dashboards.",
-                "Structured the Supabase backend, database schema, Row Level Security and Edge Functions.",
-                "Engineered AI-assisted matching workflows later used in production.",
-                "Implemented shared UX/UI designs and product flows.",
-                "Supported product and technical planning for ProInnóvate / Startup Perú 12G.",
-                "Completed a clean technical handoff for continued V1 development."
-            ],
-            "technicalHighlights": [
-                "Supabase",
-                "PostgreSQL",
-                "SQL",
-                "Row Level Security",
-                "RLS",
-                "Edge Functions",
-                "Supabase Auth",
-                "Next.js",
-                "AI APIs",
-                "System Prompts",
-                "Dashboards",
-                "Matching logic",
-                "Technical handoff"
-            ],
-            "assets": [
-                "jm_candidate_dashboard",
-                "jm_company_dashboard",
-                "jm_matching_results",
-                "jm_job_post_flow",
-                "jm_application_pipeline",
-                "jm_admin_metrics",
-                "jm_ai_matching_flow"
-            ],
-            "visualVariant": "matching",
-            "workflowTitle": "AI / matching workflow",
-            "workflow": [
-                "Candidate profile data",
-                "Job post requirements",
-                "Matching logic",
-                "AI-assisted workflow",
-                "Score output",
-                "Recruiter dashboard",
-                "Production extension after handoff"
-            ],
-            "businessProof": "The platform foundation contributed to the product and technical preparation behind S/67,000 in ProInnóvate / Startup Perú 12G funding."
-        },
-        {
-            "slug": "cookpilot",
-            "projectName": "CookPilot",
-            "eyebrow": "Case study / Own product",
-            "title": "A mobile system built end to end.",
-            "role": "Founder & Lead Product Engineer",
-            "timeline": "Oct 2025 – Present",
-            "context": "CookPilot organizes real food inside a single system. Ingredients, recipes, menus, meal moments, days and weeks connect with nutrition, costs, shopping, execution and progress.\n\nI designed and built the full product: UX/UI, data architecture, Flutter app, Supabase backend, monetization, native integrations and specialized AI workflows.",
-            "ownedTitle": "Ownership",
-            "owned": "I lead product, UX/UI, Flutter development, Supabase architecture, data modeling, applied AI, monetization and store releases.",
-            "keyWork": [
-                "Defined the product architecture and data model connecting ingredients, recipes, menus, meal moments, days and weeks.",
-                "Designed the UX/UI system in Figma and implemented it in Flutter with Riverpod and reusable components.",
-                "Built the backend with Supabase, PostgreSQL, Auth, RLS, Edge Functions, RPCs, Storage and Realtime.",
-                "Developed CookPlan, CookSearch, CookImport, CookList, CookMode and CookBalance as parts of a single loop.",
-                "Integrated LLM APIs, structured outputs, prompt systems, multimodal processing and backend validations to produce typed actions inside the product.",
-                "Implemented Google Sign-In, Credential Manager, RevenueCat, Huawei IAP, MediaPipe, flavors and store release workflows."
-            ],
-            "technicalHighlights": [
-                "Flutter",
-                "Dart",
-                "Riverpod",
-                "Supabase",
-                "PostgreSQL",
-                "RLS",
-                "Edge Functions",
-                "Realtime",
-                "REST APIs",
-                "LLM APIs",
-                "Structured Outputs",
-                "MediaPipe",
-                "RevenueCat",
-                "UX/UI",
-                "Figma"
-            ],
-            "assets": [
-                "cookpilot_figma_board",
-                "cookpilot_mobile_home",
-                "cookpilot_decision_flow",
-                "cookpilot_design_system",
-                "cookpilot_avatar_asset",
-                "cookpilot_ai_workflow",
-                "cookpilot_product_wall"
-            ],
-            "visualVariant": "system",
-            "workflowTitle": "AI workflow",
-            "workflow": [
-                "User context",
-                "Product rules and constraints",
-                "Backend orchestration",
-                "Structured LLM output",
-                "Validation and normalization",
-                "Typed action in the app"
-            ],
-            "designSystemWork": [
-                "UX/UI direction",
-                "Figma design system",
-                "Visual hierarchy",
-                "Tokens and components",
-                "States and interaction",
-                "Product surfaces",
-                "High-fidelity assets",
-                "Figma-to-Flutter implementation"
-            ],
-            "currentState": [
-                "Product shipped",
-                "Flutter app in production",
-                "Supabase backend in production",
-                "Public landing page",
-                "Published on stores",
-                "Billing active",
-                "Ongoing development"
-            ]
+            "businessProof": "Contributed to a platform serving 5,000+ customers. Delivered mobile applications across three app stores, with public listings showing 1,000+ downloads across related production apps. The delivered design and implementation remained in production after the engagement."
         }
     ],
     "caseStudySectionTitles": {
+        "role": "Role",
+        "timeline": "Timeline",
+        "ownership": "Ownership",
         "keyWork": "Key work",
-        "designSystemWork": "Design system work",
+        "architecture": "System architecture",
+        "decisions": "Engineering decisions",
+        "workflow": "Product workflow",
         "technicalHighlights": "Technical highlights",
-        "proof": "Proof",
-        "businessProof": "Business proof",
-        "currentState": "Current state"
+        "designSystemWork": "Design system",
+        "evidence": "Engineering evidence",
+        "results": "Results",
+        "currentState": "Delivered scope",
+        "previousImage": "Previous image",
+        "nextImage": "Next image",
+        "pause": "Pause gallery",
+        "resume": "Resume gallery",
+        "expand": "Expand image",
+        "closeImage": "Close image",
+        "closeExperience": "Close experience",
+        "gallery": "Image gallery"
     }
 }

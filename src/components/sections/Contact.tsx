@@ -1,6 +1,7 @@
 ﻿"use client";
 
-import { ArrowRight, FileDown, Mail } from "lucide-react";
+import { ArrowRight, ArrowUpRight, FileDown, Mail } from "lucide-react";
+import Image from "next/image";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
 import type { Dictionary } from "@/app/i18n";
@@ -155,7 +156,6 @@ export function Contact({
               <a
                 className="btn btn-primary focus-ring"
                 href={`mailto:${siteConfig.email}`}
-                aria-label="Email Christopher Paz León"
               >
                 <Mail size={19} strokeWidth={2.2} />
                 {content.primaryCta}
@@ -166,7 +166,6 @@ export function Contact({
                 href={siteConfig.resumeUrl}
                 target="_blank"
                 rel="noreferrer"
-                aria-label="View Christopher Paz León resume"
               >
                 <FileDown size={19} strokeWidth={2.2} />
                 {content.secondaryCta}
@@ -177,17 +176,20 @@ export function Contact({
                 href={siteConfig.linkedInUrl}
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Connect with Christopher Paz León on LinkedIn"
               >
-                <img
+                <Image
                   src="/linkedln-icon.svg"
-                  alt="LinkedIn"
-                  aria-hidden="true"
+                  alt=""
                   width={19}
                   height={19}
                 />
                 {content.tertiaryCta}
                 <ArrowRight size={17} strokeWidth={2.2} />
+              </a>
+
+              <a className="contact-card__link-button focus-ring" href={siteConfig.githubUrl} target="_blank" rel="noreferrer">
+                {content.githubCta}
+                <ArrowUpRight size={17} aria-hidden="true" />
               </a>
             </motion.div>
 
@@ -222,6 +224,7 @@ export function Contact({
                   </span>
                 ))}
               </div>
+              <p className="contact-card__availability-note type-body-s">{content.availabilityNote}</p>
             </motion.div>
 
             <motion.p
@@ -244,7 +247,6 @@ export function Contact({
                 delay: shouldReduceMotion ? 0 : 0.42,
               }}
             >
-              Direct line:{" "}
               <a href={`mailto:${siteConfig.email}`}>
                 {content.contactLine}
               </a>
