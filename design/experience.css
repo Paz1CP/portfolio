@@ -237,20 +237,21 @@
 
   .experience-item__overview {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: var(--space-16);
-    margin-top: var(--space-24);
+    margin-top: var(--space-16);
+    min-width: 0;
   }
 
   .experience-item__logo {
+    display: block;
     flex: none;
-    width: clamp(8rem, 18vw, 13rem);
-    height: auto;
+    width: clamp(6rem, 16vw, 10rem);
+    height: clamp(4.5rem, 12vw, 7rem);
     max-width: 100%;
-    max-height: clamp(5rem, 8vw, 7rem);
-    border-radius: var(--radius-m);
+    border-radius: 0;
     object-fit: contain;
-    object-position: left center;
+    object-position: center;
   }
 
   .experience-item__actions {
@@ -288,11 +289,26 @@
 
     .experience-item__overview {
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
+      align-items: stretch;
       align-self: stretch;
-      height: 100%;
-      gap: clamp(2rem, 4vw, 3.5rem);
+      min-height: 0;
+      gap: clamp(0.5rem, 1vw, 0.875rem);
       margin-top: 0;
+    }
+
+    .experience-item__logo {
+      flex: 1 1 0;
+      align-self: center;
+      width: 100%;
+      height: 0;
+      min-height: 0;
+      max-height: none;
+    }
+
+    .experience-item__summary {
+      flex: none;
+      margin: 0;
     }
 
     .experience-item__card-content > :nth-child(n + 3) {
@@ -457,11 +473,17 @@
 
     .experience-item__overview {
       flex-direction: column;
+      align-items: center;
+      gap: var(--space-12, 0.75rem);
+    }
+
+    .experience-item__summary {
+      align-self: stretch;
     }
 
     .experience-item__logo {
-      width: clamp(6.5rem, 18vw, 9rem);
-      max-height: 5rem;
+      width: clamp(6rem, 24vw, 9rem);
+      height: clamp(4.5rem, 18vw, 6rem);
     }
 
     .experience-item__card-top {
