@@ -257,6 +257,7 @@
   .experience-item__actions {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     gap: var(--space-8) var(--space-16);
     margin-top: var(--space-24);
@@ -334,6 +335,7 @@
   max-width: 66rem;
   color: var(--copy-secondary);
   line-height: 1.6;
+  text-align: center;
 }
 .experience-item__details {
   display: grid;

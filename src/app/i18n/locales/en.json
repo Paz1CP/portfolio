@@ -84,11 +84,14 @@
                     "Express",
                     "PostgreSQL",
                     "Next.js",
+                    "Distributed Systems",
+                    "Concurrency",
                     "Google ADK",
                     "Vertex AI",
                     "MCP",
+                    "Playwright",
                     "WebSockets",
-                    "GCP",
+                    "Google Cloud",
                     "Docker",
                     "CI/CD",
                     "Paddle"
@@ -114,9 +117,9 @@
                 "role": "Founder & Lead Product Engineer",
                 "company": "CookPilot",
                 "contextLabel": "Own Comercial Product",
-                "cover": "/images/experience/cookpilot_product_proof.webp",
+                "cover": "/images/experience/cookpilot_product_proof.png",
                 "coverAlt": "CookPilot mobile screens showing meal planning and cooking assistance.",
-                "logo": "/images/experience/CookPilot/cookpilot_logo.png",
+                "logo": "/images/experience/CookPilot/cookpilot_logo.png?v=20261125",
                 "summary": "Culinary operating system integrating meal planning, recipes, nutrition, grocery shopping, costs, and cooking assistance within a single mobile product.",
                 "details": [
                     "Designed, developed, and launched the product end to end, leading software architecture, UX/UI, backend engineering, and cross-platform Flutter development.",
@@ -135,13 +138,24 @@
                     "RPCs",
                     "Edge Functions",
                     "OpenRouter",
+                    "Structured Outputs",
                     "MediaPipe",
                     "RevenueCat",
-                    "Huawei IAP",
+                    "In-App Purchases",
+                    "Cloudflare",
                     "PostHog",
-                    "Cloudflare"
+                    "System Design"
                 ],
-                "links": []
+                "links": [
+                    {
+                        "href": "https://cookpilot.pro/",
+                        "label": "Website"
+                    },
+                    {
+                        "href": "https://play.google.com/store/apps/details?id=com.cookpilot.pe",
+                        "label": "Google Play"
+                    }
+                ]
             },
             {
                 "slug": "jobmatch",
@@ -151,7 +165,7 @@
                 "contextLabel": "Hybrid · Peru",
                 "cover": "/images/experience/jm_product_proof.webp",
                 "coverAlt": "JobMatch recruiting and candidate management interfaces.",
-                "logo": "/images/experience/JM/jobmatch_orange.jpg",
+                "logo": "/images/experience/JM/jobmatch_orange.png?v=20261125",
                 "summary": "AI-powered recruiting and job-matching platform for candidates, companies, and recruiters.",
                 "details": [
                     "Led the architecture, implementation, and technical evolution of the MVP, including authentication, profiles, job listings, applications, and dashboards.",
@@ -167,11 +181,17 @@
                     "SQL",
                     "RLS",
                     "Edge Functions",
-                    "Applied AI",
-                    "Technical Leadership",
-                    "Handoff"
+                    "Authentication",
+                    "Data Modeling",
+                    "AI Matching",
+                    "System Design"
                 ],
-                "links": []
+                "links": [
+                    {
+                        "href": "https://www.jmperu.com/es",
+                        "label": "Website"
+                    }
+                ]
             },
             {
                 "slug": "4track-vistogps-pro",
@@ -194,16 +214,23 @@
                     "Dart",
                     "Riverpod",
                     "Clean Architecture",
+                    "REST APIs",
                     "WebSockets",
-                    "GPS",
-                    "Maps",
+                    "Real-Time Systems",
+                    "GPS Tracking",
+                    "Map Rendering",
                     "Offline Sync",
-                    "Biometrics",
+                    "Local Persistence",
+                    "Biometric Auth",
                     "Push Notifications",
-                    "Codemagic",
-                    "Store Releases"
+                    "Codemagic"
                 ],
-                "links": []
+                "links": [
+                    {
+                        "href": "https://play.google.com/store/apps/details?id=gps.app4track.com&hl=es_PE",
+                        "label": "Google Play"
+                    }
+                ]
             }
         ]
     },
@@ -381,7 +408,7 @@
         {
             "slug": "mirai",
             "projectName": "Mirai",
-            "eyebrow": "Experience / Independent project",
+            "eyebrow": "Independent project",
             "title": "Autonomous agents and distributed browser execution.",
             "context": "Mirai helps candidates discover opportunities, prepare applications and carry out browser tasks within a user-defined mandate. It connects professional profile data, documents, campaigns and application tracking to an autonomous agent operating the user's linked local Chrome.",
             "owned": "I designed, implemented and deployed the entire system: product definition, frontend, backend, data architecture, agent runtime, browser extension, billing, security, cloud infrastructure and technical documentation.",
@@ -575,7 +602,7 @@
         {
             "slug": "cookpilot",
             "projectName": "CookPilot",
-            "eyebrow": "Experience / Own product",
+            "eyebrow": "Startup / Own commercial product",
             "title": "A culinary operating system built end to end.",
             "context": "CookPilot connects a daily food decision to an actionable plan, shopping list, cooking session and progress record. Ingredients, recipes, menus, meal moments, days and weeks form a shared domain linked to nutrition, costs, reuse and cooking assistance. I built the product across the Flutter application, backend, data architecture, AI integrations, UX/UI and monetization.",
             "owned": "I led the entire product lifecycle as founder and lead engineer: product definition, system design, relational modeling, backend, mobile architecture, UX/UI, applied AI, billing, integrations, analytics and store releases.",

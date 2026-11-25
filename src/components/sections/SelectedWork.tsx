@@ -27,7 +27,7 @@ type SelectedProject = {
 const projectThumbnailImages: Record<string, string> = {
   "4track-vistogps-pro": "/images/experience/4track_mobile_store_map.webp",
   jobmatch: "/images/experience/jm_product_proof.webp",
-  cookpilot: "/images/experience/cookpilot_product_proof.webp",
+  cookpilot: "/images/experience/cookpilot_product_proof.png",
 };
 
 const projectLogos: Record<string, string> = {
