@@ -30,21 +30,19 @@ function ExperienceTimelineItem({
       initial={{
         opacity: 0,
         y: shouldReduceMotion ? 0 : 24,
-        filter: shouldReduceMotion ? "blur(0px)" : "blur(10px)",
       }}
       whileInView={{
         opacity: 1,
         y: 0,
-        filter: "blur(0px)",
       }}
       viewport={{
         once: true,
-        margin: "-12% 0px",
+        margin: "0px 0px 120px 0px",
       }}
       transition={{
-        duration: shouldReduceMotion ? 0 : 0.7,
+        duration: shouldReduceMotion ? 0 : 0.32,
         ease: easeOutExpo,
-        delay: shouldReduceMotion ? 0 : index * 0.08,
+        delay: shouldReduceMotion ? 0 : index * 0.035,
       }}
     >
       <div className="experience-item__meta">
@@ -125,7 +123,7 @@ export function Experience({
   const shouldReduceMotion = useReducedMotion();
   const isInView = useInView(sectionRef, {
     once: true,
-    margin: "-18% 0px",
+    margin: "0px 0px 120px 0px",
   });
 
   return (
@@ -141,19 +139,17 @@ export function Experience({
           initial={{
             opacity: 0,
             y: shouldReduceMotion ? 0 : 18,
-            filter: shouldReduceMotion ? "blur(0px)" : "blur(8px)",
           }}
           animate={
             isInView
               ? {
                   opacity: 1,
                   y: 0,
-                  filter: "blur(0px)",
                 }
               : undefined
           }
           transition={{
-            duration: shouldReduceMotion ? 0 : 0.72,
+            duration: shouldReduceMotion ? 0 : 0.32,
             ease: easeOutExpo,
           }}
         >

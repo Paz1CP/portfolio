@@ -34,12 +34,10 @@ export function Hero({
     hidden: {
       opacity: 0,
       y: shouldReduceMotion ? 0 : 18,
-      filter: shouldReduceMotion ? "blur(0px)" : "blur(8px)",
     },
     visible: {
       opacity: 1,
       y: 0,
-      filter: "blur(0px)",
     },
   };
 
@@ -146,17 +144,15 @@ export function Hero({
             x: shouldReduceMotion ? 0 : 34,
             y: shouldReduceMotion ? 0 : 10,
             rotate: shouldReduceMotion ? 0 : - 1.2,
-            filter: shouldReduceMotion ? "blur(0px)" : "blur(12px)",
           }}
           animate={{
             opacity: 1,
             x: 0,
             y: 0,
             rotate: 0,
-            filter: "blur(0px)",
           }}
           transition={{
-            duration: shouldReduceMotion ? 0 : 0.95,
+            duration: shouldReduceMotion ? 0 : 0.32,
             ease: easeOutExpo,
             delay: 0.22,
           }}
@@ -198,7 +194,7 @@ export function Hero({
     y: 0,
   }}
   transition={{
-    duration: shouldReduceMotion ? 0 : 0.9,
+    duration: shouldReduceMotion ? 0 : 0.32,
     ease: easeOutExpo,
     delay: 0.55,
   }}

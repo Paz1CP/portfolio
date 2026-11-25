@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useSyncExternalStore } from "react";
+import { memo, useCallback, useEffect, useSyncExternalStore } from "react";
 import {
   dictionaries,
   defaultLocale,
@@ -15,6 +15,15 @@ import { Contact } from "@/components/sections/Contact";
 import { CaseStudyModal } from "@/components/sections/CaseStudyModal";
 import { Experience } from "@/components/sections/Experience";
 import { Footer } from "@/components/sections/Footer";
+
+// Dialog URL updates should not re-render all the background sections.
+const MemoBackground = memo(InteractiveBackground);
+const MemoSideDock = memo(SideDock);
+const MemoHero = memo(Hero);
+const MemoExperience = memo(Experience);
+const MemoCapabilities = memo(Capabilities);
+const MemoContact = memo(Contact);
+const MemoFooter = memo(Footer);
 
 const localeKey = "portfolio:locale";
 const experienceChange = "portfolio:experience-changed";
@@ -96,7 +105,7 @@ export function ClientHome() {
   const selectedExperience = dictionary.caseStudies.find((item) => item.slug === selectedSlug);
   const selectedProject = dictionary.experienceContent.items.find((item) => item.slug === selectedSlug);
 
-  const handleToggleLocale = () => {
+  const handleToggleLocale = useCallback(() => {
     sessionLocale = locale === "es" ? "en" : "es";
     try {
       localStorage.setItem(localeKey, sessionLocale);
@@ -104,7 +113,7 @@ export function ClientHome() {
       // Keep the selected language for the current session.
     }
     window.dispatchEvent(new Event(localeChange));
-  };
+  }, [locale]);
 
   useEffect(() => {
     document.documentElement.lang = locale;
@@ -118,23 +127,23 @@ export function ClientHome() {
 
   return (
     <main className="portfolio-page desktop-rail-offset">
-      <InteractiveBackground />
+      <MemoBackground />
       <div className="grain-layer" />
       <div className="page-vignette" />
 
-      <SideDock
+      <MemoSideDock
         navigationItems={dictionary.navigationItems}
         locale={locale}
         onToggleLocale={handleToggleLocale}
       />
-      <Hero
+      <MemoHero
         content={dictionary.heroContent}
         siteConfig={dictionary.siteConfig}
       />
-      <Experience content={dictionary.experienceContent} onOpen={openExperience} />
-      <Capabilities content={dictionary.capabilitiesContent} lightboxLabels={dictionary.caseStudySectionTitles} />
-      <Contact content={dictionary.contactContent} siteConfig={dictionary.siteConfig} />
-      <Footer content={dictionary.footerContent} siteConfig={dictionary.siteConfig} />
+      <MemoExperience content={dictionary.experienceContent} onOpen={openExperience} />
+      <MemoCapabilities content={dictionary.capabilitiesContent} lightboxLabels={dictionary.caseStudySectionTitles} />
+      <MemoContact content={dictionary.contactContent} siteConfig={dictionary.siteConfig} />
+      <MemoFooter content={dictionary.footerContent} siteConfig={dictionary.siteConfig} />
 
       <CaseStudyModal
         experience={selectedExperience}

@@ -53,13 +53,21 @@ function useActiveSection(sectionIds: string[]) {
       setActiveSection(current?.id ?? sectionIds[0]);
     }
 
-    const frame = window.requestAnimationFrame(updateActiveSection);
-    window.addEventListener("scroll", updateActiveSection, { passive: true });
-    window.addEventListener("resize", updateActiveSection);
+    let frame = 0;
+    const schedule = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(() => {
+        frame = 0;
+        updateActiveSection();
+      });
+    };
+    schedule();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule, { passive: true });
     return () => {
       window.cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", updateActiveSection);
-      window.removeEventListener("resize", updateActiveSection);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
     };
   }, [sectionIds]);
 
@@ -76,47 +84,18 @@ function useDockMagnification(
     icon: 6,
   }
 ) {
-  const scale = useTransform(mouseY, (latest) => {
+  const influence = useTransform(mouseY, (latest) => {
+    if (!Number.isFinite(latest)) return 0;
     const bounds = ref.current?.getBoundingClientRect();
-
-    if (!bounds) return 1;
-
-    const centerY = bounds.top + bounds.height / 2;
-    const distance = Math.abs(latest - centerY);
-    const influence = Math.max(0, 1 - distance / config.distance);
-
-    return 1 + influence * config.scale;
-  });
-
-  const translateX = useTransform(mouseY, (latest) => {
-    const bounds = ref.current?.getBoundingClientRect();
-
     if (!bounds) return 0;
-
     const centerY = bounds.top + bounds.height / 2;
-    const distance = Math.abs(latest - centerY);
-    const influence = Math.max(0, 1 - distance / config.distance);
-
-    return influence * config.x;
+    return Math.max(0, 1 - Math.abs(latest - centerY) / config.distance);
   });
+  const scale = useTransform(influence, (value) => 1 + value * config.scale);
+  const translateX = useTransform(influence, (value) => value * config.x);
+  const iconScale = useTransform(influence, (value) => 1 + value * config.icon / 24);
 
-  const iconSize = useTransform(mouseY, (latest) => {
-    const bounds = ref.current?.getBoundingClientRect();
-
-    if (!bounds) return 24;
-
-    const centerY = bounds.top + bounds.height / 2;
-    const distance = Math.abs(latest - centerY);
-    const influence = Math.max(0, 1 - distance / config.distance);
-
-    return 24 + influence * config.icon;
-  });
-
-  return {
-    scale,
-    translateX,
-    iconSize,
-  };
+  return { scale, translateX, iconScale };
 }
 
 function DockIconButton({
@@ -133,7 +112,7 @@ function DockIconButton({
   const ref = useRef<HTMLAnchorElement | null>(null);
   const Icon = navigationIcons[item.id];
 
-  const { scale, translateX, iconSize } = useDockMagnification(ref, mouseY);
+  const { scale, translateX, iconScale } = useDockMagnification(ref, mouseY);
 
   const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
@@ -174,8 +153,9 @@ function DockIconButton({
         <motion.span
           aria-hidden="true"
           style={{
-            width: iconSize,
-            height: iconSize,
+            width: 24,
+            height: 24,
+            scale: iconScale,
             display: "grid",
             placeItems: "center",
           }}
@@ -262,15 +242,13 @@ export function SideDock({
           initial={{
             opacity: 0,
             x: -18,
-            filter: "blur(8px)",
           }}
           animate={{
             opacity: 1,
             x: 0,
-            filter: "blur(0px)",
           }}
           transition={{
-            duration: 0.7,
+            duration: 0.32,
             ease: [0.16, 1, 0.3, 1],
             delay: 0.12,
           }}

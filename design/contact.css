@@ -41,7 +41,6 @@
       radial-gradient(circle at 72% 72%, rgba(154, 90, 46, 0.2), transparent 48%);
     filter: blur(48px);
     opacity: 0.74;
-    animation: light-drift 14s var(--ease-in-out-quart) infinite alternate;
   }
 
   .contact__grid {

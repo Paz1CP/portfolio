@@ -23,7 +23,7 @@ export function Contact({
 
   const isInView = useInView(sectionRef, {
     once: true,
-    margin: "-18% 0px",
+    margin: "0px 0px 120px 0px",
   });
 
   return (
@@ -42,7 +42,6 @@ export function Contact({
             opacity: 0,
             y: shouldReduceMotion ? 0 : 28,
             scale: shouldReduceMotion ? 1 : 0.985,
-            filter: shouldReduceMotion ? "blur(0px)" : "blur(12px)",
           }}
           animate={
             isInView
@@ -50,12 +49,11 @@ export function Contact({
                   opacity: 1,
                   y: 0,
                   scale: 1,
-                  filter: "blur(0px)",
                 }
               : undefined
           }
           transition={{
-            duration: shouldReduceMotion ? 0 : 0.82,
+            duration: shouldReduceMotion ? 0 : 0.32,
             ease: easeOutExpo,
           }}
         >
@@ -78,7 +76,7 @@ export function Contact({
                   : undefined
               }
               transition={{
-                duration: shouldReduceMotion ? 0 : 0.58,
+                duration: shouldReduceMotion ? 0 : 0.32,
                 ease: easeOutExpo,
                 delay: shouldReduceMotion ? 0 : 0.08,
               }}
@@ -102,7 +100,7 @@ export function Contact({
                   : undefined
               }
               transition={{
-                duration: shouldReduceMotion ? 0 : 0.68,
+                duration: shouldReduceMotion ? 0 : 0.32,
                 ease: easeOutExpo,
                 delay: shouldReduceMotion ? 0 : 0.14,
               }}
@@ -125,7 +123,7 @@ export function Contact({
                   : undefined
               }
               transition={{
-                duration: shouldReduceMotion ? 0 : 0.68,
+                duration: shouldReduceMotion ? 0 : 0.32,
                 ease: easeOutExpo,
                 delay: shouldReduceMotion ? 0 : 0.2,
               }}
@@ -148,7 +146,7 @@ export function Contact({
                   : undefined
               }
               transition={{
-                duration: shouldReduceMotion ? 0 : 0.68,
+                duration: shouldReduceMotion ? 0 : 0.32,
                 ease: easeOutExpo,
                 delay: shouldReduceMotion ? 0 : 0.26,
               }}
@@ -207,7 +205,7 @@ export function Contact({
                   : undefined
               }
               transition={{
-                duration: shouldReduceMotion ? 0 : 0.68,
+                duration: shouldReduceMotion ? 0 : 0.32,
                 ease: easeOutExpo,
                 delay: shouldReduceMotion ? 0 : 0.34,
               }}
@@ -241,7 +239,7 @@ export function Contact({
                   : undefined
               }
               transition={{
-                duration: shouldReduceMotion ? 0 : 0.58,
+                duration: shouldReduceMotion ? 0 : 0.32,
                 ease: easeOutExpo,
                 delay: shouldReduceMotion ? 0 : 0.42,
               }}

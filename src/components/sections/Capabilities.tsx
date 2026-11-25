@@ -65,21 +65,19 @@ function CapabilityCard({
         initial={{
           opacity: 0,
           y: shouldReduceMotion ? 0 : 24,
-          filter: shouldReduceMotion ? "blur(0px)" : "blur(10px)",
         }}
         whileInView={{
           opacity: 1,
           y: 0,
-          filter: "blur(0px)",
         }}
         viewport={{
           once: true,
-          margin: "-12% 0px",
+          margin: "0px 0px 120px 0px",
         }}
         transition={{
-          duration: shouldReduceMotion ? 0 : 0.7,
+          duration: shouldReduceMotion ? 0 : 0.32,
           ease: easeOutExpo,
-          delay: shouldReduceMotion ? 0 : index * 0.07,
+          delay: shouldReduceMotion ? 0 : index * 0.035,
         }}
       >
         <span className="capability-card__ornament" aria-hidden="true" />
@@ -133,7 +131,7 @@ export function Capabilities({
   const shouldReduceMotion = useReducedMotion();
   const isInView = useInView(sectionRef, {
     once: true,
-    margin: "-18% 0px",
+    margin: "0px 0px 120px 0px",
   });
 
   return (
@@ -149,19 +147,17 @@ export function Capabilities({
           initial={{
             opacity: 0,
             y: shouldReduceMotion ? 0 : 18,
-            filter: shouldReduceMotion ? "blur(0px)" : "blur(8px)",
           }}
           animate={
             isInView
               ? {
                   opacity: 1,
                   y: 0,
-                  filter: "blur(0px)",
                 }
               : undefined
           }
           transition={{
-            duration: shouldReduceMotion ? 0 : 0.72,
+            duration: shouldReduceMotion ? 0 : 0.32,
             ease: easeOutExpo,
           }}
         >

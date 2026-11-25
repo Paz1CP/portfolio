@@ -188,11 +188,9 @@
     width: 2.8rem;
     height: 2.8rem;
     border-radius: 999px;
-    background: rgba(11, 9, 7, 0.58);
+    background: rgba(11, 9, 7, 0.88);
     border: 1px solid rgba(243, 231, 210, 0.12);
     color: var(--copy-tertiary);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     transition:
       color var(--motion-base) var(--ease-out-expo),
       border-color var(--motion-base) var(--ease-out-expo),
