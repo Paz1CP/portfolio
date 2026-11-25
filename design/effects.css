@@ -10,18 +10,18 @@
     z-index: 0;
     pointer-events: none;
     opacity: 0.17;
-    mix-blend-mode: soft-light;
+    /* Static, low-opacity texture avoids blending a moving full-screen layer. */
   }
 
   .grain-layer::before {
     content: "";
     position: absolute;
-    inset: -20%;
+    inset: 0;
     background-image:
       radial-gradient(circle at 20% 30%, rgba(243, 231, 210, 0.08) 0 1px, transparent 1px),
       radial-gradient(circle at 80% 70%, rgba(201, 150, 46, 0.06) 0 1px, transparent 1px);
     background-size: 3px 3px, 5px 5px;
-    animation: grain-shift 8s steps(8) infinite;
+
   }
 
 
@@ -98,12 +98,6 @@
    Cursor reveals a hidden technical pattern with warm leather-gold light.
    ========================================================================== */
 
-:root {
-  --cursor-glow-x: 62%;
-  --cursor-glow-y: 44%;
-  --cursor-glow-opacity: 0;
-}
-
 @layer utilities {
   .interactive-bg {
     position: fixed;
@@ -111,103 +105,45 @@
     z-index: 0;
     pointer-events: none;
     overflow: hidden;
+    contain: strict;
+  }
+
+  /* The gradients and mask are static. Only this bounded layer moves. */
+  .interactive-bg__cursor {
+    position: absolute;
+    top: -34rem;
+    left: -34rem;
+    width: 68rem;
+    height: 68rem;
+    opacity: 0;
     background:
-      radial-gradient(
-        circle at var(--cursor-glow-x) var(--cursor-glow-y),
-        rgba(201, 150, 46, calc(0.06 * var(--cursor-glow-opacity))),
-        transparent 22rem
-      ),
-      radial-gradient(
-        circle at var(--cursor-glow-x) var(--cursor-glow-y),
-        rgba(154, 90, 46, calc(0.05 * var(--cursor-glow-opacity))),
-        transparent 34rem
-      );
+      radial-gradient(circle, rgba(201, 150, 46, 0.06), transparent 22rem),
+      radial-gradient(circle, rgba(154, 90, 46, 0.05), transparent 34rem);
+    transition: opacity 180ms ease-out;
+    will-change: transform, opacity;
+    contain: paint;
   }
 
   .interactive-bg__pattern {
     position: absolute;
-    inset: -8%;
-  opacity: calc(0.42 * var(--cursor-glow-opacity));
-    background:
-      linear-gradient(
-        90deg,
-        rgba(231, 200, 120, 0.052) 1px,
-        transparent 1px
-      ),
-      linear-gradient(
-        rgba(231, 200, 120, 0.045) 1px,
-        transparent 1px
-      ),
-      radial-gradient(
-        circle at center,
-        rgba(201, 150, 46, 0.12) 0 1px,
-        transparent 1.5px
-      );
-    background-size:
-      54px 54px,
-      54px 54px,
-      18px 18px;
-    mask-image: radial-gradient(
-      circle 17rem at var(--cursor-glow-x) var(--cursor-glow-y),
-      black 0%,
-      rgba(0, 0, 0, 0.86) 34%,
-      rgba(0, 0, 0, 0.36) 62%,
-      transparent 100%
-    );
-    -webkit-mask-image: radial-gradient(
-      circle 17rem at var(--cursor-glow-x) var(--cursor-glow-y),
-      black 0%,
-      rgba(0, 0, 0, 0.86) 34%,
-      rgba(0, 0, 0, 0.36) 62%,
-      transparent 100%
-    );
-  }
-
-  .interactive-bg__pattern::before {
-    content: "";
-    position: absolute;
     inset: 0;
+    opacity: 0.42;
     background:
-      repeating-linear-gradient(
-        115deg,
-        transparent 0 17px,
-        rgba(201, 150, 46, 0.035) 18px,
-        transparent 19px 42px
-      );
-    opacity: 0.45;
+      linear-gradient(90deg, rgba(231, 200, 120, 0.052) 1px, transparent 1px),
+      linear-gradient(rgba(231, 200, 120, 0.045) 1px, transparent 1px),
+      radial-gradient(circle at center, rgba(201, 150, 46, 0.12) 0 1px, transparent 1.5px);
+    background-size: 54px 54px, 54px 54px, 18px 18px;
+    mask-image: radial-gradient(circle 17rem, black 0%, rgba(0, 0, 0, 0.86) 34%, rgba(0, 0, 0, 0.36) 62%, transparent 100%);
   }
 
   .interactive-bg__glow {
     position: absolute;
     inset: 0;
-    opacity: calc(0.85 * var(--cursor-glow-opacity));
-    background:
-      radial-gradient(
-        circle 13rem at var(--cursor-glow-x) var(--cursor-glow-y),
-        rgba(231, 200, 120, 0.06),
-        rgba(201, 150, 46, 0.03) 38%,
-        transparent 74%
-      );
-    mix-blend-mode: screen;
-  }
-
-  .interactive-bg__edge {
-    position: absolute;
-    inset: 0;
-    opacity: calc(0.28 * var(--cursor-glow-opacity));
-    background:
-      radial-gradient(
-        circle 23rem at var(--cursor-glow-x) var(--cursor-glow-y),
-        transparent 0%,
-        rgba(201, 150, 46, 0.02) 58%,
-        transparent 74%
-      );
-    filter: blur(12px);
+    opacity: 0.85;
+    background: radial-gradient(circle 13rem, rgba(231, 200, 120, 0.06), rgba(201, 150, 46, 0.03) 38%, transparent 74%);
   }
 
   @media (max-width: 767px) {
-    .interactive-bg {
-      display: none;
-    }
+    .interactive-bg { display: none; }
   }
 }

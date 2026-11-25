@@ -13,12 +13,11 @@
     padding: clamp(1rem, 3vw, 2rem);
     background:
       radial-gradient(
-        circle at var(--cursor-glow-x, 50%) var(--cursor-glow-y, 40%),
+        circle at 50% 40%,
         rgba(201, 150, 46, 0.09),
         transparent 32rem
       ),
-      rgba(5, 4, 3, 0.78);
-    backdrop-filter: blur(18px);
+      rgba(5, 4, 3, 0.88);
   }
 
   .case-modal {
@@ -32,7 +31,7 @@
     border-radius: var(--radius-2xl);
     background:
       linear-gradient(180deg, rgba(243, 231, 210, 0.045), transparent 30rem),
-      rgba(28, 23, 18, 0.96);
+      rgb(28, 23, 18);
     border: 1px solid rgba(243, 231, 210, 0.105);
     box-shadow:
       0 34px 96px rgba(0, 0, 0, 0.58),
@@ -72,10 +71,9 @@
     gap: var(--space-24);
     padding: 1.3rem clamp(1.3rem, 3vw, 2rem);
     background:
-      linear-gradient(180deg, rgba(28, 23, 18, 0.98), rgba(28, 23, 18, 0.86)),
-      rgba(28, 23, 18, 0.92);
+      linear-gradient(180deg, #1c1712, #1b1611);
     border-bottom: 1px solid rgba(243, 231, 210, 0.075);
-    backdrop-filter: blur(16px);
+
   }
 
   .case-modal__topbar-content {
@@ -234,8 +232,7 @@
     height: 100%;
     object-fit: contain;
     opacity: 0;
-    transition: opacity 600ms ease;
-    will-change: opacity;
+    transition: opacity 160ms ease;
     background: center / cover no-repeat transparent;
   }
 

@@ -4,7 +4,9 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
   images: {
-    formats: ["image/avif", "image/webp"],
+    formats: ["image/webp", "image/avif"],
+    qualities: [75, 85],
+    minimumCacheTTL: 86400,
     localPatterns: [
       { pathname: "**", search: "" },
       {

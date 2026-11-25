@@ -24,19 +24,36 @@ function GalleryCarousel({
   const [isPaused, setIsPaused] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const count = images.length;
+  const galleryRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [loadedSrc, setLoadedSrc] = useState<string | null>(null);
 
   useEffect(() => {
-    if (count < 2 || isHover || isPaused || isExpanded || shouldReduceMotion) return;
+    const node = galleryRef.current;
+    if (!node) return;
+    const observer = new IntersectionObserver(([entry]) => setIsVisible(entry.isIntersecting), { threshold: 0.1 });
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (count < 2 || !isVisible || isHover || isPaused || isExpanded || shouldReduceMotion) return;
 
     const timer = window.setInterval(() => {
-      setIndex((current) => (current + 1) % count);
+      if (!document.hidden) setIndex((current) => (current + 1) % count);
     }, 3500);
 
     return () => window.clearInterval(timer);
-  }, [count, isHover, isPaused, isExpanded, shouldReduceMotion]);
+  }, [count, isVisible, isHover, isPaused, isExpanded, shouldReduceMotion]);
 
   const currentImage = images[index];
   if (!currentImage) return null;
+  const nextIndex = (index + 1) % count;
+  const visibleImages = [{ ...currentImage, active: true }];
+  // Warm only the next slide after the visible one finishes loading.
+  if (count > 1 && isVisible && !isExpanded && loadedSrc === currentImage.src) {
+    visibleImages.push({ ...images[nextIndex], active: false });
+  }
 
   function step(direction: number) {
     setIsPaused(true);
@@ -45,7 +62,7 @@ function GalleryCarousel({
 
   const RotationIcon = isPaused ? Play : Pause;
   return (
-    <figure className="case-modal__gallery" aria-label={labels.gallery}>
+    <figure ref={galleryRef} className="case-modal__gallery" aria-label={labels.gallery}>
       <div className="case-modal__showcase">
         <span className="case-modal__showcase-corner case-modal__showcase-corner--tl" />
         <span className="case-modal__showcase-corner case-modal__showcase-corner--br" />
@@ -63,15 +80,20 @@ function GalleryCarousel({
             onOpenChange={setIsExpanded}
           >
             <button type="button" className="case-modal__carousel-expand focus-ring" aria-label={labels.expand}>
-              {images.map(({ src, alt }, i) => (
+              {visibleImages.map(({ src, alt, active }) => (
                 <Image
                   key={src}
                   src={src}
-                  alt={alt}
-                  aria-hidden={i !== index}
+                  alt={active ? alt : ""}
+                  aria-hidden={!active}
                   fill
-                  sizes="(max-width: 760px) 90vw, 560px"
-                  className={i === index ? "case-modal__carousel-slide is-active" : "case-modal__carousel-slide"}
+                  sizes="(max-width: 900px) 85vw, 600px"
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority={active ? "auto" : "low"}
+                  onLoad={() => { if (active) setLoadedSrc(src); }}
+                  ref={(node) => { if (active && node?.complete && node.naturalWidth > 0) setLoadedSrc(src); }}
+                  className={active ? "case-modal__carousel-slide is-active" : "case-modal__carousel-slide"}
                 />
               ))}
               <span className="case-modal__carousel-expand-icon" aria-hidden="true">
@@ -319,7 +341,7 @@ export function CaseStudyModal({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: shouldReduceMotion ? 0 : 0.2 }}
+                transition={{ duration: shouldReduceMotion ? 0 : 0.15 }}
               />
             </Dialog.Overlay>
             <Dialog.Content
@@ -340,10 +362,10 @@ export function CaseStudyModal({
             >
               <motion.div
                 className="case-modal"
-                initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 24, scale: shouldReduceMotion ? 1 : 0.98 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: shouldReduceMotion ? 0 : 16, scale: shouldReduceMotion ? 1 : 0.98 }}
-                transition={{ duration: shouldReduceMotion ? 0 : 0.45, ease: easeOutExpo }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: shouldReduceMotion ? 0 : 0.18, ease: easeOutExpo }}
               >
                 <div className="case-modal__scroll" key={experience.slug}>
                   <header className="case-modal__topbar">

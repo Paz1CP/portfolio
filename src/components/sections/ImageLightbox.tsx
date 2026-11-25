@@ -2,6 +2,7 @@
 
 import * as Dialog from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
+import { getImageProps } from "next/image";
 import { useState, type ReactNode } from "react";
 
 type ImageLightboxProps = {
@@ -23,6 +24,7 @@ export function ImageLightbox({
 }: ImageLightboxProps) {
   const [uncontrolledOpen, setUncontrolledOpen] = useState(false);
   const isOpen = open ?? uncontrolledOpen;
+  const imageProps = isOpen ? getImageProps({ src, alt, fill: true, sizes: "95vw", quality: 85, loading: "eager", decoding: "async", fetchPriority: "high" }).props : null;
 
   function handleOpenChange(nextOpen: boolean) {
     if (open === undefined) setUncontrolledOpen(nextOpen);
@@ -36,9 +38,9 @@ export function ImageLightbox({
         <Dialog.Overlay className="case-modal__lightbox-overlay" />
         <Dialog.Content className="case-modal__lightbox" aria-describedby={undefined}>
           <Dialog.Title className="sr-only">{alt}</Dialog.Title>
-          {/* Preserve the original image at full size in the lightbox. */}
+          {/* Use a viewport-sized optimized source, retaining the intrinsic aspect ratio. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={src} alt={alt} />
+          {imageProps && <img {...imageProps} style={undefined} />}
           <Dialog.Close className="case-modal__lightbox-close focus-ring" aria-label={closeLabel}>
             <X size={22} aria-hidden="true" />
           </Dialog.Close>

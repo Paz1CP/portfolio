@@ -2,102 +2,85 @@
 
 import { useEffect, useRef } from "react";
 
-const DEFAULT_X = 0.62;
-const DEFAULT_Y = 0.44;
-
 export function InteractiveBackground() {
-  const rafRef = useRef<number | null>(null);
-  const targetRef = useRef({
-    x: DEFAULT_X,
-    y: DEFAULT_Y,
-    opacity: 0,
-  });
-
-  const currentRef = useRef({
-    x: DEFAULT_X,
-    y: DEFAULT_Y,
-    opacity: 0,
-  });
+  const glowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const root = document.documentElement;
-    // debug logs removed
+    const glow = glowRef.current;
+    if (!glow) return;
+    const interactive = window.matchMedia("(min-width: 768px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)");
+    let frame = 0;
+    let x = window.innerWidth * 0.62;
+    let y = window.innerHeight * 0.44;
+    let targetX = x;
+    let targetY = y;
 
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    if (prefersReducedMotion) {
-      root.style.setProperty("--cursor-glow-x", `${DEFAULT_X * 100}%`);
-      root.style.setProperty("--cursor-glow-y", `${DEFAULT_Y * 100}%`);
-      root.style.setProperty("--cursor-glow-opacity", "0.28");
-      return;
-    }
-
-    const render = () => {
-      const current = currentRef.current;
-      const target = targetRef.current;
-
-      current.x += (target.x - current.x) * 0.12;
-      current.y += (target.y - current.y) * 0.12;
-      current.opacity += (target.opacity - current.opacity) * 0.1;
-
-      root.style.setProperty("--cursor-glow-x", `${current.x * 100}%`);
-      root.style.setProperty("--cursor-glow-y", `${current.y * 100}%`);
-      root.style.setProperty(
-        "--cursor-glow-opacity",
-        current.opacity.toFixed(3)
-      );
-
-      // no-op (debugging removed)
-
-      rafRef.current = window.requestAnimationFrame(render);
+    const blocked = () => document.hidden || document.body.hasAttribute("data-scroll-locked");
+    const paint = () => {
+      glow.style.transform = `translate3d(${x}px, ${y}px, 0)`;
     };
-
-    const handlePointerMove = (event: PointerEvent) => {
-      targetRef.current.x = event.clientX / window.innerWidth;
-      targetRef.current.y = event.clientY / window.innerHeight;
-      targetRef.current.opacity = 1;
+    const stop = () => {
+      cancelAnimationFrame(frame);
+      frame = 0;
+      glow.style.opacity = "0";
     };
-
-    const handlePointerEnter = () => {
-      targetRef.current.opacity = 1;
-    };
-
-    const handlePointerLeave = () => {
-      targetRef.current.opacity = 0.18;
-    };
-
-    const handleBlur = () => {
-      targetRef.current.opacity = 0.16;
-    };
-
-    window.addEventListener("pointermove", handlePointerMove, {
-      passive: true,
-    });
-    window.addEventListener("pointerenter", handlePointerEnter);
-    window.addEventListener("pointerleave", handlePointerLeave);
-    window.addEventListener("blur", handleBlur);
-
-    rafRef.current = window.requestAnimationFrame(render);
-
-    return () => {
-      window.removeEventListener("pointermove", handlePointerMove);
-      window.removeEventListener("pointerenter", handlePointerEnter);
-      window.removeEventListener("pointerleave", handlePointerLeave);
-      window.removeEventListener("blur", handleBlur);
-
-      if (rafRef.current) {
-        window.cancelAnimationFrame(rafRef.current);
+    const tick = () => {
+      frame = 0;
+      if (!interactive.matches || blocked()) return stop();
+      x += (targetX - x) * 0.16;
+      y += (targetY - y) * 0.16;
+      if (Math.abs(targetX - x) + Math.abs(targetY - y) < 0.5) {
+        x = targetX;
+        y = targetY;
+        paint();
+        return;
       }
+      paint();
+      frame = requestAnimationFrame(tick);
+    };
+    const move = (event: PointerEvent) => {
+      if (!interactive.matches || blocked() || event.pointerType === "touch") return;
+      targetX = event.clientX;
+      targetY = event.clientY;
+      glow.style.opacity = "1";
+      if (!frame) frame = requestAnimationFrame(tick);
+    };
+    const refresh = () => {
+      if (blocked()) return stop();
+      if (!interactive.matches) {
+        stop();
+        x = targetX = window.innerWidth * 0.62;
+        y = targetY = window.innerHeight * 0.44;
+        paint();
+        glow.style.opacity = "0.28";
+      }
+    };
+    const observer = new MutationObserver(refresh);
+    observer.observe(document.body, { attributes: true, attributeFilter: ["data-scroll-locked"] });
+    paint();
+    refresh();
+    window.addEventListener("pointermove", move, { passive: true });
+    document.documentElement.addEventListener("pointerleave", stop);
+    window.addEventListener("blur", stop);
+    document.addEventListener("visibilitychange", refresh);
+    interactive.addEventListener("change", refresh);
+    return () => {
+      stop();
+      observer.disconnect();
+      window.removeEventListener("pointermove", move);
+      document.documentElement.removeEventListener("pointerleave", stop);
+      window.removeEventListener("blur", stop);
+      document.removeEventListener("visibilitychange", refresh);
+      interactive.removeEventListener("change", refresh);
     };
   }, []);
 
   return (
     <div className="interactive-bg" aria-hidden="true">
-      <div className="interactive-bg__pattern" />
-      <div className="interactive-bg__glow" />
-      <div className="interactive-bg__edge" />
+      <div ref={glowRef} className="interactive-bg__cursor">
+        <div className="interactive-bg__pattern" />
+        <div className="interactive-bg__glow" />
+      </div>
     </div>
   );
 }
