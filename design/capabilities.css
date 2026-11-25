@@ -75,6 +75,10 @@
       background 420ms var(--ease-out-expo);
   }
 
+  .capability-card--expandable {
+    cursor: zoom-in;
+  }
+
   .capability-card:nth-child(n + 4) {
     grid-column: span 3;
   }

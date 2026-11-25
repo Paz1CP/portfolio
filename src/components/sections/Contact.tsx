@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { ArrowRight, ArrowUpRight, FileDown, Mail } from "lucide-react";
+import { FileDown, Mail } from "lucide-react";
 import Image from "next/image";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
@@ -172,7 +172,7 @@ export function Contact({
               </a>
 
               <a
-                className="contact-card__link-button"
+                className="btn btn-secondary focus-ring"
                 href={siteConfig.linkedInUrl}
                 target="_blank"
                 rel="noreferrer"
@@ -184,12 +184,11 @@ export function Contact({
                   height={19}
                 />
                 {content.tertiaryCta}
-                <ArrowRight size={17} strokeWidth={2.2} />
               </a>
 
-              <a className="contact-card__link-button focus-ring" href={siteConfig.githubUrl} target="_blank" rel="noreferrer">
+              <a className="btn btn-secondary focus-ring" href={siteConfig.githubUrl} target="_blank" rel="noreferrer">
+                <Image src="/github-outline.svg" alt="" width={19} height={19} />
                 {content.githubCta}
-                <ArrowUpRight size={17} aria-hidden="true" />
               </a>
             </motion.div>
 

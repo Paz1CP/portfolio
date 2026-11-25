@@ -14,11 +14,13 @@ import {
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
 import type { Dictionary } from "@/app/i18n";
+import { ImageLightbox } from "./ImageLightbox";
 
 const easeOutExpo = [0.16, 1, 0.3, 1] as const;
 
 type CapabilitiesContent = Dictionary["capabilitiesContent"];
 type CapabilityItem = CapabilitiesContent["items"][number];
+type LightboxLabels = Pick<Dictionary["caseStudySectionTitles"], "expand" | "closeImage">;
 
 const capabilityIcons: Record<string, LucideIcon> = {
   "01": Server,
@@ -34,82 +36,98 @@ function CapabilityCard({
   item,
   index,
   shouldReduceMotion,
+  lightboxLabels,
 }: {
   item: CapabilityItem;
   index: number;
   shouldReduceMotion: boolean;
+  lightboxLabels: LightboxLabels;
 }) {
   const Icon = capabilityIcons[item.index];
 
   return (
-    <motion.article
-      className="capability-card"
-      initial={{
-        opacity: 0,
-        y: shouldReduceMotion ? 0 : 24,
-        filter: shouldReduceMotion ? "blur(0px)" : "blur(10px)",
-      }}
-      whileInView={{
-        opacity: 1,
-        y: 0,
-        filter: "blur(0px)",
-      }}
-      viewport={{
-        once: true,
-        margin: "-12% 0px",
-      }}
-      transition={{
-        duration: shouldReduceMotion ? 0 : 0.7,
-        ease: easeOutExpo,
-        delay: shouldReduceMotion ? 0 : index * 0.07,
-      }}
+    <ImageLightbox
+      src={item.proofImage}
+      alt={item.proofAlt}
+      closeLabel={lightboxLabels.closeImage}
     >
-      <span className="capability-card__corner capability-card__corner--tl" />
-      <span className="capability-card__corner capability-card__corner--br" />
-      <span className="capability-card__ornament" aria-hidden="true" />
+      <motion.article
+        className="capability-card capability-card--expandable"
+        role="button"
+        tabIndex={0}
+        aria-label={`${item.title}: ${lightboxLabels.expand}`}
+        onKeyDown={(event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            event.currentTarget.click();
+          }
+        }}
+        initial={{
+          opacity: 0,
+          y: shouldReduceMotion ? 0 : 24,
+          filter: shouldReduceMotion ? "blur(0px)" : "blur(10px)",
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+        }}
+        viewport={{
+          once: true,
+          margin: "-12% 0px",
+        }}
+        transition={{
+          duration: shouldReduceMotion ? 0 : 0.7,
+          ease: easeOutExpo,
+          delay: shouldReduceMotion ? 0 : index * 0.07,
+        }}
+      >
+        <span className="capability-card__ornament" aria-hidden="true" />
 
-      <div className="capability-card__top">
-        <div className="capability-card__icon" aria-hidden="true">
-          <Icon size={25} strokeWidth={1.85} />
+        <div className="capability-card__top">
+          <div className="capability-card__icon" aria-hidden="true">
+            <Icon size={25} strokeWidth={1.85} />
+          </div>
+
+          <p className="capability-card__index type-label-s">{item.index}</p>
         </div>
 
-        <p className="capability-card__index type-label-s">{item.index}</p>
-      </div>
+        <div className="capability-card__content">
+          <h3 className="capability-card__title type-title-m">{item.title}</h3>
 
-      <div className="capability-card__content">
-        <h3 className="capability-card__title type-title-m">{item.title}</h3>
+          <p className="capability-card__description type-body-s">
+            {item.description}
+          </p>
 
-        <p className="capability-card__description type-body-s">
-          {item.description}
-        </p>
-
-        <div className="capability-card__proof">
-          <Image
-            src={item.proofImage}
-            alt={item.proofAlt}
-            fill
-            sizes={index >= 3 ? "(max-width: 720px) 90vw, 45vw" : "(max-width: 720px) 90vw, (max-width: 1120px) 45vw, 30vw"}
-            className="capability-card__proof-image"
-          />
-
+          <div className="capability-card__proof">
+            <Image
+              src={item.proofImage}
+              alt={item.proofAlt}
+              fill
+              sizes={index >= 3 ? "(max-width: 720px) 90vw, 45vw" : "(max-width: 720px) 90vw, (max-width: 1120px) 45vw, 30vw"}
+              className="capability-card__proof-image"
+            />
+          </div>
         </div>
-      </div>
 
-      <div className="capability-card__keywords">
-        {item.keywords.map((keyword) => (
-          <span key={keyword} className="capability-card__keyword">
-            {keyword}
-          </span>
-        ))}
-      </div>
-    </motion.article>
+        <div className="capability-card__keywords">
+          {item.keywords.map((keyword) => (
+            <span key={keyword} className="capability-card__keyword">
+              {keyword}
+            </span>
+          ))}
+        </div>
+      </motion.article>
+    </ImageLightbox>
   );
 }
 
 export function Capabilities({
   content,
+  lightboxLabels,
 }: {
   content: CapabilitiesContent;
+  lightboxLabels: LightboxLabels;
 }) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const shouldReduceMotion = useReducedMotion();
@@ -168,6 +186,7 @@ export function Capabilities({
               item={item}
               index={index}
               shouldReduceMotion={Boolean(shouldReduceMotion)}
+              lightboxLabels={lightboxLabels}
             />
           ))}
         </div>

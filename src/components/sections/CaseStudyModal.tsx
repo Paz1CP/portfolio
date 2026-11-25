@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, BriefcaseBusiness, CalendarDays, M
 import Image from "next/image";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import type { Dictionary, ExperienceDetail } from "@/app/i18n";
+import { ImageLightbox } from "./ImageLightbox";
 
 const easeOutExpo = [0.16, 1, 0.3, 1] as const;
 type SectionTitles = Dictionary["caseStudySectionTitles"];
@@ -54,38 +55,30 @@ function GalleryCarousel({
           onMouseEnter={() => setIsHover(true)}
           onMouseLeave={() => setIsHover(false)}
         >
-          <Dialog.Root open={isExpanded} onOpenChange={setIsExpanded}>
-            <Dialog.Trigger asChild>
-              <button type="button" className="case-modal__carousel-expand focus-ring" aria-label={labels.expand}>
-                {images.map(({ src, alt }, i) => (
-                  <Image
-                    key={src}
-                    src={src}
-                    alt={alt}
-                    aria-hidden={i !== index}
-                    fill
-                    sizes="(max-width: 760px) 90vw, 560px"
-                    className={i === index ? "case-modal__carousel-slide is-active" : "case-modal__carousel-slide"}
-                  />
-                ))}
-                <span className="case-modal__carousel-expand-icon" aria-hidden="true">
-                  <Maximize2 size={17} />
-                </span>
-              </button>
-            </Dialog.Trigger>
-            <Dialog.Portal>
-              <Dialog.Overlay className="case-modal__lightbox-overlay" />
-              <Dialog.Content className="case-modal__lightbox" aria-describedby={undefined}>
-                <Dialog.Title className="sr-only">{currentImage.alt}</Dialog.Title>
-                {/* Preserve the original screenshot at full size in the lightbox. */}
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={currentImage.src} alt={currentImage.alt} />
-                <Dialog.Close className="case-modal__lightbox-close focus-ring" aria-label={labels.closeImage}>
-                  <X size={22} aria-hidden="true" />
-                </Dialog.Close>
-              </Dialog.Content>
-            </Dialog.Portal>
-          </Dialog.Root>
+          <ImageLightbox
+            src={currentImage.src}
+            alt={currentImage.alt}
+            closeLabel={labels.closeImage}
+            open={isExpanded}
+            onOpenChange={setIsExpanded}
+          >
+            <button type="button" className="case-modal__carousel-expand focus-ring" aria-label={labels.expand}>
+              {images.map(({ src, alt }, i) => (
+                <Image
+                  key={src}
+                  src={src}
+                  alt={alt}
+                  aria-hidden={i !== index}
+                  fill
+                  sizes="(max-width: 760px) 90vw, 560px"
+                  className={i === index ? "case-modal__carousel-slide is-active" : "case-modal__carousel-slide"}
+                />
+              ))}
+              <span className="case-modal__carousel-expand-icon" aria-hidden="true">
+                <Maximize2 size={17} />
+              </span>
+            </button>
+          </ImageLightbox>
 
           {count > 1 && (
             <div className="case-modal__carousel-controls">

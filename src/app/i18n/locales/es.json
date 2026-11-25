@@ -175,6 +175,7 @@
                 ],
                 "tags": [
                     "Next.js",
+                    "React",
                     "Flutter Web",
                     "Supabase",
                     "PostgreSQL",
@@ -379,7 +380,7 @@
         ]
     },
     "contactContent": {
-        "eyebrow": "Disponibilidad",
+        "eyebrow": "Disponible para trabajo remoto",
         "headline": "Construyamos software que importe.",
         "body": "Estoy abierto a roles remotos de ingeniería de software con enfoque en backend, sistemas full-stack e IA aplicada. Desde Perú, colaboro con equipos internacionales en zonas horarias de LATAM y Estados Unidos.",
         "lookingForTitle": "Roles que busco",
@@ -599,15 +600,15 @@
                 },
                 {
                     "src": "/images/experience/CookPilot/img_app_recipe_detail.png",
-                    "alt": "Detalle de receta"
+                    "alt": "Detalle de Menú"
                 },
                 {
-                    "src": "/images/experience/CookPilot/img_app_cookflow_chat.jpg",
-                    "alt": "Asistencia culinaria"
+                    "src": "/images/experience/CookPilot/img_app_cookmode.png",
+                    "alt": "Modo de Cocina Asistida"
                 },
                 {
-                    "src": "/images/experience/CookPilot/cookpilot.png",
-                    "alt": "Interfaz de CookPilot"
+                    "src": "/images/experience/CookPilot/cooklist.png",
+                    "alt": "Lista de Compras"
                 },
                 {
                     "src": "/images/experience/CookPilot/img_app_pricing_comparator.png",
@@ -793,7 +794,7 @@
         {
             "slug": "4track-vistogps-pro",
             "projectName": "4Track / VistoGPS",
-            "eyebrow": "Experiencia / Software en producción",
+            "eyebrow": "Software en producción",
             "title": "Aplicaciones GPS en tiempo real entregadas a producción.",
             "context": "4Track / VistoGPS es una plataforma de seguimiento GPS en tiempo real y gestión de flotas utilizada por empresas para supervisar vehículos y actividad operativa. El trabajo mobile se centró en seguimiento, mapas, autenticación, sincronización y entrega en múltiples tiendas.",
             "owned": "Fui responsable del trabajo mobile/frontend de extremo a extremo: rediseño UX/UI, implementación Flutter, arquitectura móvil, flujos de mapas en tiempo real, integraciones nativas, publicación en tiendas y colaboración con equipos de backend, infraestructura y management.",
@@ -802,7 +803,7 @@
             "images": [
                 {
                     "src": "/images/experience/4TRACK/4T_01.png",
-                    "alt": "Ficha de Visto GPS en Google Play con mapas de vehículos y pantallas de dispositivos."
+                    "alt": "Ficha de 4Track en Google Play con mapas de vehículos y pantallas de dispositivos."
                 },
                 {
                     "src": "/images/experience/4TRACK/4T_02.png",

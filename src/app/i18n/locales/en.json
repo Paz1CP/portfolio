@@ -175,6 +175,7 @@
                 ],
                 "tags": [
                     "Next.js",
+                    "React",
                     "Flutter Web",
                     "Supabase",
                     "PostgreSQL",
@@ -379,7 +380,7 @@
         ]
     },
     "contactContent": {
-        "eyebrow": "Availability",
+        "eyebrow": "Available for remote work",
         "headline": "Let's build software that matters.",
         "body": "I'm open to remote Software Engineering roles with a focus on backend, full-stack systems and applied AI. Based in Peru, I work with international teams across LATAM and US time zones.",
         "lookingForTitle": "Roles I'm open to",
@@ -475,6 +476,7 @@
                 "Node.js",
                 "Express",
                 "PostgreSQL",
+                "Neon",
                 "Drizzle ORM",
                 "Next.js",
                 "Concurrency",
@@ -793,7 +795,7 @@
         {
             "slug": "4track-vistogps-pro",
             "projectName": "4Track / VistoGPS",
-            "eyebrow": "Experience / Production software",
+            "eyebrow": "Production software",
             "title": "Real-time GPS applications delivered to production.",
             "context": "4Track / VistoGPS is a real-time GPS tracking and fleet management platform used by businesses to monitor vehicles and operational activity. The mobile work focused on tracking, maps, authentication, synchronization and delivery across multiple app stores.",
             "owned": "I owned the mobile/frontend work end to end: UX/UI redesign, Flutter implementation, mobile architecture, real-time map flows, native integrations, store releases and collaboration with backend, infrastructure and management teams.",
@@ -802,7 +804,7 @@
             "images": [
                 {
                     "src": "/images/experience/4TRACK/4T_01.png",
-                    "alt": "Visto GPS on Google Play, with vehicle maps and device screens."
+                    "alt": "4Track on Google Play, with vehicle maps and device screens."
                 },
                 {
                     "src": "/images/experience/4TRACK/4T_02.png",

@@ -132,7 +132,7 @@ export function ClientHome() {
         siteConfig={dictionary.siteConfig}
       />
       <Experience content={dictionary.experienceContent} onOpen={openExperience} />
-      <Capabilities content={dictionary.capabilitiesContent} />
+      <Capabilities content={dictionary.capabilitiesContent} lightboxLabels={dictionary.caseStudySectionTitles} />
       <Contact content={dictionary.contactContent} siteConfig={dictionary.siteConfig} />
       <Footer content={dictionary.footerContent} siteConfig={dictionary.siteConfig} />
 
