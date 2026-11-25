@@ -110,6 +110,8 @@ export function Hero({
                 alt=""
                 width={52}
                 height={52}
+                unoptimized
+                loading="eager"
                 className="portfolio-hero__whatsapp-icon"
               />
             </a>
